@@ -82,7 +82,7 @@ Testing reality. Only a real ad click can produce a LinkedIn conversion. Ad prev
 - On error. TikTok flags "code not installed in header" when the script loads late, and queued events get dropped. Move it up in the head. No requests at all points to a consent banner or blocker.
 
 **Step 3 - Fire the form event**
-- Goal. Report the lead moment. TikTok's standard web event for a form submission is SubmitForm. Use CompleteRegistration for account signups instead. There is no plain "Lead" event in TikTok's current standard web event list.
+- Goal. Report the lead moment. This skill's recipes send SubmitForm, which TikTok supports indefinitely and reports as Lead. TikTok's May 2025 guidance says new setups should use Lead, while its April 2026 event list still shows Submit Form, so either works. Use CompleteRegistration for account signups.
 - Do this. In GTM, create a Custom Event trigger for the canonical dataLayer event from ../assets/gtm-recipes/event-map.json, and attach a Custom HTML tag containing a script with ttq.track('SubmitForm');. Without GTM, use the same dataLayer watcher pattern shown in meta.md (Step 7, the small dataLayer watcher), calling ttq.track('SubmitForm') instead of fbq.
 - Expect to see. On a test submission, a request to analytics.tiktok.com carrying the SubmitForm event.
 - On error. Event name typos or old names silently record nothing, so copy SubmitForm exactly. If the tag fires but nothing reaches TikTok, the base code loaded after the event fired.
@@ -194,7 +194,7 @@ Microsoft Conversions API exists as a per-account pilot (as of 2026-09): enroll 
 | Browser ID | _fbp (90d) | member cookies (3rd party) | _ttp (13mo) | _uetvid (13mo) |
 | Dedup key | event_name + event_id | eventId shared by Insight Tag and CAPI, one conversion rule per source | event_id + name, 48h | goal-level |
 | Server-side | CAPI (token, hashed em/ph, event_id) | CAPI (Direct API token, email/li_fat_id) | Events API (token, em/ph, ttclid) | Conversions API (pilot), or offline imports via msclkid |
-| Test tool | Test Events + Pixel Helper | Campaign Manager status only | Test Events + Pixel Helper | UET Tag Helper |
+| Test tool | Test Events + Meta Ads Data Advisor (formerly Pixel Helper) | Campaign Manager status only | Test Events + Pixel Helper | UET Tag Helper |
 
 Universal checks every audit: consent banner (accept vs decline test); ad-blocker attrition typically 10–30% (depending on audience); redirect-before-beacon race; iframe embeds; SPA routes; thank-you missing base tag; duplicate installs; wrong account/ID; URL-rule mismatches; testing hygiene (incognito, real ad clicks, 24h lags).
 

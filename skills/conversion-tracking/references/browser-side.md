@@ -34,18 +34,18 @@ Add to every page, in `<head>`:
 </script>
 ```
 
-Replace `AW-XXXXXXXXX` with your Conversion ID from Google Ads > Tools > Conversions.
+Replace `AW-XXXXXXXXX` with your Conversion ID, shown in the conversion action's tag setup in Google Ads (Goals, then Conversions, then Summary).
 
 ### Set up conversion actions
 
-In Google Ads > Goals > Conversions > New conversion action:
+In Google Ads, go to Goals, then Conversions, then Summary, and click + Create conversion action. Use these settings:
 
 | Conversion | Category | Value | Count |
 |-----------|----------|-------|-------|
 | Purchase | Purchase | Dynamic (order value) | Every |
-| Sign up / Lead | Sign-up | Fixed ($X estimated value) | One |
-| Demo request | Lead | Fixed ($X estimated value) | One |
-| Free trial start | Sign-up | Fixed ($X estimated value) | One |
+| Sign up / Lead | Sign up | Fixed ($X estimated value) | One |
+| Demo request | Submit lead form (or Book appointment for a booked demo) | Fixed ($X estimated value) | One |
+| Free trial start | Sign up | Fixed ($X estimated value) | One |
 
 ### Fire conversion events
 
@@ -418,7 +418,7 @@ The quick first-pass checklist, the full evidence procedure, and the report form
 | Platform | Tool |
 |----------|------|
 | Google | Google Tag Assistant, Chrome DevTools Network tab |
-| Meta | Meta Pixel Helper (Chrome extension), Events Manager Test Events |
-| LinkedIn | Insight Tag Validator in Campaign Manager |
+| Meta | Meta Ads Data Advisor (formerly Pixel Helper) Chrome extension, Events Manager Test Events |
+| LinkedIn | The Insight Tag's status in Campaign Manager (Active can take up to 24 hours) and the browser Network tab (a request to ads.linkedin.com returning 302) |
 | TikTok | TikTok Pixel Helper (Chrome extension), Events Manager |
 | All | GTM Preview Mode (if using Google Tag Manager) |

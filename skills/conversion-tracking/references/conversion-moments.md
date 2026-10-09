@@ -110,7 +110,7 @@ The container is a public JS file: fetch `https://www.googletagmanager.com/gtm.j
 - Grep whole file for `AW-`, `conversionLabel`, pixel IDs. Nothing matching = container has NO conversion tags regardless of what the page promises.
 
 #### B.3 How existing detectors work
-Wappalyzer/BuiltWith: regex DB over script srcs, HTML, JS globals, cookies. Tag Assistant: instruments live page, shows fired tags + hit params. Meta Pixel Helper: checks fbq state + observed /tr requests. Headless equivalent: watch network + evaluate `fbq.getState()`.
+Wappalyzer/BuiltWith: regex DB over script srcs, HTML, JS globals, cookies. Tag Assistant: instruments live page, shows fired tags + hit params. Meta Ads Data Advisor (formerly Pixel Helper): checks fbq state + observed /tr requests. Headless equivalent: watch network + evaluate `fbq.getState()`.
 
 ### C. Dynamic checks (headless browser / Playwright)
 
