@@ -29,6 +29,7 @@ No Python available? Do the merge by hand: import the detect recipe as-is, then 
 1. **Preview** in GTM, submit a test entry, and confirm the custom event fires and the conversion tag fires with it.
 2. **Publish** the workspace. Tags in an unpublished workspace record nothing.
 3. If the container already had a Conversion Linker tag, delete the duplicate one the recipe added.
+4. The same detectors also ship, under different names, in the ConversionKit toolkit this skill adapts. Install them from one source only, or a site running both can count conversions twice.
 
 ## Consent and privacy
 

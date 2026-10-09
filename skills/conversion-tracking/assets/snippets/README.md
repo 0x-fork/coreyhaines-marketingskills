@@ -86,7 +86,9 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 
 ## Verifying a snippet works
 
-Open the browser console on the page carrying the form, submit a test entry, and run `window.dataLayer.filter(e => e.event === 'THE_EVENT_NAME')`, substituting the event this snippet pushes (listed above). Do not filter on `includes('submit')`: it silently misses every non-form moment, including bookings, phone clicks, downloads and thank-you pages. The tool's event should appear exactly once per submission. Each snippet deduplicates its own fire paths, so a double entry means the snippet was installed twice (for example pasted in the head AND imported into GTM). Remove one.
+Open the browser console on the page carrying the form, submit a test entry, and run `window.dataLayer.filter(e => e.event === 'THE_EVENT_NAME')`, substituting the event this snippet pushes (listed above). Do not filter on `includes('submit')`: it silently misses every non-form moment, including bookings, phone clicks, downloads and thank-you pages. The tool's event should appear exactly once per submission. Two installs of the same snippet (pasted in the head AND imported into GTM, for example) share one guard, so they don't double fire. A double entry has a few possible causes, such as two detectors under different names, the tool sending the same success message twice, or a separate listener for the same form. If two detectors are listening, remove one.
+
+The same detectors also ship, under different names, in the ConversionKit toolkit this skill adapts. Install them from one source only, or a site running both can count conversions twice.
 
 ---
 
