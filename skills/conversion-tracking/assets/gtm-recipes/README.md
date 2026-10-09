@@ -37,14 +37,16 @@ Every tag in `send/` ships with GTM's **Additional consent checks** set to "Requ
 
 | Tag | Required consent types |
 |---|---|
-| Google Ads Conversion | `ad_storage`, `ad_user_data`, `ad_personalization` |
+| Google Ads Conversion | `ad_storage` |
 | Conversion Linker | `ad_storage` |
 | GA4 Event | `analytics_storage` |
 | Meta, TikTok, LinkedIn, Microsoft base tags and conversion tags | `ad_storage` |
 
+The Google Ads conversion tag doesn't require `ad_user_data` or `ad_personalization`, because measuring a conversion isn't ad personalisation, a visitor who accepts ad cookies but declines personalised ads should still count, and Google's tag applies its own checks for those two types.
+
 The detect listeners themselves stay `NOT_SET`: they only push a dataLayer event and set no cookies.
 
-**The importer must have Consent Mode configured.** These checks read consent state that a consent management platform (CMP) sets through Google Consent Mode, normally from a tag on the Consent Initialization trigger. With no CMP sending consent, GTM treats every type as not granted and none of these tags fire. If the site genuinely needs no consent banner, change the setting (below) rather than leaving tracking silently dead.
+**What happens with and without a consent setup.** These checks read the consent state that a consent management platform (CMP) sets through Google Consent Mode, normally from a tag on the Consent Initialization trigger. Google's consent API treats a consent type nobody has set as granted, and current gtm.js behaves the same way (checked October 2026). So on a site with no consent setup these tags fire, and where a banner sets a default of denied they're held until the visitor accepts. A held tag doesn't replay a conversion that happened before consent.
 
 Base pixels fire on All Pages. When the visitor grants consent after the page has loaded, the base pixel does not retry by itself. Add a second firing trigger on your CMP's consent-update dataLayer event (for example `cookie_consent_update`) to the base tags so they load as soon as consent arrives.
 

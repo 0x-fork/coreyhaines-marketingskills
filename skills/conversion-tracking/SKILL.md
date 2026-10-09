@@ -84,7 +84,7 @@ python3 scripts/build_recipe.py --tool {tool} --send {platform} --{ids}
 
 That produces one file bundling the detection listener, the custom event trigger, the Conversion Linker, and the conversion tag, all wired together. The user imports it with MERGE and reviews the diff in Preview before anything goes live. General GTM craft (naming, workspaces, debugging) is covered by the **analytics** skill, so don't duplicate it.
 
-**Consent comes before the first tag.** The recipes ship with consent requirements set on the ad tags, so they won't fire until the site's consent setup (Google Consent Mode with a CMP) grants them. Check the site has one before importing, and if it serves visitors in the EEA, UK, or other consent-regulated regions, don't remove the requirements to make a tag fire. Details are in `assets/gtm-recipes/README.md`.
+**Consent comes before the first tag.** The recipes' ad tags need `ad_storage` consent (GA4 `analytics_storage`), so where a banner defaults to denied they wait for consent. If the site serves the EEA, UK, or other consent-regulated regions, confirm its consent setup before importing, and never strip the requirements to force a tag. Details in `assets/gtm-recipes/README.md`.
 
 **Step 5. Verify.** See "Verification discipline" below. A setup without a verified arrival, or at least a named handover check for the parts you can't reach, isn't finished.
 

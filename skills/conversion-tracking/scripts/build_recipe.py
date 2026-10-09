@@ -193,8 +193,8 @@ def main():
     print(f"  detects : {tool['label']} ({tool['moment']}) via dataLayer event '{tool['event']}'")
     print(f"  sends to: {args.send}")
     print("  import  : GTM > Admin > Import Container > choose this file > existing workspace > MERGE")
-    print("  consent : send tags require consent (see Consent and privacy in "
-          "assets/gtm-recipes/README.md); the site needs Consent Mode or a CMP, or they never fire")
+    print("  consent : ad tags require ad_storage consent (GA4 analytics_storage); with no consent "
+          "setup they fire, with a denied default they wait (see assets/gtm-recipes/README.md)")
     if args.send == "google-ads":
         print("  note    : if the container already has a Conversion Linker tag, delete the duplicate after import")
     if args.send in ("meta", "tiktok", "linkedin", "microsoft"):
