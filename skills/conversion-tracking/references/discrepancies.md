@@ -101,7 +101,7 @@ Set expectations before diagnosing. Reasons a perfect setup still diverges:
 - Vendor claims [ALL VENDOR]: Meta's own oft-quoted CAPI figure: 19% additional attributed purchases, 13% lower cost per result. Stape cases: 46% more reported Google Ads conversions (Square), 38% attribution recovery. Treat as upper bounds.
 - Mechanisms of real recovery: HTTP first-party cookies with full TTL (vs 7d/24h ITP); first-party subdomain serving evades SOME blocklists (default sGTM loaders still blocked); server-to-server delivery immune to browser blocking.
 - Practitioner figure, not a benchmark: client-side-only undercount around 30% vs form DB/CRM has been reported for non-EU lead gen, worse for EU and technical audiences. Measure the account's own gap (CRM vs platform) instead of quoting this.
-- Why DIY sGTM is hard: GCP production ≈ $90+/mo or managed $20-200/mo (Stape, billed monthly); custom subdomain + DNS; rebuilding every tag server-side; 50-120 dev hours setup [VENDOR, high-end]; silent breakage ("conversions go dark 72h before anyone notices"); consent still applies server-side (firing for opted-out users = violation).
+- Why DIY sGTM is hard: GCP production ≈ $90+/mo or hosted from $17/mo billed yearly (Stape Pro), $83/mo billed yearly for Business; custom subdomain + DNS; rebuilding every tag server-side; 50-120 dev hours setup [VENDOR, high-end]; silent breakage ("conversions go dark 72h before anyone notices"); consent still applies server-side (firing for opted-out users = violation).
 
 ## 6. Magnitude table
 
