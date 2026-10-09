@@ -181,7 +181,7 @@ Pixel code + self-serve access token (easier than LinkedIn). event_id mirrored w
 - **B9. Copying goals from Google without adjustment** (OCCASIONAL): imported campaigns don't import working tracking.
 
 #### Server-side
-Microsoft Conversions API exists as a per-account pilot (as of 2026-09): enroll through your account manager or support; it takes web, CRM, and offline events no older than 7 days. Otherwise: offline conversion imports via msclkid captured to CRM, or UET enhanced conversions with hashed email/phone. Failure: msclkid never captured in hidden field or auto-tagging off. Test: UET Tag Helper extension (green/yellow/red), bat.bing.com/action/0 requests, goal Tracking Status.
+Microsoft has a Conversions API (UET CAPI). It's self-serve where available, using a token from the UET tag settings (edit the tag, choose Use Conversions API, then Copy Token), though Microsoft's help page still says not every account has it yet (checked October 2026). It takes web, CRM, offline and app events whose eventTime is within the last 7 days, up to 1,000 per batch. It deduplicates against UET when both send the same eventId and eventName on the same tag (UET's `event_id`). Otherwise: offline conversion imports via msclkid captured to CRM, or UET enhanced conversions with hashed email/phone. Failure: msclkid never captured in hidden field or auto-tagging off. Test: UET Tag Helper extension (green/yellow/red), bat.bing.com/action/0 requests, goal Tracking Status.
 
 ### Cross-platform cheatsheet
 
@@ -193,7 +193,7 @@ Microsoft Conversions API exists as a per-account pilot (as of 2026-09): enroll 
 | Click ID → cookie | fbclid → _fbc (90d; ITP 24h/7d) | li_fat_id → li_fat_id (30d) | ttclid → ttclid (13mo) | msclkid → _uetmsclkid (~90d) |
 | Browser ID | _fbp (90d) | member cookies (3rd party) | _ttp (13mo) | _uetvid (13mo) |
 | Dedup key | event_name + event_id | eventId shared by Insight Tag and CAPI, one conversion rule per source | event_id + name, 48h | goal-level |
-| Server-side | CAPI (token, hashed em/ph, event_id) | CAPI (Direct API token, email/li_fat_id) | Events API (token, em/ph, ttclid) | Conversions API (pilot), or offline imports via msclkid |
+| Server-side | CAPI (token, hashed em/ph, event_id) | CAPI (Direct API token, email/li_fat_id) | Events API (token, em/ph, ttclid) | Conversions API (token from the UET tag, still rolling out), or offline imports via msclkid |
 | Test tool | Test Events + Meta Ads Data Advisor (formerly Pixel Helper) | Campaign Manager status only | Test Events + Pixel Helper | UET Tag Helper |
 
 Universal checks every audit: consent banner (accept vs decline test); ad-blocker attrition typically 10–30% (depending on audience); redirect-before-beacon race; iframe embeds; SPA routes; thank-you missing base tag; duplicate installs; wrong account/ID; URL-rule mismatches; testing hygiene (incognito, real ad clicks, 24h lags).
