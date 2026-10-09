@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "WordPress site, Gravity Forms contact form, we have Google Tag Manager already. I want form submissions showing up as conversions in Google Ads. Where do I start?",
-      "expected_output": "Should pin the three facts (moment, destination, stack) and recognise all three are already answered. Should hook Gravity Forms' confirmation event (gform_confirmation_loaded), never the submit click. Should offer the merged GTM recipe via build_recipe.py (detection listener + custom event trigger + Conversion Linker + conversion tag in one import file, MERGE not overwrite). Should walk conversion action creation in Google Ads and collect the conversion ID and label. Should verify with a test conversion and close with a status (fired confirmed vs arrival pending). Should state browser-side loss (roughly 30%) once so the choice is informed, without turning it into a pitch for any tool.",
+      "expected_output": "Should pin the three facts (moment, destination, stack) and recognise all three are already answered. Should hook Gravity Forms' confirmation event (gform_confirmation_loaded), never the submit click. Should offer the merged GTM recipe via build_recipe.py (detection listener + custom event trigger + Conversion Linker + conversion tag in one import file, MERGE not overwrite). Should walk conversion action creation in Google Ads and collect the conversion ID and label. Should verify with a test conversion and close with a status (fired confirmed vs arrival pending). Should state browser-side loss (an estimated 10 to 30%, more for B2B and developer audiences) once so the choice is informed, without turning it into a pitch for any tool.",
       "assertions": [
         "Fires on confirmed success (gform_confirmation_loaded or confirmation element), not on submit click",
         "Uses or offers the GTM recipe system with MERGE import",
@@ -142,7 +142,7 @@
     {
       "id": 12,
       "prompt": "I'm on Squarespace using their built-in contact form. Want leads in Google Ads. Is that even possible?",
-      "expected_output": "Should say yes and never call the tool unsupported. Squarespace forms submit via AJAX with an inline success message; the free paths are the post-submit HTML field (plan-gated), a redirect to a thank-you page, or the generic AJAX success pattern. Should note Squarespace has no native server-side integration (browser pixel only), so the structural losses apply and the server-side options exist if those matter. Should deliver a complete working free path.",
+      "expected_output": "Should say yes and never call the tool unsupported. Squarespace forms submit via AJAX with an inline success message; the free paths are the post-submit HTML field (Squarespace's form guide lists no plan gate for it, though code blocks and code injection need a Core plan or above), a redirect to a thank-you page, or the generic AJAX success pattern. Should note Squarespace has no native server-side integration (browser pixel only), so the structural losses apply and the server-side options exist if those matter. Should deliver a complete working free path.",
       "assertions": [
         "Never says the tool is unsupported",
         "Identifies the AJAX inline-success pattern and its hooks",
