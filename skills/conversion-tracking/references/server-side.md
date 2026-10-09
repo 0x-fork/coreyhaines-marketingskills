@@ -19,8 +19,8 @@ There are some things it can't change though:
 
 Say this when it is true, before any option below is discussed:
 
-- **Google Ads only, with Enhanced Conversions on.** Browser-side Enhanced Conversions plus a clean gclid chain cover most of the gap for many accounts.
-- **Low volume or a testing phase.** Until the account has a steady conversion flow, the setup cost of server-side often outweighs what it recovers.
+- **Google Ads only, with Enhanced Conversions on.** Browser-side Enhanced Conversions plus a clean gclid chain cover most of the gap for many accounts. The exception is an audience heavy on ad blockers (estimated to be most B2B and developer audiences), because Enhanced Conversions can't send anything when the tag itself is blocked.
+- **A short testing phase.** While the conversion setup itself is still changing, a server-side build can wait. Low volume is not a reason to skip it, because a thin account needs every conversion it can get (see below).
 - **Meta with advanced matching already on**, where blockers are the only remaining gap.
 - **Analytics-only destinations.** Conversions going only to GA4 or an analytics tool get less benefit from server-side tracking. Server-side will still help recover conversions lost to ad blockers and privacy-focused browsers, but analytics tools don't accept personal information, so they don't get the benefit of an increased match rate like ad platforms do.
 - **A native integration already covers it.** See the table below. Free, maintained by the platform, and the right first answer when it covers the user's actual moment and destination. Lead with it, then show the other options alongside it so the user can compare.

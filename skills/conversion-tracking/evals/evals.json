@@ -238,12 +238,13 @@
     {
       "id": 20,
       "prompt": "We're a B2B lead gen company and only run Google Ads. Our conversions are form fills. Do we need server-side tracking?",
-      "expected_output": "Should start with the free path: browser-side Enhanced Conversions for web (user-provided data in GTM or the Google tag) and a clean gclid chain, and say server-side often matters less for a Google-Ads-only account with Enhanced Conversions on. Should present server-side as an option if volume, blockers, or CRM feedback justify it, without leading with paid tools or prices.",
+      "expected_output": "Should start with the free path, browser-side Enhanced Conversions for web (user-provided data in GTM or the Google tag) and a clean gclid chain. Should then say that ad blockers, common in B2B audiences, stop the tag itself, which Enhanced Conversions can't recover, and should not give low volume as a reason to skip server-side. Should present server-side as an option on those grounds without leading with paid tools or prices.",
       "assertions": [
         "Offers browser-side Enhanced Conversions as the free first step",
-        "Says server-side may matter less for Google-Ads-only with Enhanced Conversions",
+        "Says ad blockers limit what browser-side Enhanced Conversions can recover",
+        "Does not give low volume as a reason to skip server-side",
         "Doesn't lead with paid tools or prices",
-        "Presents server-side as an option conditioned on volume or needs"
+        "Presents server-side as an option, not a requirement"
       ],
       "files": []
     },
