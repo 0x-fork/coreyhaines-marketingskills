@@ -10,7 +10,7 @@ Whatever is installed below, the non-negotiables apply: fire on confirmed succes
 
 | Platform | Pixel/Tag Name | Events API | Key Events |
 |----------|---------------|:----------:|------------|
-| **Google Ads** | Google tag (gtag.js) | Enhanced Conversions | purchase, sign_up, generate_lead |
+| **Google Ads** | Google tag (gtag.js) | Data Manager API (offline and enhanced conversions for leads uploads) | purchase, sign_up, generate_lead |
 | **Meta** | Meta Pixel + CAPI | Conversions API | Purchase, Lead, ViewContent, AddToCart |
 | **LinkedIn** | Insight Tag | Conversions API | conversion (URL or event-based) |
 | **TikTok** | TikTok Pixel | Events API | Purchase, ViewContent, AddToCart, CompleteRegistration |

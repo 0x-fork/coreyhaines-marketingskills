@@ -43,7 +43,7 @@
     {
       "id": 4,
       "prompt": "B2B SaaS, spending on Google Ads. The signup completes in our Next.js backend after email verification. No form tool. How do these become conversions?",
-      "expected_output": "Should recognise no browser event exists for the true conversion moment, so no snippet or GTM recipe applies; the send must originate server-side from the backend moment, with the click ID captured browser-side at landing and carried across. Should present the implementation options (direct Google Ads API upload, a server-side container, or a managed tool that pairs backend events with browser click IDs) as options with effort and cost, not one answer. Should warn against the tempting wrong answer of firing on the signup form submit, which counts unverified signups.",
+      "expected_output": "Should recognise no browser event exists for the true conversion moment, so no snippet or GTM recipe applies; the send must originate server-side from the backend moment, with the click ID captured browser-side at landing and carried across. Should present the implementation options (a direct upload through Google's Data Manager API, a server-side container, or a managed tool that pairs backend events with browser click IDs) as options with effort and cost, not one answer. Should warn against the tempting wrong answer of firing on the signup form submit, which counts unverified signups.",
       "assertions": [
         "States that no browser event exists for the real moment",
         "Explains click ID capture at landing plus server-side send",
