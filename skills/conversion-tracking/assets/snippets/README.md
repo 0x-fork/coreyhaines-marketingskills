@@ -68,7 +68,7 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 | `forminator.js` | Native success event | jQuery `forminator:form:submit:success` |
 | `framer-forms.js` | Submit/click-based best effort | `submit` on a Framer form, not `defaultPrevented`, passing `checkValidity()` |
 | `gravity-forms.js` | Native success event | jQuery `gform_confirmation_loaded`, with a MutationObserver fallback on the confirmation message |
-| `jotform.js` | Native success event (iframe embed); submit/click-based best effort (source-code embed) | iframe: `{action: 'submission-completed', formID}` postMessage from jotform.com (works, but Jotform calls it unofficial); source embed: `submit` passing `checkValidity()` |
+| `jotform.js` | Submission built (`submit` then `formdata`, once per form) for the source-code embed; for the iframe embed, thank-you redirect recommended; message listener kept as fallback | source embed: a capture-phase `submit` marks the form, then the `formdata` event fires once per form ID; iframe: `{action: 'submission-completed', formID}` postMessage, which Jotform doesn't document, counted only from a Jotform iframe on the page showing that form ID, once per form ID |
 | `ninja-forms.js` | Native success event | Radio `forms` channel `submit:response` with no errors, with a MutationObserver fallback |
 | `tally.js` | Native success event | `Tally.FormSubmitted` postMessage from tally.so |
 | `typeform.js` | Native success event | `form-submit` postMessage from typeform.com carrying `formId` and `responseId` |
@@ -81,6 +81,8 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 | `file-download.js` | Submit/click-based best effort | click on a link to a downloadable file extension |
 | `thank-you-page.js` | DOM-inferred after submit | page path starts with a configured confirmation path |
 | `generic-ajax-form.js` | DOM-inferred after submit | a success message appears within 7s of submit with no visible validation error |
+
+**Jotform note.** Use one method per form, either the thank-you redirect with `thank-you-page.js` or this snippet, never both. The source-code path was tested on a classic form, where a submit Jotform's validation rejects doesn't fire. Payment, multi-page, save-and-continue and captcha forms are untested, so prefer the redirect for those.
 
 **PII note for `phone-click.js`.** It pushes the clicked number (`phone_number`) and the link text (`link_text`) to the dataLayer, and any tag can forward those. That is fine for a business's own published numbers. If a page shows visitor-specific numbers (an account page, a "your rep" number pulled from a CRM), remove those two fields from the push before installing.
 
