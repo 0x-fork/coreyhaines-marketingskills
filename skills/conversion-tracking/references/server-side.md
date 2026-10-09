@@ -128,7 +128,7 @@ A different market with different players. The baseline every paid option must b
 
 WordPress and WooCommerce stores also have a plugin route that sits between browser-side and these tools; see the WordPress section of `ecommerce-platforms.md`.
 
-Two structural notes that outrank tool choice in ecommerce. Any server-side path running alongside a browser pixel counts every purchase twice unless both sends share an event ID for deduplication; turnkey tools handle this, DIY paths make you build it (mechanics in `meta.md` and `ecommerce-platforms.md`). And refunds are a one-way asymmetry: Google Ads supports conversion adjustments, Meta has no refund mechanism at all, so high-return stores inflate Meta relative to Google whatever tool they pick (`discrepancies.md`).
+Two structural notes that outrank tool choice in ecommerce. Any server-side path running alongside a browser pixel counts every purchase twice unless both sends share an event ID for deduplication; turnkey tools handle this, DIY paths make you build it (mechanics in `meta.md` and `ecommerce-platforms.md`). And refunds are a one-way asymmetry. Google Ads supports conversion adjustments, Meta documents no refund mechanism, so high-return stores inflate Meta relative to Google whatever tool they pick (`discrepancies.md`).
 
 ## Tracking what happens after the lead
 

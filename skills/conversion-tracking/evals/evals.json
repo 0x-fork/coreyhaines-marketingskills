@@ -154,10 +154,10 @@
     {
       "id": 13,
       "prompt": "Our Meta ROAS looks amazing but Google Ads looks mediocre, same store, same period. We do have a fairly high return rate. Are the numbers lying?",
-      "expected_output": "Should name both mechanisms: attribution windows differ (Meta 7-day click / 1-day view vs Google's longer window), and the refund asymmetry: Google Ads supports conversion adjustments and Meta has no refund mechanism at all, so with a high return rate Meta's numbers are structurally inflated relative to adjusted Google numbers. Should ask whether refunds are adjusted anywhere (usual answer no) and note that if not, every platform overstates by roughly the refund rate.",
+      "expected_output": "Should name both mechanisms: attribution windows differ (Meta 7-day click / 1-day view vs Google's longer window), and the refund asymmetry: Google Ads supports conversion adjustments and Meta documents no refund mechanism, so with a high return rate Meta's numbers are structurally inflated relative to adjusted Google numbers. Should ask whether refunds are adjusted anywhere (usual answer no) and note that if not, every platform overstates by roughly the refund rate.",
       "assertions": [
         "Names the attribution window difference",
-        "Names the refund asymmetry (Google adjustable, Meta not)",
+        "Names the refund asymmetry (Google adjustable, Meta documents no mechanism)",
         "Asks whether refund adjustments are wired up at all",
         "Frames it as platform asymmetry, not a tracking bug"
       ],

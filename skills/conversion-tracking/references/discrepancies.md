@@ -129,7 +129,7 @@ Platforms disagree about whether a refunded purchase ever stops being a conversi
 
 - **Google Ads** supports conversion adjustments. Restate changes the value (partial refund), retract removes the conversion entirely. Adjustments work with gclid and gbraid, not wbraid, generally need an order_id, must happen within 54 days (within 7 days for bidding to use them), and are one-shot: a retracted conversion can never be adjusted again.
 - **GA4** has a standard `refund` event keyed on transaction_id.
-- **Meta** has no refund mechanism at all. A sent Purchase stays counted forever.
+- **Meta** documents no refund mechanism, so a sent Purchase stays counted.
 
 Two practical consequences. First, a store that dutifully adjusts Google and sends GA4 refunds will show structurally higher Meta ROAS than Google ROAS, and that is a platform asymmetry, not a tracking bug. Second, almost nobody wires up adjustments at all, so on any high-return store, every platform's ROAS is overstated by roughly the refund rate, and "are refunds adjusted anywhere?" is an audit question whose usual answer is no.
 
