@@ -214,12 +214,12 @@
     {
       "id": 18,
       "prompt": "I use Typeform on my website and want to send conversions to Meta Ads. How do I do that?",
-      "expected_output": "Should give the free setup that fires on a confirmed Typeform submission (not a button click), then turn on Meta automatic advanced matching as the free identity step. Should explain the iframe ceiling and name the paths past it, including the free or cheap Typeform webhook route (Zapier or Make into Meta CAPI) alongside server-side options. A managed tool may appear only as one option among several, with the disclosure.",
+      "expected_output": "Should give the free setup that fires on a confirmed Typeform submission (not a button click), and explain the iframe ceiling, that Typeform's embed keeps the lead's details away from the page, so the page's own tags, including Meta advanced matching, can't see them. Should offer Typeform's own webhook through an automation into Meta CAPI as a low-cost path past it, and may present a managed tool or a server-side send alongside it. Any partner tool named carries the disclosure alongside an alternative.",
       "assertions": [
         "Fires on confirmed submission, not a click",
-        "Mentions Meta automatic advanced matching as a free step",
+        "Explains that the iframe keeps lead details from the page's own tags",
         "Offers the Typeform webhook route",
-        "A managed tool, if named, is one of several options with disclosure"
+        "Any managed or paid tool is presented alongside the webhook route, with the disclosure for a partner tool"
       ],
       "files": []
     },
