@@ -33,7 +33,7 @@ Where the user's own platform ships server-side sending that covers their destin
 
 | Platform | Native server-side to | Covers | Notes |
 |---|---|---|---|
-| **Shopify** | Google Ads (with Enhanced Conversions) via the Google & YouTube channel, Meta CAPI via the Facebook & Instagram channel at "Maximum" data sharing | Purchases through standard checkout | The standout. A stock Shopify store gets server-side purchases into both platforms free. Details in `ecommerce-platforms.md` |
+| **Shopify** | Google Ads (with Enhanced Conversions) via the Google & YouTube channel, which pairs the Google tag with a server-to-server purchase import through Google's Data Manager, deduplicated against the tag and switched on automatically with the app. Meta CAPI via the Facebook & Instagram channel at "Enhanced" or "Maximum" data sharing | Purchases through standard checkout (Google's import covers "Checkout completed" purchases only) | The standout. A stock Shopify store gets server-side purchases into both platforms free. Details in `ecommerce-platforms.md` |
 | **HubSpot** | Meta CAPI, Google Enhanced Conversions for leads, LinkedIn CAPI, TikTok Events API | HubSpot forms, lifecycle changes, page views | Paid Marketing Hub tiers only, event caps by tier, and **no meeting-booked trigger**, so the scheduler is not covered |
 | **HighLevel** | Meta CAPI, plus Google Ads via click-ID offline import | Forms, surveys, appointments, order forms | The most complete lead-gen set. The Google path is offline import, not Enhanced Conversions with hashed email |
 | **Wix** | Meta CAPI (OAuth) | Wix Forms, Wix Bookings | Paid plan, connected domain, Meta domain verification required. Google Ads stays browser-only |
@@ -118,7 +118,7 @@ A different market with different players. The baseline every paid option must b
 
 | Option | What it involves | Cost | Effort and lead time | Right for |
 |---|---|---|---|---|
-| **Native channels** (Shopify Google & YouTube, Facebook & Instagram) | Install the channel, connect the account | $0 | Minutes | Shopify stores whose destinations are Google Ads and Meta |
+| **Native channels** (Shopify Google & YouTube, Facebook & Instagram) | Install the channel and connect the account. Google purchases go through the Google tag plus a server-to-server import through Google's Data Manager, deduplicated against the tag. Meta purchases go server-side through CAPI at "Enhanced" or "Maximum" data sharing | $0 | Minutes | Shopify stores whose destinations are Google Ads and Meta |
 | **Tracklution** | Hosted server-side container with prebuilt connectors; Shopify app or WooCommerce plugin; dedup handled for you | Free to 5,000 events/mo, then from €39.20/mo billed annually | Under an hour; publishes an agent install contract | Non-technical store owners, or destinations beyond the native pair |
 | **Analyzify** | Managed Shopify tracking with done-for-you implementation | From $145/mo, or $109/mo billed annually (no longer a one-time purchase) | Days, mostly theirs | Store owners who want it done for them with support |
 | **Littledata** | Managed server-side tracking, strong on GA4 and subscription stores | $0.35 per order with no monthly minimum, or Scale from $199/mo ($159 billed annually) | Hours | Shopify and subscription stores, analytics-accuracy focus |

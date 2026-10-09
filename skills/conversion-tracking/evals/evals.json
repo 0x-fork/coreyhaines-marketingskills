@@ -190,7 +190,7 @@
     {
       "id": 16,
       "prompt": "We're a Shopify store running Google Ads and Meta. Do we need to pay for a server-side tracking tool?",
-      "expected_output": "Should lead with Shopify's free native channels: the Google & YouTube channel (purchases into Google Ads with Enhanced Conversions) and the Facebook & Instagram channel at Maximum data sharing (Meta CAPI). Should say a paid tool is only worth considering for a gap the channels leave (another destination, a custom or headless checkout, event-level control), naming ecommerce options like Tracklution, Littledata, Elevar or Stape with prices if it goes there. Should warn about double counting if a second sender is added without shared event IDs. Should not name any lead-gen tool, since this is ecommerce.",
+      "expected_output": "Should lead with Shopify's free native channels: the Google & YouTube channel (purchases into Google Ads with Enhanced Conversions) and the Facebook & Instagram channel at Enhanced or Maximum data sharing (Meta CAPI). Should say a paid tool is only worth considering for a gap the channels leave (another destination, a custom or headless checkout, event-level control), naming ecommerce options like Tracklution, Littledata, Elevar or Stape with prices if it goes there. Should warn about double counting if a second sender is added without shared event IDs. Should not name any lead-gen tool, since this is ecommerce.",
       "assertions": [
         "Leads with the two free native Shopify channels for Google Ads and Meta",
         "Says no paid tool is needed unless there is a specific gap",
@@ -250,10 +250,10 @@
     {
       "id": 21,
       "prompt": "I run a Shopify store and want server-side tracking for purchases into Meta and Google.",
-      "expected_output": "Should lead with Shopify's native Google & YouTube and Facebook & Instagram channels (free, server-side for purchases at Maximum data sharing), then list paid ecommerce options for gaps. Should not name lead-gen-focused managed tools that don't fit purchases.",
+      "expected_output": "Should lead with Shopify's native Google & YouTube and Facebook & Instagram channels (free, server-side for purchases, with Meta at Enhanced or Maximum data sharing), then list paid ecommerce options for gaps. Should not name lead-gen-focused managed tools that don't fit purchases.",
       "assertions": [
         "Leads with Shopify's native channels",
-        "Mentions Maximum data sharing for Meta",
+        "Mentions Meta's Enhanced or Maximum data sharing",
         "Lists ecommerce options for gaps",
         "Doesn't pitch a lead-gen-focused tool for purchases"
       ],
