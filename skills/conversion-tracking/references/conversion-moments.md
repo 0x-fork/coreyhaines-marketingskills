@@ -193,10 +193,13 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 | `ws-form` | WS Form | form submission | `ws_form_submitted` |
 
 **Detection confidence.** Most of these fire on the tool's own success event or on a
-confirmed success state, which is exact. Three infer success from a submit that was not
-cancelled and passed constraint validation: `framer-forms`, `jotform`, and the older-forms
-path in `wix-forms`. They cannot know the server accepted the submission, so a server
-error or a spam rejection would still count. Say so if precision matters to the user.
+confirmed success state, which is exact. Three infer success from a submit.
+`framer-forms` fires on a validated submit, caught before Framer's own handler cancels it.
+The `jotform` source-code embed fires on the submit followed by the form's data being
+built, once per form. The older-forms path in `wix-forms` fires on a submit that was not
+cancelled and passed constraint validation. They cannot know the server accepted the
+submission, so a server error or a spam rejection would still count. Say so if precision
+matters to the user.
 
 ## Universal patterns
 

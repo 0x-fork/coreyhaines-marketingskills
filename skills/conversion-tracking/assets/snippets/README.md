@@ -66,7 +66,7 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 | `fluent-forms.js` | Native success event | jQuery `fluentform_submission_success` |
 | `formidable-forms.js` | Native success event (AJAX); DOM-inferred after submit (non-AJAX) | `frmFormComplete` / `frmBeforeFormRedirect`; non-AJAX: next page shows `.frm_message` or a redirect, with no error markers |
 | `forminator.js` | Native success event | jQuery `forminator:form:submit:success` |
-| `framer-forms.js` | Submit/click-based best effort | `submit` on a Framer form, not `defaultPrevented`, passing `checkValidity()` |
+| `framer-forms.js` | Submit/click-based best effort | capture-phase `submit` on a Framer form, caught before Framer's own handler cancels it, passing `checkValidity()`; repeats on the same form within 2s are collapsed |
 | `gravity-forms.js` | Native success event | jQuery `gform_confirmation_loaded`, with a MutationObserver fallback on the confirmation message |
 | `jotform.js` | Submission built (`submit` then `formdata`, once per form) for the source-code embed; for the iframe embed, thank-you redirect recommended; message listener kept as fallback | source embed: a capture-phase `submit` marks the form, then the `formdata` event fires once per form ID; iframe: `{action: 'submission-completed', formID}` postMessage, which Jotform doesn't document, counted only from a Jotform iframe on the page showing that form ID, once per form ID |
 | `ninja-forms.js` | Native success event | Radio `forms` channel `submit:response` with no errors, with a MutationObserver fallback |

@@ -2,11 +2,17 @@
  *  Detects: form submission. Pushes dataLayer event: framer_form_submitted
  *  From the conversion-tracking skill in Marketing Skills */
 (function () {
-  // SUBMIT-BASED BEST EFFORT. Framer exposes no success event, so this fires
-  // on a submit that passed browser validation and that no other handler
-  // cancelled. A server-side rejection or spam block still counts. For exact
-  // counts, set the form to redirect to a thank-you page and use
-  // thank-you-page.js instead.
+  // SUBMIT-BASED BEST EFFORT. Framer cancels the native submit and sends
+  // the form by script, so a bubble-phase listener always sees it cancelled
+  // and never fires. This listens in the capture phase, before Framer's own
+  // handler runs, and fires on a submit that passes browser validation. It
+  // is still submit-based, so a server-side rejection, a spam block or any
+  // later custom validation still counts. A 2-second debounce per form only
+  // collapses rapid repeats (a double click). Framer documents a
+  // framer:formsubmit event, but it fires only when the form has a tracking
+  // ID set and isn't documented as success-only, so this doesn't rely on
+  // it. For exact counts, set the form to redirect to a thank-you page and
+  // use thank-you-page.js instead.
   if (window.__ctDetectFramerForms) return;
   window.__ctDetectFramerForms = true;
   window.dataLayer = window.dataLayer || [];
@@ -38,15 +44,19 @@
       if (!formEl || (formEl.tagName || '').toLowerCase() !== 'form') return;
       if (!isFramerForm(formEl)) return;
 
-      // A submission another handler already cancelled never happened.
-      if (event.defaultPrevented) return;
-
       // Constraint validation gate: an invalid form cannot have submitted.
       try {
         if (typeof formEl.checkValidity === 'function' && formEl.checkValidity() === false) return;
       } catch (e) {
         // constraint validation unavailable — fall through
       }
+
+      // Collapse rapid repeats on this same form element. Keyed on the
+      // element itself, so two forms with the same name, or no name, don't
+      // share a timestamp.
+      var now = Date.now();
+      if (formEl.__ctFramerLastFire && now - formEl.__ctFramerLastFire < 2000) return;
+      formEl.__ctFramerLastFire = now;
 
       var formName = formEl.getAttribute('data-framer-name') || formEl.id || '';
 
@@ -57,9 +67,8 @@
   }
 
   if (typeof document !== 'undefined' && document.addEventListener) {
-    // Bubble phase deliberately. A capture-phase listener runs BEFORE the
-    // form's own handlers, so it would count submissions that Framer's
-    // validation goes on to cancel.
-    document.addEventListener('submit', handleSubmit, false);
+    // Capture phase, so this runs before Framer's own handler cancels the
+    // native submit.
+    document.addEventListener('submit', handleSubmit, true);
   }
 })();
