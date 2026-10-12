@@ -70,7 +70,7 @@ For agents without a shell, add the hosted server to your MCP client configurati
   "mcpServers": {
     "glasser": {
       "type": "http",
-      "url": "https://api.glasser.ai/mcp",
+      "url": "https://api.glasser.ai/mcp?utm_source=marketingskills&utm_medium=mcp",
       "headers": { "Authorization": "Bearer ${GLASSER_API_KEY}" }
     }
   }
