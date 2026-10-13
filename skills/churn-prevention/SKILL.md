@@ -222,11 +222,19 @@ Track these leading indicators of churn:
 | Billing page visits increase | High | Days before cancel |
 | Team seats removed | High | 1-2 weeks before cancel |
 | Data export initiated | Critical | Days before cancel |
-| NPS score drops below 6 | Medium | 1-3 months before cancel |
+| Individual recommendation rating is 0–6 (detractor) | Medium | Investigate alongside account context |
 
 ### Health Score Model
 
-Build a simple health score (0-100) from weighted signals:
+Build a simple health score (0-100) from weighted signals. Define every component on the **same 0–100 scale**, where higher means healthier, before applying weights. Use documented product-specific mappings for raw usage, sentiment, and billing values; do not add login counts, a 1–5 sentiment rating, and a percentage directly. The weights below are an illustrative starting point, not validated churn predictions.
+
+Treat missing or stale signals as unavailable, rather than automatically healthy or zero. Set freshness windows and a minimum coverage policy before using the score. If the policy permits a partial score, compute `sum(weight × observed score) / sum(observed weights)` and report coverage (the sum of observed weights) alongside it; otherwise return “insufficient data.” All unavailable means no score. For example, only login80 and feature60 produce `(0.30×80 + 0.25×60)/0.55 = 70.91`, with 55% coverage. Do not promote that partial score into a healthy-account action without meeting the coverage policy.
+
+Individual recommendation ratings range from 0–10, with detractors at 0–6; aggregate NPS is `% promoters − % detractors` on a -100–100 scale. Keep those measures distinct and map either explicitly if included in the health score.
+
+[Gainsight's measure-weight documentation](https://support.gainsight.com/gainsight_nxt/05Scorecards/02Admin_Guides/Measure_Weights_in_Scorecards) explains redistribution for unavailable measures; [Net Promoter's definition](https://www.netpromoter.com/know/) distinguishes individual ratings from aggregate NPS.
+
+Illustrative complete-data model:
 
 ```
 Health Score = (
@@ -237,6 +245,8 @@ Health Score = (
   Engagement score      × 0.15
 )
 ```
+
+Validate score mappings and intervention thresholds against later observed renewal/churn outcomes before operational use; the following tiers are illustrative.
 
 | Score | Status | Action |
 |-------|--------|--------|
