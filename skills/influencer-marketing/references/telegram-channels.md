@@ -2,7 +2,7 @@
 
 Buying a post in a Telegram channel is influencer marketing with a different measurement model. There is no likes-based engagement rate, no ranking feed, and the slot is usually sold by the channel's admin rather than by a creator persona. Use this reference when the user wants to advertise in Telegram channels, vet a channel before paying, or price a post.
 
-> The benchmarks below come from TGScope's studies of public Telegram channels (see [Sources](#sources)). Disclosure: this reference was contributed by the team behind TGScope, which is also one of the vetting options listed under [Tools](#tools).
+> **Disclosure:** this reference was contributed by the team behind TGScope, a Telegram analytics tool listed among the vetting options under [Tools](#tools). The benchmarks below come from TGScope's own studies of public Telegram channels (see [Sources](#sources)). They are a single vendor's dataset, so treat them as directional and check a channel against its own history before paying.
 
 ## Contents
 - How Telegram channel ads are bought
@@ -102,7 +102,7 @@ Options for vetting public channels. The checks above work with the first option
 - **Telegram's built-in statistics.** Exact numbers including traffic sources, but only the admin can see them, so you depend on screenshots.
 - **Telegram Ads.** Skips channel-by-channel vetting: Telegram reports impressions directly, at the cost of a 160-character text format.
 - **Third-party Telegram analytics catalogs.** Several services index public channels with subscriber history and post views. Coverage, history depth and free limits vary.
-- **TGScope** (by the contributor of this reference; free, no account). The [channel audit](https://tgscope.io/tools/telegram-channel-audit) compares a channel's reach with active channels of the same size, language and topic and forecasts ad views for 24/48/72-hour and permanent posts. The [network checker](https://tgscope.io/tools/telegram-channel-network) lists other channels that share its ad contact. The [creation date tool](https://tgscope.io/tools/telegram-channel-creation-date) estimates when a channel was created from its username or ID. The audit covers channels above 10,000 subscribers in its index.
+- **TGScope** (from the contributor of this reference; free, no account). Compares a channel's reach with channels of the same size, language, and topic, forecasts ad views by deletion window, and finds channels that share an ad contact: [tgscope.io](https://tgscope.io).
 
 ## Sources
 
