@@ -308,6 +308,8 @@ Ad headlines can help identify promising language for a landing page. More impre
 
 The play:
 
+Use Meta to screen headlines fast, then prove the winner on the page:
+
 1. Screen a manageable set of headline hypotheses with enough traffic for each. Compare CTR alongside qualified conversions, cost, and sample sizes; a high-CTR headline can attract visitors who do not buy.
 2. Treat the apparent winner as a candidate. Ordinary ad variations with optimized delivery are exploratory; use an appropriate randomized ad experiment for a causal ad comparison. Account for multiple comparisons when screening many variants.
 3. Mirror the candidate's promise in a truthful landing-page variant, then run a fresh randomized landing-page test against the unchanged landing page. Keep incoming ads and traffic allocation consistent across page variants; predefine the primary conversion metric, guardrails, sample size, and stopping rule (see `ab-testing`).
@@ -315,7 +317,7 @@ The play:
 
 Message continuity is a useful hypothesis, but an ad result does not establish the effect of changing the page. Confirm it with new visitors rather than reusing the screening result as proof.
 
-References: [Meta's creative-testing guidance](https://www.facebook.com/audiencenetwork/monetization-tips/optimization/testing) explains randomized, comparable exposure; [GrowthBook's experiment-result guidance](https://www.growthbook.io/insights/read-experiment-results-plain-english-growthbook-mcp) covers data quality, stopping rules, and multiple-testing controls.
+References: [Meta's About A/B Testing](https://www.facebook.com/business/help/1738164643098669) explains randomized, comparable exposure for ad tests. For page-test design and stopping rules, see the ab-testing skill.
 
 ### Three split tests minimum at all times
 

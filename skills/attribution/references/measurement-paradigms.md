@@ -60,7 +60,7 @@ Click-based paths add a second bias: **impression channels (social, video, displ
 You don't need to compute significance by hand, but you must read a result honestly:
 
 1. **Lift = exposed rate − control rate.** If exposed geos converted at 4.2% and control at 3.6%, incremental lift is ~0.6pp — the rest of that 4.2% would have converted anyway. This is why last-click ROAS is almost always *overstated*: it counts the whole 4.2%.
-2. **Check the confidence interval / significance.** "5% lift, but the interval spans −2% to +12%" is compatible with a small negative effect through a substantial positive effect under the analysis assumptions. It does not establish positive lift, zero effect, or that the study was underpowered. Compare the whole interval with the smallest effect that matters for the decision; report uncertainty and review the design and planned detectable effect before deciding whether another test is useful. [ASA guidance](https://magazine.amstat.org/blog/2021/08/01/task-force-statement-p-value/) emphasizes effect estimates and uncertainty rather than a binary significance label.
+2. **Check the confidence interval.** "5% lift, interval −2% to +12%" includes zero and losses: you can't claim a win. Compare the interval to the smallest lift that changes your decision; if it straddles it, the test was too small to decide.
 3. **Watch for contamination.** Control users who were reached anyway (cross-device, spillover between geos) shrink the measured gap. A "no lift" result can be a leaky test, not a dead channel.
 4. **Translate to a decision.** Incremental CPA = spend ÷ *incremental* conversions (not total). This is the number that should drive budget — and it's usually worse than the platform's reported CPA, which is the point.
 

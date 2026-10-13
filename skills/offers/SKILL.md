@@ -111,7 +111,7 @@ When the user says "my offer isn't converting" or "I want to improve my offer":
 4. **Audit the anatomy** — which of the six components is missing or weak?
 5. **Pick one lever to fix this iteration** — don't rebuild everything. The biggest lever is usually the one currently scoring lowest.
 6. **Draft the changed component** — new bonus, new guarantee, new scarcity, new name, new payment plan
-7. **Estimate and test the lift** — use the current conversion rate and evidence from comparable experiments; an offer change has no guaranteed lift. Distinguish relative lift from percentage points. If sequential experiments support +20% and then +30% relative lift against the updated baseline, compound the factors: `1.20 × 1.30 = 1.56`, or +56% overall. A 2% conversion rate becomes 3.12%, an increase of 1.12 percentage points. This arithmetic describes a scenario, not proof the changes will produce those effects together; validate the combined offer and report uncertainty. For experiment design and inference, see ab-testing.
+7. **Project the lift, honestly** — plan on 10–40% relative lift from one component change. Multiply the lifts, don't add them: +20% then +30% = `1.20 × 1.30 = 1.56` (2% → 3.12%, +1.12 percentage points). Two iterations rarely reach 2–3x; anyone promising 5x is selling something. Confirm the combined offer with a test (see ab-testing).
 
 ---
 
