@@ -20,7 +20,7 @@ Open-source **CLI + MCP server** that turns a Google Sheet into a GTM enrichment
 
 1. Install the CLI (Node 22+) and authenticate Google via the Workspace CLI (`gws`) it builds on.
 2. Point it at a Google Sheet; pipeline config lives in the Sheet's **Developer Metadata** (an Apps Script sidebar can edit it in-sheet).
-3. Supply provider API keys as environment variables (BYOK — Clearbit/Apollo/Hunter/etc. keys are yours).
+3. Supply provider API keys as environment variables (bring your own keys for Apollo, Hunter, FullEnrich, and others).
 4. Register the MCP server (`rowbound mcp`) with your agent to drive it conversationally.
 
 See the repo README for exact install commands and flags (they evolve; don't hard-code them).

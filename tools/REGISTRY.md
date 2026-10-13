@@ -614,6 +614,7 @@ These tools have Model Context Protocol servers available, enabling direct agent
 - **truelist** - Email verification and batches
 - **fullenrich** - Waterfall email and mobile enrichment
 - **leadmagic** - Enrichment, job changes, technographics
+- **rowbound** - Open-source Sheets enrichment with waterfalls (stdio MCP)
 - **theirstack** - Hiring and technographic signals
 - **apify** - Ready-made scrapers (Actors)
 - **firecrawl** - Page scraping and crawling
