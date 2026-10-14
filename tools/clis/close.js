@@ -11,7 +11,7 @@ if ((!API_KEY) && rawArgs.length > 0) {
 
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
@@ -175,7 +175,11 @@ async function main() {
           const value = args.value
           if (!leadId) { result = { error: '--lead-id required' }; break }
           if (!value) { result = { error: '--value required (in cents)' }; break }
-          const body = { lead_id: leadId, value: parseInt(value) }
+          const amount = Number(value)
+          if (typeof value !== 'string' || !value.trim() || !Number.isSafeInteger(amount)) {
+            throw new Error('--value must be a safe integer amount in cents')
+          }
+          const body = { lead_id: leadId, value: amount }
           const statusId = args['status-id'] || args.status
           if (['active', 'won', 'lost'].includes(statusId)) {
             result = { error: '--status-id must be an opportunity status ID (stat_...), not a status type. Retrieve IDs from GET /status/opportunity/.' }

@@ -17,7 +17,7 @@ if ((!APP_ID) && rawArgs.length > 0) {
 
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
@@ -80,6 +80,10 @@ async function main() {
     case 'notifications':
       switch (sub) {
         case 'send': {
+          const targetingFlags = ['segment', 'emails', 'player-ids', 'aliases'].filter(name => args[name] !== undefined)
+          if (targetingFlags.length > 1) {
+            throw new Error('Use only one audience option: --segment, --emails, --player-ids, or --aliases')
+          }
           const channel = args.channel || (args.emails ? 'email' : 'push')
           if (!['push', 'email', 'sms'].includes(channel)) { result = { error: '--channel must be push, email, or sms' }; break }
           if (args.emails && channel !== 'email') { result = { error: '--emails requires the email channel' }; break }

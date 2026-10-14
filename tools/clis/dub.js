@@ -11,7 +11,7 @@ if ((!API_KEY) && rawArgs.length > 0) {
 
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
@@ -113,6 +113,10 @@ async function main() {
             links = JSON.parse(args.links || '[]')
           } catch {
             result = { error: 'Invalid JSON in --links' }; break
+          }
+          if (!Array.isArray(links) || links.length < 1 || links.length > 100 ||
+              links.some(link => !link || typeof link !== 'object' || Array.isArray(link))) {
+            throw new Error('--links must be an array of 1–100 link objects')
           }
           result = await api('POST', '/links/bulk', links)
           break

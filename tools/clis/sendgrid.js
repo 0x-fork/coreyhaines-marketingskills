@@ -11,7 +11,7 @@ if ((!API_KEY) && rawArgs.length > 0) {
 
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
@@ -82,6 +82,10 @@ async function main() {
         body.template_id = args['template-id']
         if (args['template-data']) {
           try { body.personalizations[0].dynamic_template_data = JSON.parse(args['template-data']) } catch (e) { result = { error: 'Invalid JSON for --template-data: ' + e.message }; break }
+          const data = body.personalizations[0].dynamic_template_data
+          if (data === null || typeof data !== 'object' || Array.isArray(data)) {
+            throw new Error('--template-data must be a JSON object')
+          }
         }
       } else {
         const content = []

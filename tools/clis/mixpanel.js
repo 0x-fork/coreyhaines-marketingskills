@@ -23,7 +23,7 @@ if ((!TOKEN && !API_KEY && !SECRET && !PROJECT_SECRET) && rawArgs.length > 0) {
 
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
@@ -151,6 +151,9 @@ async function main() {
           if (!args.event) { result = { error: '--event required' }; break }
           let properties
           try { properties = args.properties ? JSON.parse(args.properties) : {} } catch { result = { error: 'Invalid JSON in --properties' }; break }
+          if (properties === null || typeof properties !== 'object' || Array.isArray(properties)) {
+            throw new Error('--properties must be a JSON object')
+          }
           properties.token = TOKEN
           properties.distinct_id = args['distinct-id']
           result = await ingestApi('POST', '/track', [{
@@ -171,6 +174,9 @@ async function main() {
           if (!args['distinct-id']) { result = { error: '--distinct-id required' }; break }
           let properties
           try { properties = args.properties ? JSON.parse(args.properties) : {} } catch { result = { error: 'Invalid JSON in --properties' }; break }
+          if (properties === null || typeof properties !== 'object' || Array.isArray(properties)) {
+            throw new Error('--properties must be a JSON object')
+          }
           result = await ingestApi('POST', '/engage', [{
             $token: TOKEN,
             $distinct_id: args['distinct-id'],

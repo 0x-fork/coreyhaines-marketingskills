@@ -220,10 +220,10 @@ DOMAINS=$(rewardful affiliates list | jq -r '.data[].email')
 
 ## HTTP request deadlines
 
-HTTP calls in the 65 CLIs changed by this fix use a 30-second per-request deadline. The newly added Truelist CLI is unchanged. Override with `--timeout-ms <1-600000>` for a slow API, for example:
+HTTP calls in 65 of the CLIs use a 120-second per-request deadline, long enough for slow endpoints such as Firecrawl scrapes (60-second default on Firecrawl's side) and large analytics exports. The Truelist CLI is not covered. Lower or raise it with `--timeout-ms <1-600000>`, for example:
 
 ```bash
-node tools/clis/exa.js search --query 'Recent market research' --timeout-ms 120000
+node tools/clis/exa.js search --query 'Recent market research' --timeout-ms 30000
 ```
 
 The deadline covers obtaining headers and consuming the response body, including OAuth requests. Each subsequent HTTP call gets its own deadline; this is not a total command deadline or a bound on external credential commands. An aborted call exits as a failure. Aborting a local request does not cancel work already accepted by a provider: check provider status before manually retrying a mutation. The CLI does not add automatic retries. Dry runs issue no HTTP request.

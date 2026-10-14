@@ -13,7 +13,7 @@ if ((!WRITE_KEY && !ACCESS_TOKEN) && rawArgs.length > 0) {
 
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
@@ -122,6 +122,13 @@ function withDeliveryMetadata(body) {
   return body
 }
 
+function requireObject(value, name) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error(`--${name} must be a JSON object`)
+  }
+  return value
+}
+
 async function main() {
   let result
 
@@ -136,6 +143,7 @@ async function main() {
           }
           if (args.properties) {
             try { body.properties = JSON.parse(args.properties) } catch { result = { error: 'Invalid JSON in --properties' }; break }
+            requireObject(body.properties, 'properties')
           }
           result = await trackApi('POST', '/track', withDeliveryMetadata(body))
           break
@@ -151,6 +159,7 @@ async function main() {
           const body = eventIdentity()
           if (args.traits) {
             try { body.traits = JSON.parse(args.traits) } catch { result = { error: 'Invalid JSON in --traits' }; break }
+            requireObject(body.traits, 'traits')
           }
           result = await trackApi('POST', '/identify', withDeliveryMetadata(body))
           break
@@ -167,6 +176,7 @@ async function main() {
           if (args.name) body.name = args.name
           if (args.properties) {
             try { body.properties = JSON.parse(args.properties) } catch { result = { error: 'Invalid JSON in --properties' }; break }
+            requireObject(body.properties, 'properties')
           }
           result = await trackApi('POST', '/page', withDeliveryMetadata(body))
           break

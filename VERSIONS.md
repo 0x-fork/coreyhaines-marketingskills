@@ -57,6 +57,31 @@ Current versions of all skills. Agents can compare against local versions to che
 
 ## Recent Changes
 
+### 2.11.29 (2026-10-13)
+
+CLI and tooling fixes from @rudycelekli, each checked against the vendor's current docs.
+
+- **Request deadlines** (#751): HTTP calls in 65 CLIs now time out instead of hanging. The default is 120 seconds, raised from #751's 30 so long scrapes and exports aren't cut off; override it with `--timeout-ms`.
+- **Mixpanel regions** (#744): US, EU, and India ingestion, query, and export hosts.
+- **Payload validation before sending:** the CLIs now reject inputs the vendor's API would refuse anyway. Valid empty and nested values still pass.
+  - Amplitude event properties (#801)
+  - SendGrid dynamic template data (#803)
+  - Kit custom fields (#806)
+  - Segment properties and traits (#808)
+  - Customer.io data objects (#811)
+  - Mixpanel properties (#813)
+  - Resend batch size (#816) and template variables (#828)
+  - OneSignal conflicting audiences (#818)
+  - Intercom event metadata (#822)
+  - Dub bulk link limits (#824)
+  - Pendo aggregation envelopes (#830)
+- **Correctness:** Close opportunity amounts keep exact integers instead of truncating (#831).
+  - Interface change: `amplitude --properties ''` now errors instead of being ignored (#801).
+- **Tooling:**
+  - Packaging checks file sizes before loading them (#804).
+  - The README sync handles Windows line endings (#805).
+  - `check-versions` catches orphaned nested references and broken sibling links (#807).
+
 ### 2.11.28 (2026-10-12)
 
 Skill fixes from @rudycelekli. A reviewer recomputed every calculation, and the guidance stays firm where a change would otherwise have hedged it.
