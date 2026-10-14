@@ -302,6 +302,10 @@ async function main() {
           if (args.text) body.text = args.text
           if (args.variables) {
             try { body.variables = JSON.parse(args.variables) } catch (e) { result = { error: 'Invalid JSON for --variables: ' + e.message }; break }
+            if (!Array.isArray(body.variables) || body.variables.length > 50 ||
+                body.variables.some(variable => !variable || typeof variable !== 'object' || Array.isArray(variable))) {
+              throw new Error('--variables must be an array of up to 50 variable objects')
+            }
           }
           result = await api('POST', '/templates', body)
           break
@@ -317,6 +321,10 @@ async function main() {
           if (args.text) body.text = args.text
           if (args.variables) {
             try { body.variables = JSON.parse(args.variables) } catch (e) { result = { error: 'Invalid JSON for --variables: ' + e.message }; break }
+            if (!Array.isArray(body.variables) || body.variables.length > 50 ||
+                body.variables.some(variable => !variable || typeof variable !== 'object' || Array.isArray(variable))) {
+              throw new Error('--variables must be an array of up to 50 variable objects')
+            }
           }
           result = await api('PATCH', `/templates/${rest[0]}`, body)
           break
