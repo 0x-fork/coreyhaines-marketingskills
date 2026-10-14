@@ -114,6 +114,10 @@ async function main() {
           } catch {
             result = { error: 'Invalid JSON in --links' }; break
           }
+          if (!Array.isArray(links) || links.length < 1 || links.length > 100 ||
+              links.some(link => !link || typeof link !== 'object' || Array.isArray(link))) {
+            throw new Error('--links must be an array of 1–100 link objects')
+          }
           result = await api('POST', '/links/bulk', links)
           break
         }
