@@ -33,6 +33,8 @@ The further right you go, the more it's about *relationship* than *transaction* 
 
 **One more model — the volume UGC creator program ("tech UGC"):** an in-house network of creators posting disclosed native short-form from dedicated brand-affiliated accounts at test volume (10 creators × 3 posts/day ≈ 900 organic tests/month). Content volume, not any creator's audience, is the asset. See [references/ugc-creator-program.md](references/ugc-creator-program.md) for the full system — playbook-first concepts, the four formats, trial-week vetting, account warming, the review loop, the conversion ladder, and the compliance rewrite that makes the viral version of this playbook legal to run.
 
+**And its paid-ads cousin — the performance-paid creator program:** creators make videos for your ad accounts and earn a share of the spend (or revenue) behind them, usually with a monthly minimum for hitting a video quota. A small, coached cohort (start at 4–5, cap around 40–60) beats hundreds of mercenary creators, because near-identical videos get clustered and suppressed on Meta. See [references/paid-ads-creator-program.md](references/paid-ads-creator-program.md) for rate-setting math, the guaranteed-minimum mechanic, recruiting, briefing, and keeping creators from copying the leaderboard.
+
 ## 1. Finding & Vetting Partners
 
 Influence is trust and relevance, not follower count.
