@@ -175,7 +175,11 @@ async function main() {
           const value = args.value
           if (!leadId) { result = { error: '--lead-id required' }; break }
           if (!value) { result = { error: '--value required (in cents)' }; break }
-          const body = { lead_id: leadId, value: parseInt(value) }
+          const amount = Number(value)
+          if (typeof value !== 'string' || !value.trim() || !Number.isSafeInteger(amount)) {
+            throw new Error('--value must be a safe integer amount in cents')
+          }
+          const body = { lead_id: leadId, value: amount }
           const statusId = args['status-id'] || args.status
           if (['active', 'won', 'lost'].includes(statusId)) {
             result = { error: '--status-id must be an opportunity status ID (stat_...), not a status type. Retrieve IDs from GET /status/opportunity/.' }
