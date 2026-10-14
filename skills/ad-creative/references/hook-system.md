@@ -61,7 +61,7 @@ A menu of proven opening structures. Cycle through them like the static template
 | **Proof-first** | Lead with the receipt — the result screenshot, the stat, the demo money-shot | Strongest when the proof brags by itself |
 | **Choice** | Put two options in front of the viewer: "Sandler or MEDDIC for a $50K deal?" | Both options must be real ones the audience weighs; viewers who know both stay to see who wins, viewers who know neither stay to learn |
 | **Old vs. new** | "We used to take elixirs. Now everyone drinks prebiotic soda. Which is better for your gut?" | Answer the question from expertise; the hook only works if the payoff takes a side |
-| **Us vs. them** | "Most [role]s do X. The ones who [result] do Y." | Name a real behavior, not a strawman; the audience has to recognize the "most" |
+| **Us vs. them** | "Most [role]s do X. The ones who [result] do Y." | Name a behavior the audience will recognize as what "most" people really do |
 | **False assumption** | Challenge something the buyer believes they need: "You can cancel ClickFunnels" | Draws the strongest reactions, including angry ones; keep the body fair to the named product, and get legal review before naming a competitor in paid ads |
 | **Declaration, then question** | State what the audience already agrees with, then doubt it: "You need to spend $20K a month recruiting on Indeed. Or do you?" | The doubt needs a real answer in the body; still being tested by the practitioners who shared it (October 2026) |
 
