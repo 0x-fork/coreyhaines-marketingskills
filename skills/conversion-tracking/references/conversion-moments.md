@@ -30,7 +30,7 @@ Stacking complications: multi-step forms (only final step converts; step events 
 - New v4: `js.hsforms.net/forms/embed/<portalId>.js` + `<div class="hs-form-frame" data-form-id=...>`; renders in IFRAME. Real DOM events on window: `hs-form-event:on-ready`, **`hs-form-event:on-submission:success`**, `:failed`, `:on-interaction:navigate`; `event.detail.formId`; helper `window.HubSpotFormsV4` (has getConversionId()).
 - Note: `js.hs-scripts.com/<portalId>.js` is the general HubSpot tracking script - presence ≠ ad conversion tracking.
 
-**Jotform** - iframe (`form.jotform.com/<id>` or script `form.jotform.com/jsform/<id>`). Jotform documents no submit message to the parent page, and in testing a classic form sent none; the Thank You → redirect setting breaks out of the iframe, navigates TOP window to your URL, and can append field values + unique {id} param - redirect is the most robust method. Tags pasted inside the Jotform builder fire on jotform.com's domain (wrong context).
+**Jotform** - iframe (`form.jotform.com/<id>` or script `form.jotform.com/jsform/<id>`). After a successful submission, Jotform's iframe and script embeds send the parent page a `{action: 'submission-completed', formID}` message (live-checked on both, Oct 2026; Jotform support describes it but doesn't formally document it), which `jotform.js` listens for. The full source-code embed sends none. The Thank You → redirect setting breaks out of the iframe, navigates TOP window to your URL, and can append field values + unique {id} param - redirect is the most robust method. Tags pasted inside the Jotform builder fire on jotform.com's domain (wrong context).
 
 **Contact Form 7 (WP)** - always AJAX. Bubbling DOM events on document (plain addEventListener works): **`wpcf7mailsent`** (success - use this), wpcf7submit, wpcf7invalid, wpcf7spam, wpcf7mailfailed. `event.detail` includes contactFormId, inputs (name/value array - usable for enhanced conversions).
 
@@ -193,12 +193,11 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 | `ws-form` | WS Form | form submission | `ws_form_submitted` |
 
 **Detection confidence.** Most of these fire on the tool's own success event or on a
-confirmed success state, which is exact. Three infer success from a submit.
-`framer-forms` fires on a validated submit, caught before Framer's own handler cancels it.
-The `jotform` source-code embed fires on the submit followed by the form's data being
-built, once per form. The older-forms path in `wix-forms` fires on a submit that was not
-cancelled and passed constraint validation. They cannot know the server accepted the
-submission, so a server error or a spam rejection would still count. Say so if precision
+confirmed success state, which is exact. `framer-forms` fires when Framer's own form
+endpoint answers its request with success. One infers success from a submit. The
+older-forms path in `wix-forms` fires on a submit that was not cancelled and passed
+constraint validation. It cannot know the server accepted the submission, so a server
+error or a spam rejection would still count. Say so if precision
 matters to the user.
 
 ## Universal patterns
