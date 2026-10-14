@@ -95,6 +95,13 @@ function parseArgs(args) {
 const args = parseArgs(rawArgs)
 const [cmd, sub, ...rest] = args._
 
+function requireFieldObject(fields) {
+  if (fields === null || typeof fields !== 'object' || Array.isArray(fields)) {
+    throw new Error('--fields must be a JSON object')
+  }
+  return fields
+}
+
 async function main() {
   let result
 
@@ -116,6 +123,7 @@ async function main() {
           if (args['first-name']) body.first_name = args['first-name']
           if (args.fields) {
             try { body.fields = JSON.parse(args.fields) } catch { result = { error: 'Invalid JSON in --fields' }; break }
+            requireFieldObject(body.fields)
           }
           result = await api('PUT', `/subscribers/${rest[0]}`, body)
           break
@@ -143,6 +151,7 @@ async function main() {
           if (args['first-name']) body.first_name = args['first-name']
           if (args.fields) {
             try { body.fields = JSON.parse(args.fields) } catch { result = { error: 'Invalid JSON in --fields' }; break }
+            requireFieldObject(body.fields)
           }
           result = await api('POST', `/forms/${formId}/subscribe`, body, false)
           break
@@ -165,6 +174,7 @@ async function main() {
           if (args['first-name']) body.first_name = args['first-name']
           if (args.fields) {
             try { body.fields = JSON.parse(args.fields) } catch { result = { error: 'Invalid JSON in --fields' }; break }
+            requireFieldObject(body.fields)
           }
           result = await api('POST', `/sequences/${sequenceId}/subscribe`, body, false)
           break
@@ -187,6 +197,7 @@ async function main() {
           if (args['first-name']) body.first_name = args['first-name']
           if (args.fields) {
             try { body.fields = JSON.parse(args.fields) } catch { result = { error: 'Invalid JSON in --fields' }; break }
+            requireFieldObject(body.fields)
           }
           result = await api('POST', `/tags/${tagId}/subscribe`, body, false)
           break
