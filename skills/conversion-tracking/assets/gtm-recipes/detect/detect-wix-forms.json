@@ -55,18 +55,18 @@
         "containerId": "0",
         "triggerId": "2",
         "name": "CE - Wix Form Submitted",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
-            "type": "equals",
+            "type": "EQUALS",
             "parameter": [
               {
-                "type": "template",
+                "type": "TEMPLATE",
                 "key": "arg0",
                 "value": "{{_event}}"
               },
               {
-                "type": "template",
+                "type": "TEMPLATE",
                 "key": "arg1",
                 "value": "wix_form_submitted"
               }
@@ -85,12 +85,12 @@
         "type": "v",
         "parameter": [
           {
-            "type": "template",
+            "type": "TEMPLATE",
             "key": "name",
             "value": "form_id"
           },
           {
-            "type": "integer",
+            "type": "INTEGER",
             "key": "dataLayerVersion",
             "value": "2"
           }

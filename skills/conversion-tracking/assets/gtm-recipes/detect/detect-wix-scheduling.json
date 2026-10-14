@@ -55,18 +55,18 @@
         "containerId": "0",
         "triggerId": "2",
         "name": "CE - Wix Appointment Scheduled",
-        "type": "customEvent",
+        "type": "CUSTOM_EVENT",
         "customEventFilter": [
           {
-            "type": "equals",
+            "type": "EQUALS",
             "parameter": [
               {
-                "type": "template",
+                "type": "TEMPLATE",
                 "key": "arg0",
                 "value": "{{_event}}"
               },
               {
-                "type": "template",
+                "type": "TEMPLATE",
                 "key": "arg1",
                 "value": "wix_appointment_scheduled"
               }
@@ -85,12 +85,12 @@
         "type": "v",
         "parameter": [
           {
-            "type": "template",
+            "type": "TEMPLATE",
             "key": "name",
             "value": "booking_id"
           },
           {
-            "type": "integer",
+            "type": "INTEGER",
             "key": "dataLayerVersion",
             "value": "2"
           }
@@ -104,12 +104,12 @@
         "type": "v",
         "parameter": [
           {
-            "type": "template",
+            "type": "TEMPLATE",
             "key": "name",
             "value": "booking_page_url"
           },
           {
-            "type": "integer",
+            "type": "INTEGER",
             "key": "dataLayerVersion",
             "value": "2"
           }

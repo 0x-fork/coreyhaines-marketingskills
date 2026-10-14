@@ -175,7 +175,9 @@ def main():
 
     # The detect recipe already has a custom-event trigger on the tool's
     # event; rewire the send tags to it and drop the template's duplicate.
-    detect_trigger = next(t for t in dcv["trigger"] if t["type"] == "customEvent")
+    # Recipes use Tag Manager's import format (CUSTOM_EVENT). The API spelling
+    # (customEvent) is accepted too, for any older copy.
+    detect_trigger = next(t for t in dcv["trigger"] if t["type"] in ("CUSTOM_EVENT", "customEvent"))
     send_trigger_ids = {t["triggerId"] for t in scv.get("trigger", [])}
 
     next_id = 1000
