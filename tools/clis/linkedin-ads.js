@@ -15,7 +15,7 @@ if ((!TOKEN) && rawArgs.length > 0) {
 }
 
 function requestSignal() {
-  const raw = args['timeout-ms'] ?? '30000'
+  const raw = args['timeout-ms'] ?? '120000'
   const ms = Number(raw)
   if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
     throw new Error('--timeout-ms must be an integer from 1 to 600000')
