@@ -178,7 +178,7 @@ Trying to make up for weak creative with hyper-precise targeting. If your creati
 
 ## Modern Meta playbook (Andromeda era — 2026+)
 
-Meta's Andromeda algorithm (2025) made creative volume and variety the main lever: target broadly and let specific creative do the targeting, ship many cheap static concepts, and make ads look native rather than polished. The full playbook (creative volume, creative as targeting, identity keywords, AI variants, zombie campaigns, native-looking ads) is in [references/meta-andromeda-playbook.md](references/meta-andromeda-playbook.md).
+Meta's Andromeda algorithm (2025) made creative volume and variety the main lever: target broadly and let specific creative do the targeting, ship many cheap static concepts, and make ads look native rather than polished. The full playbook (creative volume, creative as targeting, identity keywords, AI variants, zombie campaigns, native-looking ads, and running creator ads as distinct concepts with a quality optimization event) is in [references/meta-andromeda-playbook.md](references/meta-andromeda-playbook.md).
 
 ---
 
