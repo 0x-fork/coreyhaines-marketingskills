@@ -15,7 +15,7 @@ Pay-per-call access to 1,000+ paid data API endpoints from 20+ providers via a s
 ## Authentication
 
 - **Type**: API Key (Bearer)
-- **Setup**: `npm install -g @glasser-ai/cli`, then `glasser login` to store a key via browser approval ([current instructions](https://glasser.ai/SKILL.md?utm_source=marketingskills&utm_medium=skill))
+- **Setup**: `npm install -g @glasser-ai/cli`, then `glasser login` to store a key via browser approval ([current instructions](https://glasser.ai/SKILL.md))
 - **API Key** (CI / MCP): `GLASSER_API_KEY` env var, created at https://app.glasser.ai/keys
 
 Glasser holds the provider accounts: no signup, plan, or key at any provider, and every call is billed to one prepaid balance at a price shown before the call. Individual provider coverage is listed in the Data Providers table below.
@@ -70,7 +70,7 @@ For agents without a shell, add the hosted server to your MCP client configurati
   "mcpServers": {
     "glasser": {
       "type": "http",
-      "url": "https://api.glasser.ai/mcp?utm_source=marketingskills&utm_medium=mcp",
+      "url": "https://api.glasser.ai/mcp",
       "headers": { "Authorization": "Bearer ${GLASSER_API_KEY}" }
     }
   }
