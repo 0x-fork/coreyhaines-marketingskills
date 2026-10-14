@@ -391,6 +391,9 @@ async function main() {
           }
           if (args.metadata) {
             try { body.metadata = JSON.parse(args.metadata) } catch { throw new Error('Invalid JSON in --metadata') }
+            if (body.metadata === null || typeof body.metadata !== 'object' || Array.isArray(body.metadata)) {
+              throw new Error('--metadata must be a JSON object')
+            }
           }
           result = await api('POST', '/events', body)
           break
