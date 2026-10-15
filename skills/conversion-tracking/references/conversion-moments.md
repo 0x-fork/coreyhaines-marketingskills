@@ -2,7 +2,7 @@
 
 Load this to establish or diagnose the conversion moment. Section 1 is the lead-gen problem (success must be inferred from a browser signal, and every tool signals differently); it carries literal, grep-able strings for working from (A) form mechanics, (B) static page source, (C) a headless browser, and (D) a codebase. Section 2 covers the moments this repo ships tested detectors for. Section 3 is the long tail. Section 4 is ecommerce, where the problem mostly does not exist.
 
-**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 21 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
+**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 22 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
 
 ## 1. Lead gen
 
@@ -33,6 +33,7 @@ Stacking complications: multi-step forms (only final step converts; step events 
 - Legacy v2: `js.hsforms.net/forms/embed/v2.js` + `hbspt.forms.create({portalId, formId})`; renders INLINE mostly. Window message events: `event.data.type === 'hsFormCallback'`, `event.data.eventName` ∈ onFormReady | onFormSubmit | **onFormSubmitted** (use this, post-success) | onFormFailedValidation; `event.data.id` = form GUID.
 - New v4: `js.hsforms.net/forms/embed/<portalId>.js` + `<div class="hs-form-frame" data-form-id=...>`; renders in IFRAME. Real DOM events on window: `hs-form-event:on-ready`, **`hs-form-event:on-submission:success`**, `:failed`, `:on-interaction:navigate`; `event.detail.formId`; helper `window.HubSpotFormsV4` (has getConversionId()).
 - Note: `js.hs-scripts.com/<portalId>.js` is the general HubSpot tracking script - presence ≠ ad conversion tracking.
+- `hubspot-forms.js` covers both and pushes `hubspot_form_submitted` with `form_id` only, never the lead's details. On a current-editor form with the current embed code it counts `hs-form-event:on-submission:success` only when `HubSpotFormsV4.getFormFromEvent` confirms the form and instance, once per conversion ID. On a legacy-editor form with the v2.js embed it counts only an `onFormSubmitted` message posted from the page's own window, never `onFormSubmit`, which also fires for submissions that then fail. Legacy forms in a cross-origin iframe aren't counted, because their message can't be tied to a form. A current-editor form placed with the older `hbspt.forms.create()` code sent the same success event in an earlier probe but wasn't in the 15 Oct checks, and multi-step forms, several forms on one page, redirect after submit and pop-up forms weren't tested. Submissions HubSpot's bot filter files under Spam still count, because HubSpot fires its success event for them too. It was live-checked 15 Oct 2026 on a current-editor form and a legacy-editor form, and HubSpot's Submissions matched the events one for one.
 
 **Jotform** - iframe (`form.jotform.com/<id>` or script `form.jotform.com/jsform/<id>`). After a successful submission, Jotform's iframe and script embeds send the parent page a `{action: 'submission-completed', formID}` message (live-checked on both, Oct 2026; Jotform support describes it but doesn't formally document it), which `jotform.js` listens for. The full source-code embed sends none. The Thank You → redirect setting breaks out of the iframe, navigates TOP window to your URL, and can append field values + unique {id} param - redirect is the most robust method. Tags pasted inside the Jotform builder fire on jotform.com's domain (wrong context).
 
@@ -188,6 +189,7 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 | `forminator` | Forminator | form submission | `forminator_form_submitted` |
 | `framer-forms` | Framer Forms | form submission | `framer_form_submitted` |
 | `gravity-forms` | Gravity Forms | form submission | `gravity_form_submitted` |
+| `hubspot-forms` | HubSpot Forms | form submission | `hubspot_form_submitted` |
 | `jotform` | Jotform | form submission | `jotform_form_submitted` |
 | `ninja-forms` | Ninja Forms | form submission | `ninja_forms_submitted` |
 | `squarespace-forms` | Squarespace Forms | form submission | `squarespace_form_submitted` |
@@ -204,7 +206,8 @@ confirmed success state, which is exact. `acuity-scheduling` fires only when the
 Acuity runs after a booking reports it, so it needs that snippet in Acuity too, and it
 counts package and gift certificate purchases unless the trigger filters `acuity_type` to
 `appointment`. `cal-com` also counts bookings still waiting for
-the host to confirm, marked `booking_status` `PENDING`. `framer-forms` fires when Framer's own form
+the host to confirm, marked `booking_status` `PENDING`. `hubspot-forms` also counts
+submissions HubSpot's bot filter files under Spam. `framer-forms` fires when Framer's own form
 endpoint answers its request with success. `squarespace-forms` fires only once Squarespace
 confirms the save, through its own success markers or its save request, never on the
 submit alone. `wix-forms` fires when Wix's own thank-you
@@ -232,8 +235,8 @@ Some of these tools also have native server-side integrations from their own pla
 managed tools listed there may cover them as built-in triggers; both live in `server-side.md`. What
 "no snippet" means is only that this skill's free browser-side detector does not exist yet.
 
-**Shape 1, page listener** (29): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
-Forms, Marketo, Pipedrive, Duda, Avada, Beaver Builder, GoHighLevel, Unbounce,
+**Shape 1, page listener** (28): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo,
+Marketo, Pipedrive, Duda, Avada, Beaver Builder, GoHighLevel, Unbounce,
 Instapage, Leadpages, Paperform, Fillout, Formstack, Zoho Forms, HelloBar, OptinMonster,
 ConvertBox, Thrive Leads, HubSpot Meetings, Chili Piper, Intercom, Crisp,
 Tawk.to, Drift.

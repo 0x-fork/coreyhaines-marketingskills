@@ -79,7 +79,7 @@ gtag('set', 'user_data', {
 
 ### The GTM route and the recipe system
 
-With GTM installed, prefer importing a prebuilt container over hand-building tags. This skill ships importable recipes for 21 form and booking tools, 4 universal patterns, and 6 destinations:
+With GTM installed, prefer importing a prebuilt container over hand-building tags. This skill ships importable recipes for 22 form and booking tools, 4 universal patterns, and 6 destinations:
 
 ```
 python3 ../scripts/build_recipe.py --tool gravity-forms --send google-ads \

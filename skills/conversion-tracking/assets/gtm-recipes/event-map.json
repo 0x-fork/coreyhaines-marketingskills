@@ -64,6 +64,11 @@
     "moment": "form submission",
     "event": "gravity_form_submitted"
   },
+  "hubspot-forms": {
+    "label": "HubSpot Forms",
+    "moment": "form submission",
+    "event": "hubspot_form_submitted"
+  },
   "jotform": {
     "label": "Jotform",
     "moment": "form submission",
