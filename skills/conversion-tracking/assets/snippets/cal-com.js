@@ -11,8 +11,8 @@
   // from https://app.cal.com; a booking page pasted in as a plain iframe loads
   // from https://cal.com. Each posts from its own origin, so a frame is only
   // trusted for the origin its address starts with. The CSS selectors do that
-  // prefix match so this listener never reads an iframe's address: Cal.com
-  // prefill parameters can carry a name or email.
+  // prefix match so this listener never reads an iframe's address, because
+  // Cal.com prefill parameters can carry a name or email.
   var CAL_FRAMES = [
     { selector: 'iframe[src^="https://app.cal.com/"]', origin: 'https://app.cal.com' },
     { selector: 'iframe[src^="https://cal.com/"]', origin: 'https://cal.com' }
@@ -66,7 +66,6 @@
 
   function uidSeen(uid) {
     for (var i = 0; i < seenUids.length; i++) if (seenUids[i] === uid) return true;
-    seenUids.push(uid);
     return false;
   }
 
@@ -93,7 +92,16 @@
     var push = { event: 'calcom_booking_successful', booking_uid: booking.uid };
     if (typeof booking.eventTypeId === 'number' && isFinite(booking.eventTypeId)) push.event_type_id = String(booking.eventTypeId);
     if (typeof booking.status === 'string' && STATUS_PATTERN.test(booking.status)) push.booking_status = booking.status;
-    window.dataLayer.push(push);
+    // The ID is remembered only once the push went through, so a dataLayer
+    // that throws (a broken wrapper) never escapes into the page, and a
+    // repeat of the same message can still be counted.
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(push);
+    } catch (e) {
+      return;
+    }
+    seenUids.push(booking.uid);
   }
 
   function start() {

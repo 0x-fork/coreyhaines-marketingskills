@@ -32,7 +32,7 @@
   //   1. a success marker that was not there when the attempt started, or
   //   2. the SaveFormSubmission request answering 2xx (read from the
   //      browser's resource timing, where it exposes responseStatus), when
-  //      no other form was submitted around it, or
+  //      no other form's submit could own that save, or
   //   3. as the page leaves (a redirect form), either of the above.
   // It never fires on a 400 or 401, on a filled anti-spam field, or when it
   // cannot tell which form a save belongs to.
@@ -42,9 +42,6 @@
   var SAVE_PATH = '/api/form/SaveFormSubmission';
   // Long enough for a visitor to solve a reCAPTCHA picture challenge.
   var WATCH_MS = 180000;
-  // A submit this soon before an attempt, still unanswered, makes the next
-  // save ambiguous.
-  var LOOKBACK_MS = 5000;
 
   function now() {
     try {
@@ -141,7 +138,9 @@
   }
 
   function prune() {
-    var cutoff = now() - (WATCH_MS + LOOKBACK_MS);
+    // An attempt is watched for WATCH_MS, and submits up to WATCH_MS before
+    // it still count when deciding who owns a save.
+    var cutoff = now() - 2 * WATCH_MS;
     var i;
     for (i = submitLog.length - 1; i >= 0; i--) if (submitLog[i].at < cutoff) submitLog.splice(i, 1);
     for (i = seenSaves.length - 1; i >= 0; i--) if (seenSaves[i].startTime < cutoff) seenSaves.splice(i, 1);
@@ -172,25 +171,34 @@
     return out;
   }
 
-  // Another form (a Newsletter block included) submitted during this
-  // attempt, or just before it without its own save yet, makes a save
-  // ambiguous.
+  // A save's owner is ambiguous when another form (a Newsletter block
+  // included) was submitted during this attempt. It is also ambiguous when
+  // another form was submitted earlier in the watch window and may still be
+  // waiting for its save, because a slow reCAPTCHA can hold that save back
+  // until after this attempt starts. Each submit gets at most one save, so
+  // fewer saves than submits before this attempt means one is outstanding.
   function saveOwnershipAmbiguous(formEl, since, until) {
-    var saves = null;
+    var other = false;
+    var first = null;
+    var submits = 0;
     for (var i = 0; i < submitLog.length; i++) {
       var s = submitLog[i];
-      if (s.form === formEl || s.at > until) continue;
-      if (s.at >= since) return true;
-      if (s.at >= since - LOOKBACK_MS) {
-        if (!saves) saves = allSaveEntries();
-        var answered = false;
-        for (var j = 0; j < saves.length; j++) {
-          if (saves[j].startTime >= s.at && saves[j].startTime < since) { answered = true; break; }
-        }
-        if (!answered) return true;
+      if (s.at > until || s.at < since - WATCH_MS) continue;
+      if (s.at >= since) {
+        if (s.form !== formEl) return true;
+        continue;
       }
+      if (s.form !== formEl) other = true;
+      submits++;
+      if (first === null || s.at < first) first = s.at;
     }
-    return false;
+    if (!other) return false;
+    var saves = allSaveEntries();
+    var answered = 0;
+    for (var j = 0; j < saves.length; j++) {
+      if (saves[j].startTime >= first && saves[j].startTime < since) answered++;
+    }
+    return answered < submits;
   }
 
   function statusOf(entry) {
@@ -261,13 +269,22 @@
       removeWatcher(w);
     }
 
+    // The push comes first. The form is marked done only once the push went
+    // through, so a dataLayer that throws (a broken wrapper) loses nothing,
+    // and the next confirmation tries again.
     function fire() {
-      if (w.done) return;
-      cleanup();
-      firedForms.push(formEl);
+      if (w.done) return false;
       var payload = { event: EVENT_NAME, form_id: w.identity.formId };
       if (w.identity.formName) payload.form_name = w.identity.formName;
-      window.dataLayer.push(payload);
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(payload);
+      } catch (e) {
+        return false;
+      }
+      cleanup();
+      firedForms.push(formEl);
+      return true;
     }
 
     function domConfirmsSuccess() {
@@ -287,7 +304,13 @@
       else if (!w.staleError) w.answered = true;
     }
 
+    // A failure in any callback stays inside this listener and never
+    // reaches Squarespace's page.
     function onPageHide() {
+      try { pageHideCheck(); } catch (e) {}
+    }
+
+    function pageHideCheck() {
       if (w.done || !w.armed) return;
       if (!isConnected(formEl)) { cleanup(); return; }
       if (domConfirmsSuccess()) { fire(); return; }
@@ -296,8 +319,8 @@
       var last = entries[entries.length - 1];
       var status = statusOf(last);
       if (status !== null && status >= 200 && status < 300) {
-        claimed.push(last);
-        fire();
+        if (fire()) claimed.push(last);
+        else cleanup();
         return;
       }
       cleanup();
@@ -329,7 +352,9 @@
 
     try {
       if (typeof MutationObserver !== 'undefined' && block) {
-        w.observer = new MutationObserver(check);
+        w.observer = new MutationObserver(function () {
+          try { check(); } catch (e) {}
+        });
         w.observer.observe(block, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
       }
     } catch (e) {}
@@ -357,8 +382,7 @@
       var c = candidates[0];
       if (saveOwnershipAmbiguous(c.form, c.submitAt, e.startTime)) continue;
       if (status >= 200 && status < 300) {
-        claimed.push(e);
-        c.fire();
+        if (c.fire()) claimed.push(e);
       } else {
         c.markAnswered();
       }
@@ -394,7 +418,9 @@
   document.addEventListener('submit', handleSubmit, true);
   try {
     if (typeof PerformanceObserver !== 'undefined') {
-      new PerformanceObserver(onResourceEntries).observe({ type: 'resource' });
+      new PerformanceObserver(function (list) {
+        try { onResourceEntries(list); } catch (e) {}
+      }).observe({ type: 'resource' });
     }
   } catch (e) {}
 })();

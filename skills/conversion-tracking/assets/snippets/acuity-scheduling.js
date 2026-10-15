@@ -9,8 +9,9 @@
 
   // Acuity's booking form gives the page no booking event of its own. This
   // listener pairs with a short snippet the site owner pastes into Acuity's
-  // custom conversion tracking field (acuity-snippet.html). Acuity runs that
-  // snippet after each booking inside its conversion tracking frame, on
+  // custom conversion tracking field (the field snippet that comes with this
+  // listener). Acuity runs that snippet after each booking inside its
+  // conversion tracking frame, on
   // https://conversion-tracking-sandbox.acuityinnovation.com, two frames below
   // this page, and it posts the booking's ID to this page only (it names the
   // page's own address as the target). The frame is a grandchild, so it can't
@@ -34,7 +35,6 @@
 
   function idSeen(id) {
     for (var i = 0; i < seenIds.length; i++) if (seenIds[i] === id) return true;
-    seenIds.push(id);
     return false;
   }
 
@@ -57,7 +57,16 @@
     var type = cleanText(data.appointment_type, 200);
     if (type) push.appointment_type = type;
     if (typeof data.price === 'string' && PRICE_PATTERN.test(data.price)) push.price = data.price;
-    window.dataLayer.push(push);
+    // The ID is remembered only once the push went through, so a dataLayer
+    // that throws (a broken wrapper) never escapes into the page, and a
+    // repeat of the same message can still be counted.
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(push);
+    } catch (e) {
+      return;
+    }
+    seenIds.push(data.appointment_id);
   }
 
   window.addEventListener('message', onMessage, false);
