@@ -16,8 +16,8 @@
     "description": "Improve AI search visibility, LLM citations, AEO/GEO, AI Overviews, and agent-readable site content; audit why AI answers overlook your brand."
   },
   "analytics": {
-    "source_description_sha256": "49d1b69d88b7e7ca12afe19a254e6c70874c1112a420e5eea06632a273e889be",
-    "description": "Set up or audit GA4, conversion events, UTMs, and tracking plans. Computes metrics from row-level data and compares rates only over matching closed windows."
+    "source_description_sha256": "9a52bbb064c72f04050f5f8d3375e4eccf9ec231a7be52d40823a6de568dd6db",
+    "description": "Set up or audit GA4, conversion events, UTMs, partner link patterns, and tracking plans. Computes metrics from row-level data and compares rates only over matching closed windows."
   },
   "aso": {
     "source_description_sha256": "3e5d0a3c81b0b2b73d05dbef76c8bc33079b540ca9c5027c1328d7b0610cdf7c",
@@ -92,8 +92,8 @@
     "description": "Create or optimize marketing images: blog heroes, product mockups, social graphics, banners, listing visuals, and brand assets."
   },
   "influencer-marketing": {
-    "source_description_sha256": "26bf257280ecea95cf0b04294b9ed059ab2c770a9db98b73991207f832e46414",
-    "description": "Find and vet creators, influencers, and ambassadors, including Telegram channels; plan sponsorship deals, briefs, disclosure, UGC partnerships, and ROI."
+    "source_description_sha256": "a3c8f53353577ed234f1d380273a4bafb4ce80b49d702657bc763f8bd95da741",
+    "description": "Find and vet creators, influencers, ambassadors, newsletters, and Telegram channels; plan sponsorship deals, briefs, disclosure, UGC partnerships, and ROI."
   },
   "launch": {
     "source_description_sha256": "4f9e8b4197efa11516acf70a82a62f063ee2931783026e0559d57a9118061f4d",

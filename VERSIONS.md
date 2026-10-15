@@ -7,7 +7,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | ab-testing | 2.0.2 | 2026-10-12 |
 | ad-creative | 2.12.1 | 2026-10-15 |
 | ai-seo | 2.9.0 | 2026-10-15 |
-| analytics | 2.1.0 | 2026-10-12 |
+| analytics | 2.2.0 | 2026-10-15 |
 | aso | 2.0.2 | 2026-10-08 |
 | attribution | 1.1.5 | 2026-10-12 |
 | churn-prevention | 2.0.3 | 2026-10-12 |
@@ -26,7 +26,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | events | 1.0.0 | 2026-08-23 |
 | free-tools | 2.0.2 | 2026-10-15 |
 | image | 2.0.2 | 2026-10-02 |
-| influencer-marketing | 1.3.0 | 2026-10-14 |
+| influencer-marketing | 1.4.0 | 2026-10-15 |
 | launch | 2.2.0 | 2026-10-07 |
 | lead-magnets | 2.1.0 | 2026-10-08 |
 | marketing-council | 1.0.0 | 2026-07-06 |
@@ -56,6 +56,13 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.11.36 (2026-10-15)
+
+Newsletter sponsorships and partner link tracking, adapted from Wispr Flow's MIT skills in the skills.marketing library.
+
+- **influencer-marketing** (1.3.0 → 1.4.0): `references/newsletter-sponsorships.md` covers vetting a newsletter, reading earlier placements before booking again, skipping angles run on the same list in the last 30 days, placement specs, one file and one tracked link per placement, and reporting. Partner links now point to the UTM patterns in analytics.
+- **analytics** (2.1.0 → 2.2.0): UTM patterns by partner type (newsletter, creator, podcast, affiliate, community), plus the GA4 channel-group step that keeps those mediums out of Unassigned. One hyphenated naming convention with no personal data, examples fixed to match, and a note on traffic from AI assistants. The description no longer repeats its last sentence.
 
 ### 2.11.35 (2026-10-15)
 
