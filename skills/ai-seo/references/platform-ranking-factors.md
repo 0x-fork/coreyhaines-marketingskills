@@ -2,7 +2,9 @@
 
 Each AI search platform has its own search index, ranking logic, and content preferences. This guide covers what matters for getting cited on each one.
 
-Sources cited throughout: Princeton GEO study (KDD 2024), SE Ranking domain authority study, ZipTie content-answer fit analysis.
+Sources cited throughout: Princeton GEO study (KDD 2024), SE Ranking's domain study (Nov 2025), Sellm.io's ranking-factor model, and Profound's citation data (2025). Most are vendor research with correlational methods.
+
+**Evidence order.** Weigh claims in this order: (1) official engine documentation and webmaster guidance, (2) controlled experiments and primary research, (3) large observational datasets, (4) practitioner case studies and commentary. When official guidance and observational data conflict, follow the documentation for eligibility and crawler controls and test the observation. Every number below is a dated snapshot of a moving system; re-check it before quoting it to a client.
 
 ---
 
