@@ -2,7 +2,7 @@
 
 Load this to establish or diagnose the conversion moment. Section 1 is the lead-gen problem (success must be inferred from a browser signal, and every tool signals differently); it carries literal, grep-able strings for working from (A) form mechanics, (B) static page source, (C) a headless browser, and (D) a codebase. Section 2 covers the moments this repo ships tested detectors for. Section 3 is the long tail. Section 4 is ecommerce, where the problem mostly does not exist.
 
-**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 19 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
+**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 20 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
 
 ## 1. Lead gen
 
@@ -24,6 +24,8 @@ Stacking complications: multi-step forms (only final step converts; step events 
 **Typeform** - iframe. Embed: `embed.typeform.com/next/embed.js`; attrs `data-tf-live=`, `data-tf-widget=`; iframe src `form.typeform.com/to/<id>`. Parent receives message events from origin `https://form.typeform.com` with `event.data.type === "form-submit"` (also "form-started", "form-screen-changed"), payload has `formId`. Embed SDK: `onSubmit` callback with {formId, responseId}. Alternative: Ending screen redirect to first-party thank-you.
 
 **Calendly** - iframe. Script `assets.calendly.com/assets/external/widget.js`; `<div class="calendly-inline-widget" data-url=...>`. Parent messages where `e.data.event` starts with `"calendly."`: profile_page_viewed, event_type_viewed, date_and_time_selected, **event_scheduled** (the conversion). Payload has event.uri + invitee.uri only - NO email (enhanced conversions need invitee API or prefill capture). Beware: date_and_time_selected ≠ booked.
+
+**Cal.com** - iframe. Cal.com's embed code (inline, popup, floating button) renders from `https://app.cal.com`, and a booking page pasted in as a plain iframe loads from `https://cal.com`. A new booking posts `{originator: 'CAL', type: 'bookingSuccessfulV2', data: {uid, eventTypeId, status, ...}}` to the parent from the frame's own origin. `cal-com.js` fires once per booking on `bookingSuccessfulV2`, accepted only from a Cal.com iframe on the page, and trusts each frame only for the origin its address starts with, so both setups work. Reschedules never count, and the deprecated `bookingSuccessful` (which carries the attendee's name and email) is never used. Bookings the host must confirm fire straight away with `booking_status` `PENDING`; add a trigger condition on `ACCEPTED` to count only confirmed ones. It doesn't cover self-hosted Cal.com. It was live-checked 15 Oct 2026 with real bookings through all four setups (inline, popup, floating button and plain iframe).
 
 **HubSpot Forms** - TWO variants, check BOTH:
 - Legacy v2: `js.hsforms.net/forms/embed/v2.js` + `hbspt.forms.create({portalId, formId})`; renders INLINE mostly. Window message events: `event.data.type === 'hsFormCallback'`, `event.data.eventName` ∈ onFormReady | onFormSubmit | **onFormSubmitted** (use this, post-success) | onFormFailedValidation; `event.data.id` = form GUID.
@@ -173,6 +175,7 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 
 | Slug | Tool | Moment | dataLayer event |
 |---|---|---|---|
+| `cal-com` | Cal.com | meeting booked | `calcom_booking_successful` |
 | `calendly` | Calendly | meeting booked | `calendly_event_scheduled` |
 | `contact-form-7` | Contact Form 7 | form submission | `contact_form_7_submitted` |
 | `divi-forms` | Divi Forms | form submission | `divi_form_submitted` |
@@ -194,7 +197,8 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 | `ws-form` | WS Form | form submission | `ws_form_submitted` |
 
 **Detection confidence.** Most of these fire on the tool's own success event or on a
-confirmed success state, which is exact. `framer-forms` fires when Framer's own form
+confirmed success state, which is exact. `cal-com` also counts bookings still waiting for
+the host to confirm, marked `booking_status` `PENDING`. `framer-forms` fires when Framer's own form
 endpoint answers its request with success. `squarespace-forms` fires only once Squarespace
 confirms the save, through its own success markers or its save request, never on the
 submit alone. `wix-forms` fires when Wix's own thank-you
@@ -222,10 +226,10 @@ Some of these tools also have native server-side integrations from their own pla
 managed tools listed there may cover them as built-in triggers; both live in `server-side.md`. What
 "no snippet" means is only that this skill's free browser-side detector does not exist yet.
 
-**Shape 1, page listener** (31): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
+**Shape 1, page listener** (30): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
 Forms, Marketo, Pipedrive, Duda, Avada, Beaver Builder, GoHighLevel, Unbounce,
 Instapage, Leadpages, Paperform, Fillout, Formstack, Zoho Forms, HelloBar, OptinMonster,
-ConvertBox, Thrive Leads, Cal.com, Acuity, HubSpot Meetings, Chili Piper, Intercom, Crisp,
+ConvertBox, Thrive Leads, Acuity, HubSpot Meetings, Chili Piper, Intercom, Crisp,
 Tawk.to, Drift.
 
 **Shape 2, WordPress but not a form submit** (6): LearnDash, LearnPress, Tutor LMS, Paid

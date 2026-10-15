@@ -1,4 +1,9 @@
 {
+  "cal-com": {
+    "label": "Cal.com",
+    "moment": "meeting booked",
+    "event": "calcom_booking_successful"
+  },
   "calendly": {
     "label": "Calendly",
     "moment": "meeting booked",

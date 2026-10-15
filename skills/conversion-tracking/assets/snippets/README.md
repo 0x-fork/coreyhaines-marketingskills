@@ -19,6 +19,7 @@ These names are load-bearing. The audit routes in SKILL.md check for exactly the
 
 | Tool | Snippet | Moment | dataLayer event |
 |---|---|---|---|
+| Cal.com | `cal-com.js` | Meeting booked | `calcom_booking_successful` |
 | Calendly | `calendly.js` | Meeting booked | `calendly_event_scheduled` |
 | Contact Form 7 | `contact-form-7.js` | Form submission | `contact_form_7_submitted` |
 | Divi Forms | `divi-forms.js` | Form submission | `divi_form_submitted` |
@@ -60,6 +61,7 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 
 | Snippet | Signal type | Exact signal |
 |---|---|---|
+| `cal-com.js` | Native success event | `bookingSuccessfulV2` postMessage with `originator` `CAL`, accepted only from a Cal.com iframe on the page and only from the origin its address starts with (`https://app.cal.com` for Cal.com's inline, popup and floating button embeds, `https://cal.com` for a booking page in a plain iframe); once per booking UID. Reschedules and the deprecated `bookingSuccessful`, which carries the attendee's name and email, never count. A booking that needs the host to confirm fires straight away with `booking_status` `PENDING`. Self-hosted Cal.com is not covered |
 | `calendly.js` | Native success event | `calendly.event_scheduled` postMessage with origin `https://calendly.com`, accepted only from a connected `iframe[src^="https://calendly.com/"]` and only when its event and invitee `scheduled_events` URIs name the same event; once per event and invitee pair |
 | `contact-form-7.js` | Native success event | `wpcf7mailsent` DOM event on a CF7 form with a numeric form ID; overlapping requests from one attempt (a repeat `wpcf7beforesubmit` while the form is still `submitting`) count once |
 | `divi-forms.js` | DOM-inferred after submit | an `.et_pb_contact_form_container` shows `.et-pb-contact-message.et_pb_success_message` after Divi's response has removed `form.et_pb_contact_form`, with no `.et_pb_contact_error_meesage` (Divi's spelling) or `.et_contact_error`; once per message node |
