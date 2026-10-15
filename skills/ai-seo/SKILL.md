@@ -16,6 +16,7 @@ Start with this skill's core workflow. Open a reference when the user's question
 | User questions | Local reference |
 |---|---|
 | Why can an agent not read our site? Are bot access, discovery files, or HTML blocking it? | [Agent readiness](references/agent-readiness.md) |
+| Is AI saying something wrong about our price, features, or limits? How do we find and fix the source? | [Answer accuracy](references/answer-accuracy.md) |
 | Which vendor does Claude Code or Cursor pick when a user says "deploy this"? How do we become the tool an agent installs mid-task? | [Agent defaults](references/agent-defaults.md) |
 | Why are we cited but absent from the shortlist? Can our own buyer's guide help competitors? How should we measure recommendations? | [Citations vs. recommendations](references/citations-vs-recommendations.md) |
 | How should we structure a definition, comparison, or FAQ? What makes an answer block useful on its own? | [Content patterns](references/content-patterns.md) |
@@ -28,7 +29,6 @@ Start with this skill's core workflow. Open a reference when the user's question
 | How should a video's title, captions, chapters, or description support citations? What should we check before publishing? | [YouTube citations](references/youtube-ai-citations.md) |
 
 Read these bundled files from the installed skill directory; do not substitute a remote repository URL for a local reference. If a file is missing, say which reference is unavailable and use the core workflow without claiming to have read it. For time-sensitive statistics, platform behavior, or tool claims in any reference, check the source date and current primary documentation before making a recommendation.
-
 
 ## Before Starting
 
