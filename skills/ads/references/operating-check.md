@@ -51,14 +51,14 @@ Rules for the call:
 - **INVESTIGATE beats everything.** If tracking is in doubt, no performance call is valid until it's resolved.
 - **FIX names the problem and the fix.** "Performance is down" is not a FIX.
 - **TEST names the hypothesis, the metric, and the stopping rule.** A test without a stopping rule turns into a permanent change nobody chose.
-- **HOLD is a decision, not a skipped week.** Say why you're holding and what would change the call.
+- **HOLD still needs a reason.** Say why you're holding and what would change the call.
 - **No call moves money on its own.** Budget, bid, status, and tracking changes go to a human as a draft (current state → change → expected effect → rollback) for approval.
 
 Every call ends with three short lists: **facts** (in the data), **hypotheses** (inferred), and **missing data** (what would change the decision).
 
 ## The Friday readout
 
-Close the week with a readout written for a stakeholder, not an analyst. Keep it under 200 words.
+Close the week with a readout a stakeholder can read in a minute. Keep it under 200 words.
 
 1. **Results vs target.** One line per account or program, marked green, amber, or red against the target CPA, ROAS, or pipeline goal.
 2. **What moved and why.** The top two or three movers, each with a likely cause and a confidence level (high, medium, low).

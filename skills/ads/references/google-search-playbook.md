@@ -109,7 +109,7 @@ Value ranking: **brand Search > high-intent non-brand Search > remarketing > PMa
 
 Guardrails when you do run it: account-level **brand exclusions** (or it cannibalizes brand Search and claims the credit); audience signals from first-party data; negative keywords from day one; offline conversions imported *before* scaling it; check the CRM quality of PMax leads by campaign — if they convert to pipeline at half the rate of Search leads, PMax is cheap-looking and expensive-in-reality. Google auto-generates a bad video if you don't supply one.
 
-Check for overlap with Search as a matter of course. In a February 2025 study of 503 accounts it manages, Optmyzr (a PPC tool vendor) found 91% had exact keyword overlap between Search and PMax, touching 56% of 5,768 Search campaigns. That measures how common overlap is, not how much spend it costs. To size it for your account, compare the PMax search-terms insights against your Search keywords, and look for brand and high-intent terms that Search would win more cheaply.
+Check for overlap with Search as a matter of course. In a February 2025 study of 503 accounts it manages, Optmyzr (a PPC tool vendor) found 91% had exact keyword overlap between Search and PMax, touching 56% of 5,768 Search campaigns. That measures how common overlap is; it says nothing about how much spend the overlap costs. To size it for your account, compare the PMax search-terms insights against your Search keywords, and look for brand and high-intent terms that Search would win more cheaply.
 
 ## Benchmarks and the weekly scorecard
 
