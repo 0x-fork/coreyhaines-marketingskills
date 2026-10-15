@@ -55,6 +55,7 @@ End state, GTM does all the listening and firing, and nothing gets pasted into t
 - **Do this.** Run this, substituting the tool key from `../assets/gtm-recipes/event-map.json` and the 2 values from Step 2. `python3 ../scripts/build_recipe.py --tool {tool} --send google-ads --conversion-id {id} --conversion-label {label} -o import-me.json` The script uses only the Python standard library and can run from any folder, paths resolve relative to the script file.
 - **Expect to see.** The script prints "wrote import-me.json" plus which dataLayer event it detects and where it sends.
 - **On error.** "invalid choice" on --tool means the tool key is misspelled or unsupported, check the 25 keys in `../assets/gtm-recipes/event-map.json`. A complaint about missing --conversion-id or --conversion-label means Step 2 values were not passed.
+- **Acuity only.** Acuity needs a second file. Paste `../assets/snippets/acuity-scheduling-field.html` into Acuity's Custom Conversion Tracking field (Integrations, then Custom Conversion Tracking) with the site's own address in `SITES`, or no booking ever reaches the page. Acuity runs that field for package and gift certificate purchases too, so count only events where `acuity_type` is `appointment`.
 
 **Step 4 - Import the file into GTM**
 - **Goal.** Load the 3 tags and their trigger into the site's existing GTM container without touching anything already there.
@@ -83,6 +84,7 @@ End state, 3 pieces of code sit in the site's `<head>` via the platform's custom
 - **Do this.** Copy the matching `../assets/snippets/{tool}.js` file from this repo and paste it inside a `<script>` tag in the site's `<head>`, using the platform's custom code setting (for example WordPress header scripts, Webflow custom code, Framer custom code).
 - **Expect to see.** After a test submission, running `window.dataLayer.filter(e => e.event)` in the browser console shows the tool's event (for example `typeform_form_submitted`) exactly once.
 - **On error.** Nothing in the dataLayer means the snippet is not on the page carrying the form, or the wrong tool's snippet was used. The event firing twice means it was installed twice.
+- **Acuity only.** Acuity needs a second file. Paste `../assets/snippets/acuity-scheduling-field.html` into Acuity's Custom Conversion Tracking field (Integrations, then Custom Conversion Tracking) with the site's own address in `SITES`, or no booking ever reaches the page. Acuity runs that field for package and gift certificate purchases too, so count only events where `acuity_type` is `appointment`.
 
 **Step 8 - Add the Google tag and the conversion listener**
 - **Goal.** Load Google's tag and fire a conversion whenever the detection event appears.
