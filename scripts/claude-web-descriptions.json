@@ -112,7 +112,7 @@
     "description": "Brainstorm marketing tactics, growth ideas, and channel strategies for a SaaS or software product when deciding what to try next."
   },
   "marketing-loops": {
-    "source_description_sha256": "25e3acff129240b76e9ea2abff129204c3a0a378af15c113375da01030de0767",
+    "source_description_sha256": "6526682d76640216ec7f9e319942bb7bc476b3526fa22d25df1590bc29a05531",
     "description": "Design recurring agent-run marketing loops: weekly reviews, SEO and outbound operators, signal sweeps, reply triage, ad fatigue, churn and content decay."
   },
   "marketing-plan": {
@@ -144,8 +144,8 @@
     "description": "Choose pricing, tiers, value metrics, freemium, trials, and packaging; audit pricing pages for buyers and AI readability."
   },
   "product-marketing": {
-    "source_description_sha256": "f43b89c43d215c35cc750379b109b7a3ea6584b99890c2725b7e770fa1579f2c",
-    "description": "Create or update product marketing context, positioning, audience, ICP, and foundational information shared across marketing tasks."
+    "source_description_sha256": "5df66d7db32477b15ff2d8b1addb251fc206c6954df5defc14ff6e411b4e0575",
+    "description": "Create or update the shared product marketing context: positioning, ICP, brand voice, paid ads targets, and the learnings ledger other marketing skills read."
   },
   "programmatic-seo": {
     "source_description_sha256": "073514d574b449feeb016800b4fee0e50cb1e920a6a85443ce7c81c3392124b3",
