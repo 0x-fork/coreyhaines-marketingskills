@@ -5,7 +5,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | Skill | Version | Last Updated |
 |-------|---------|--------------|
 | ab-testing | 2.0.2 | 2026-10-12 |
-| ad-creative | 2.12.0 | 2026-10-14 |
+| ad-creative | 2.12.1 | 2026-10-15 |
 | ai-seo | 2.9.0 | 2026-10-15 |
 | analytics | 2.1.0 | 2026-10-12 |
 | aso | 2.0.2 | 2026-10-08 |
@@ -22,7 +22,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | cro | 2.0.3 | 2026-10-08 |
 | customer-research | 2.0.4 | 2026-10-02 |
 | directory-submissions | 2.1.1 | 2026-10-08 |
-| emails | 2.1.3 | 2026-10-08 |
+| emails | 2.1.4 | 2026-10-15 |
 | events | 1.0.0 | 2026-08-23 |
 | free-tools | 2.0.2 | 2026-10-15 |
 | image | 2.0.2 | 2026-10-02 |
@@ -31,7 +31,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | lead-magnets | 2.1.0 | 2026-10-08 |
 | marketing-council | 1.0.0 | 2026-07-06 |
 | marketing-ideas | 2.0.1 | 2026-08-23 |
-| marketing-loops | 1.5.0 | 2026-10-14 |
+| marketing-loops | 1.6.0 | 2026-10-15 |
 | marketing-plan | 1.2.2 | 2026-10-12 |
 | marketing-psychology | 2.0.0 | 2026-05-05 |
 | offers | 1.0.2 | 2026-10-12 |
@@ -40,7 +40,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | paywalls | 2.0.0 | 2026-05-05 |
 | popups | 2.0.0 | 2026-05-05 |
 | pricing | 2.1.4 | 2026-10-12 |
-| product-marketing | 2.1.0 | 2026-07-16 |
+| product-marketing | 2.2.0 | 2026-10-15 |
 | programmatic-seo | 2.1.0 | 2026-10-06 |
 | prospecting | 1.3.0 | 2026-10-08 |
 | public-relations | 1.2.0 | 2026-10-02 |
@@ -56,6 +56,14 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.11.34 (2026-10-15)
+
+Brand voice built from evidence, a learnings ledger that drafting skills read, and two new loops. Voice and session-end patterns adapted with credit from Wispr Flow's MIT-licensed skills.
+
+- **product-marketing** (2.1.0 → 2.2.0): `references/brand-voice.md` builds the voice profile from copy that performed and the founder's own writing: attributes with what each does and doesn't mean, tone by context (support, launch, errors, sales, social, billing), before/after examples, brand word lists, and per-person voice guides. The context doc gains an optional **Paid Ads** section (margin-based targets, hard floors, conversion truth, what the agent may change) and a **Learnings** table with promotion and retirement rules.
+- **marketing-loops** (1.5.0 → 1.6.0): an AI-answer accuracy audit loop (claims ledger with verdicts and severity, fix the source page first) and a weekly ads-check loop that ends each account in HOLD, FIX, TEST, or INVESTIGATE. Loop runs now close with a session-end step that logs 1–3 decisions and proposes learnings for approval; campaign postmortems feed the ledger. The catalog now has 58 loops.
+- **emails** (2.1.3 → 2.1.4) and **ad-creative** (2.12.0 → 2.12.1): read the Learnings section before drafting.
 
 ### 2.11.33 (2026-10-15)
 
