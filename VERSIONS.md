@@ -17,8 +17,8 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitor-profiling | 2.1.3 | 2026-10-07 |
 | competitors | 2.3.0 | 2026-10-01 |
 | content-strategy | 2.1.3 | 2026-10-07 |
-| copy-editing | 2.1.1 | 2026-10-07 |
-| copywriting | 2.2.0 | 2026-10-12 |
+| copy-editing | 2.2.0 | 2026-10-15 |
+| copywriting | 2.3.0 | 2026-10-15 |
 | cro | 2.0.3 | 2026-10-08 |
 | customer-research | 2.0.4 | 2026-10-02 |
 | directory-submissions | 2.1.1 | 2026-10-08 |
@@ -56,6 +56,13 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.11.35 (2026-10-15)
+
+Copy skills now diagnose what they were handed before changing it, adapted with credit from Profound's and Wispr Flow's MIT copy skills.
+
+- **copywriting** (2.2.0 → 2.3.0): new **Diagnose the Situation First** section. Blank or slop input gets rebuilt from the brief, a draft with a real voice gets restored in that voice, and a point edit changes only what was asked. It reads taste from the input (vocabulary, emphasis, scope, angle). A drafting protocol adds decompose-and-lock, a three-question gate (can the reader picture it, can it be proven, could a competitor write it), rationed punch, and a leave-it-alone test. `references/ai-tells.md` adds second-generation tells that survive a first cleanup (wisdom-shaped sentences, performed cleverness, perfect balance, omniscient casual, self-narration, tidy closers) and a build-a-writer step, with a rule against inventing anecdotes or customers. Diagnosis mirrored in the description. New eval (id 10).
+- **copy-editing** (2.1.1 → 2.2.0): pick the edit mode before editing. A point edit skips the Seven Sweeps, changes only what was asked, and returns just the changed lines with reasons. Detail in `references/checklist.md`. Rule mirrored in the description. New eval (id 9).
 
 ### 2.11.34 (2026-10-15)
 
