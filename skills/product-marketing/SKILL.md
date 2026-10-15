@@ -1,6 +1,6 @@
 ---
 name: product-marketing
-description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' 'brand voice,' 'tone of voice,' 'brand guidelines,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context."
+description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' 'brand voice,' 'tone of voice,' 'brand guidelines,' 'what have we learned,' 'log this learning,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context."
 metadata:
   version: 2.1.0
 ---
@@ -135,6 +135,9 @@ The **ads** skill reads this so the user doesn't re-explain the account every se
 - Campaign naming convention and what each campaign is for, one line each
 - What the agent may do (read, compare, flag, draft, recommend) and may not do without approval (change budgets or bids, pause or launch, edit tracking, publish ads)
 
+### 14. Learnings
+Start this empty. It fills up as work ships (see "Maintaining Learnings" below).
+
 ---
 
 ## Step 3: Create the Document
@@ -255,6 +258,12 @@ After gathering information, create `.agents/product-marketing.md` with this str
 **Agent may:** read, compare, flag, draft, recommend
 **Agent may not (without approval):** change budgets or bids, pause or launch, edit tracking, publish ads
 
+## Learnings
+*Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
+| Date | Learning | Evidence | Applies to | Status |
+|------|----------|----------|------------|--------|
+| | | | | |
+
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
 - v1 ([date]) — Initial context.
@@ -276,6 +285,29 @@ After gathering information, create `.agents/product-marketing.md` with this str
   - **Pure typo-only fix:** don't bump the version or add a changelog entry — just save the correction. Every other change bumps the version and gets an entry. When the change is a real repositioning, say so plainly — downstream skills will now generate against the new context.
 - Save to `.agents/product-marketing.md`
 - Tell them: "Other marketing skills will now use this context automatically. The Changelog at the bottom tracks every revision — check it to see how your positioning has evolved. Run `/product-marketing` anytime to update it."
+
+---
+
+## Maintaining Learnings
+
+The Changelog records how the document changed. **Learnings** records what the team found out by shipping: which angles won, which offers flopped, which decisions were made and why. Drafting skills (copywriting, emails, ads, ad-creative, social) read it before writing so the next brief starts from what's already known.
+
+**Entry format:** one row per learning.
+- **Learning:** one sentence, specific enough to change a draft. "Price-anchored headlines beat outcome headlines on the pricing page" works. "Be clearer" doesn't.
+- **Evidence:** the test, campaign, or source, with the number and sample size. "Variant B +18% trial starts, 2,400 visitors per arm, 3 weeks."
+- **Applies to:** the channels, segments, or skills it affects.
+- **Status:** `active`, `watch` (one data point, worth retesting), or `retired`.
+
+**What earns a place:**
+- A test result that reached its planned sample, or the same pattern seen in two or more campaigns
+- A decision the user made with a reason (positioning, pricing, a channel cut) that future drafts must respect
+- A correction the user gave more than once ("never call it a platform")
+
+**What doesn't:** single-run anecdotes (log those as `watch` or leave them out), task notes, and anything that belongs in another section. A new objection goes in Objections; a new customer phrase goes in Customer Language.
+
+**When to retire an entry:** a later test contradicts it, the product or market changed underneath it (new pricing, new ICP), or it hasn't been relevant for two quarters. Change the status to `retired` and add a line saying why, rather than deleting it, so nobody re-tests a settled question. Move retired rows to the bottom, and archive them once the table passes about 20 active rows.
+
+**Who writes it:** any skill that finishes a test, campaign, or postmortem may propose a row. Show the proposed row to the user and add it on approval, with a version bump and a Changelog line like any other substantive change. Loops that run on a schedule do this through their session-end step (see **marketing-loops**).
 
 ---
 
