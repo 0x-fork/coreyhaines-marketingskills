@@ -215,15 +215,17 @@ dataLayer.push({
 |-----------|---------|---------|
 | utm_source | Traffic source | google, newsletter |
 | utm_medium | Marketing medium | cpc, email, social |
-| utm_campaign | Campaign name | spring_sale |
-| utm_content | Differentiate versions | hero_cta |
-| utm_term | Paid search keywords | running+shoes |
+| utm_campaign | Campaign name | spring-sale |
+| utm_content | Differentiate versions | hero-cta |
+| utm_term | Paid search keywords | running-shoes |
 
 ### Naming Conventions
-- Lowercase everything
-- Use underscores or hyphens consistently
-- Be specific but concise: `blog_footer_cta`, not `cta1`
-- Document all UTMs in a spreadsheet
+- **Lowercase everything.** GA4 treats `LinkedIn` and `linkedin` as two sources, and the split never merges back.
+- **Hyphens between words.** No spaces, underscores, or `+`. Pick one separator for the whole company; this skill uses hyphens.
+- **One spelling per source.** `linkedin`, never also `li` or `linkedin.com`. Keep the allowed values in a shared sheet and build links from it.
+- **No personal data.** Never put emails, names, phone numbers, or user IDs in a UTM. They land in analytics reports and in referrer logs, and Google's terms prohibit sending PII to GA4.
+- **Specific but short:** `blog-footer-cta`, not `cta1`.
+- **Test the final URL.** Shorteners and redirects can drop or double parameters. Click the live link and check the landing URL before the campaign ships.
 
 ---
 
