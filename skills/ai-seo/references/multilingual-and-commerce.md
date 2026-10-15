@@ -20,7 +20,7 @@ The language of the query changes which sources get cited. Profound's analysis o
 
 ## AI shopping surfaces
 
-AI shopping features (ChatGPT Shopping, product results in Google AI Mode, and similar) are worth investing in only for categories they actually show. In Profound's tests, product category was a stronger trigger for ChatGPT Shopping than purchase-intent wording: physical consumer products activated it far more often than software, services, travel, or financial products (Profound, March 2026; observational, not an OpenAI specification). Verify current merchant and feed requirements in each platform's documentation.
+AI shopping features (ChatGPT Shopping, product results in Google AI Mode, and similar) are worth investing in only for categories they actually show. In Profound's tests, product category was a stronger trigger for ChatGPT Shopping than purchase-intent wording: physical consumer products activated it far more often than software, services, travel, or financial products (Profound, March 2026; observational, and OpenAI hasn't published the trigger rules). Verify current merchant and feed requirements in each platform's documentation.
 
 ### Fit check first
 

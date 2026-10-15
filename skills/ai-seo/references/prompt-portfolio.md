@@ -38,7 +38,7 @@ Weight families by business value. A citation for a definition question rarely s
 |---|---|---|
 | **Stable core** | Trend measurement | Changes rarely and only through versioning. This is the set you report on. |
 | **Exploratory** | Emerging demand, new segments, new competitors | Rotates freely. Promote prompts into the core when they prove valuable. |
-| **Diagnostic controls** | Known outcomes that tell you whether measurement drifted | Include prompts where you should always appear (your brand name) and never appear (an unrelated category). If those move, the tool or the engine changed, not you. |
+| **Diagnostic controls** | Known outcomes that tell you whether measurement drifted | Include prompts where you should always appear (your brand name) and never appear (an unrelated category). If those move, the tool or the engine changed, and your work had nothing to do with it. |
 
 Keep engines, markets, languages, and personas as separate configurations. A US English ChatGPT run and a German Gemini run are different measurements; see [multilingual-and-commerce.md](multilingual-and-commerce.md).
 
