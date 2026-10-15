@@ -24,6 +24,7 @@ Start with this skill's core workflow. Open a reference when the user's question
 | How does the approach differ for product pages, docs, local businesses, or ecommerce? Which content type should we improve? | [Content types](references/content-types.md) |
 | Did an engine change which page formats it cites? Should we still invest in listicles or comparison pages? How do we separate a shift from noisy measurements? | [Format volatility](references/format-volatility.md) |
 | Should we publish LinkedIn posts, articles, or company-page content? What makes that content discoverable and citable? | [LinkedIn citations](references/linkedin-ai-citations.md) |
+| How do we run AEO in other languages and countries? Is ChatGPT Shopping worth it for our product? | [Multilingual and commerce](references/multilingual-and-commerce.md) |
 | What belongs in an OKF bundle? Is it an established AI-search requirement or an emerging experiment? | [Open Knowledge Format](references/okf.md) |
 | Which prompts should we track, how often, and how do we test multi-turn buying conversations? | [Prompt portfolio](references/prompt-portfolio.md) |
 | Where should we start for a particular AI engine? Which search and training crawlers should we distinguish? | [Platform ranking factors](references/platform-ranking-factors.md) |
