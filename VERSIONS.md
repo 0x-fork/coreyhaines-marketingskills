@@ -36,7 +36,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | marketing-psychology | 2.0.0 | 2026-05-05 |
 | offers | 1.0.2 | 2026-10-12 |
 | onboarding | 2.0.2 | 2026-10-12 |
-| ads | 2.5.0 | 2026-10-14 |
+| ads | 2.6.0 | 2026-10-15 |
 | paywalls | 2.0.0 | 2026-05-05 |
 | popups | 2.0.0 | 2026-05-05 |
 | pricing | 2.1.4 | 2026-10-12 |
@@ -56,6 +56,13 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.11.33 (2026-10-15)
+
+Account checks that end in a decision, and Meta's official Ads MCP.
+
+- **ads** (2.5.0 → 2.6.0): the weekly review becomes an ordered operating check (spend, traffic, conversions, creative, landing page, tracking) that ends in exactly one call: HOLD, FIX, TEST, or INVESTIGATE. A Friday stakeholder readout under 200 words closes the week (`references/operating-check.md`). Every recommendation now ends with facts, hypotheses, and missing data, with unavailable inputs labeled MISSING. The Google audit adds deep dives for conversion signals (which actions train the bidder) and wasted-spend negatives (safe now vs check first, with spend saved). PMax guardrails add Optmyzr's 2025 Search/PMax overlap finding.
+- **Tools:** Meta Ads now lists its official MCP server (`mcp.facebook.com/ads`, open beta since 2026-04-29) with read-only-first setup. The registry, Composio guidance, and AGENTS.md no longer route Meta through Composio by default.
 
 ### 2.11.32 (2026-10-15)
 
