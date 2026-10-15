@@ -246,6 +246,14 @@ Partner links break most often because each deal gets named on the spot. Fix the
 
 *The partner-type pattern is adapted from Wispr Flow's link-creator skill (MIT), published in the skills.marketing library.*
 
+### Traffic From AI Assistants
+
+You can't tag links that ChatGPT, Claude, Perplexity, Gemini, or Copilot put in their answers. Some of those visits arrive with a referrer (`chatgpt.com`, `perplexity.ai`) or an assistant-added `utm_source`; many arrive as direct, or come later through a branded search.
+
+- Add a GA4 channel group rule that matches known assistant referrers and sources into an "AI assistants" channel, and update the list as new assistants appear.
+- Treat that channel as the floor. Assistant-driven visits that show up as direct or branded search can be most of the effect, and they won't carry the referrer.
+- For measuring the full effect (exposure, delayed visits, and longer attribution windows), see **ai-seo**. For reconciling it with other sources, see **attribution**.
+
 ---
 
 ## Debugging and Validation
