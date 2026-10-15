@@ -56,12 +56,12 @@
     "description": "Plan content topics, pillars, clusters, editorial calendars, blog strategy, and content roadmaps before writing individual pieces."
   },
   "copy-editing": {
-    "source_description_sha256": "728676d47b83c05e644fe912d8ff281a31a9f60b10a068905d67abb2c434d3ba",
-    "description": "Review, polish, tighten, or refresh existing marketing copy; remove awkward wording, stale content, and AI writing patterns."
+    "source_description_sha256": "3d2e37bce6de1230991064d501775040a9fb1e5245f6fb01470ad162a6d7a39e",
+    "description": "Review, polish, tighten, or refresh existing marketing copy; remove awkward wording, stale content, and AI writing patterns. One-line fixes get a point edit."
   },
   "copywriting": {
-    "source_description_sha256": "83204d7fc89cbd16a32dbb659afe5b1431ad8b7b75d96a030075a914272665a3",
-    "description": "Write or rewrite website marketing copy: homepages, landing pages, product pages, headlines, CTAs, and value propositions, with only claims you can support."
+    "source_description_sha256": "9a9074bbdc5b1572b884398b815e9160fd120360229a15d6f995d890c01f11e6",
+    "description": "Write or rewrite website marketing copy: homepages, landing pages, product pages, headlines, CTAs, and value propositions. Diagnoses the draft first and makes only supportable claims."
   },
   "cro": {
     "source_description_sha256": "3e28de53a48fe9dbacc1437567c19ce5185b5f175e7b0141eb2117c83f4366e2",
