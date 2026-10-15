@@ -74,6 +74,21 @@ Loops are grouped by function. Naming follows the "The X loop" convention.
 - **Stop / bail-out**: No material change since last run → log "stable." Never contact a cited source automatically; outreach is staged for approval.
 - **Output**: A short visibility diff, page fixes for misstated facts, and a source target list.
 
+### The AI-answer accuracy audit loop
+- **Check cadence**: Monthly, plus after any pricing, packaging, or major product change
+- **Acts when**: An AI answer states something about the brand that is false, stale, or missing a qualifier, especially price, compatibility, safety, or plan limits.
+- **Purpose**: Catch wrong claims AI assistants make about the product and fix the pages they're drawn from, before buyers act on them.
+- **Skills used**: `ai-seo`, `product-marketing`, `copy-editing`, `public-relations`
+- **Loop body**:
+  1. Run the accuracy prompts (questions about pricing, plans, integrations, limits, security, comparisons) on each assistant tracked, several runs each.
+  2. Log every factual claim about the brand with a verdict: accurate, accurate but incomplete, ambiguous, stale, false, subjective framing, or unverifiable.
+  3. For each wrong claim, trace the likely source: your own page, docs, an old review, a directory listing, a third-party article.
+  4. Stage the fix at the source, starting with pages you own: state the fact plainly, date it, and remove the old version. For third-party sources, stage a correction request.
+- **Self-check**: Is the error in most runs, or one? Rate severity before acting: a wrong price or a false compatibility claim is critical; a slightly dated feature list can wait.
+- **State / idempotency**: Keep a claims ledger (claim, verdict, source, fix status, date found) and diff each run against it; don't re-file a correction that's already open.
+- **Stop / bail-out**: No new or worsened errors → log "stable." Correction requests to third parties are staged for approval, never sent automatically.
+- **Output**: An accuracy ledger diff, ranked by severity, with source fixes staged.
+
 ### The agent-default check loop
 - **Check cadence**: Monthly, plus within a week of every major model or agent release
 - **Acts when**: Your share of agent picks drops for a stack, or a run picks you and then stalls before a working result.
