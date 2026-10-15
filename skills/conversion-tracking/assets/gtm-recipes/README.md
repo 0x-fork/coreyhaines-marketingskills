@@ -1,10 +1,10 @@
 # GTM recipes
 
-Importable Google Tag Manager containers that produce one import-ready file per tool and destination, no manual tag building (24 detectors x 6 destinations).
+Importable Google Tag Manager containers that produce one import-ready file per tool and destination, no manual tag building (25 detectors x 6 destinations).
 
 ## The 2 layers
 
-**`detect/` (24 recipes, ready to import as-is).** Each contains a listener tag that detects one tool's conversion moment (form submitted, meeting booked) and pushes a canonical dataLayer event, plus a custom event trigger on that event and dataLayer variables for the form or booking ID. The event names are listed in `../snippets/README.md` and in `event-map.json`.
+**`detect/` (25 recipes, ready to import as-is).** Each contains a listener tag that detects one tool's conversion moment (form submitted, meeting booked) and pushes a canonical dataLayer event, plus a custom event trigger on that event and dataLayer variables for the form or booking ID. The event names are listed in `../snippets/README.md` and in `event-map.json`.
 
 **`send/` (6 templates, need values filled in before import).** Each contains the tag that actually records the conversion, wired to a placeholder trigger:
 

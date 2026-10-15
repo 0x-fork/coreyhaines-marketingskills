@@ -1,4 +1,9 @@
 {
+  "acuity-scheduling": {
+    "label": "Acuity Scheduling",
+    "moment": "meeting booked",
+    "event": "acuity_appointment_scheduled"
+  },
   "cal-com": {
     "label": "Cal.com",
     "moment": "meeting booked",

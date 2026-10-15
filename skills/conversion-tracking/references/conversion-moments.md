@@ -2,7 +2,7 @@
 
 Load this to establish or diagnose the conversion moment. Section 1 is the lead-gen problem (success must be inferred from a browser signal, and every tool signals differently); it carries literal, grep-able strings for working from (A) form mechanics, (B) static page source, (C) a headless browser, and (D) a codebase. Section 2 covers the moments this repo ships tested detectors for. Section 3 is the long tail. Section 4 is ecommerce, where the problem mostly does not exist.
 
-**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 20 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
+**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 21 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
 
 ## 1. Lead gen
 
@@ -26,6 +26,8 @@ Stacking complications: multi-step forms (only final step converts; step events 
 **Calendly** - iframe. Script `assets.calendly.com/assets/external/widget.js`; `<div class="calendly-inline-widget" data-url=...>`. Parent messages where `e.data.event` starts with `"calendly."`: profile_page_viewed, event_type_viewed, date_and_time_selected, **event_scheduled** (the conversion). Payload has event.uri + invitee.uri only - NO email (enhanced conversions need invitee API or prefill capture). Beware: date_and_time_selected ≠ booked.
 
 **Cal.com** - iframe. Cal.com's embed code (inline, popup, floating button) renders from `https://app.cal.com`, and a booking page pasted in as a plain iframe loads from `https://cal.com`. A new booking posts `{originator: 'CAL', type: 'bookingSuccessfulV2', data: {uid, eventTypeId, status, ...}}` to the parent from the frame's own origin. `cal-com.js` fires once per booking on `bookingSuccessfulV2`, accepted only from a Cal.com iframe on the page, and trusts each frame only for the origin its address starts with, so both setups work. Reschedules never count, and the deprecated `bookingSuccessful` (which carries the attendee's name and email) is never used. Bookings the host must confirm fire straight away with `booking_status` `PENDING`; add a trigger condition on `ACCEPTED` to count only confirmed ones. It doesn't cover self-hosted Cal.com. It was live-checked 15 Oct 2026 with real bookings through all four setups (inline, popup, floating button and plain iframe).
+
+**Acuity Scheduling** - iframe, and Acuity tells the page nothing (its embed script only posts resize messages). Its Custom Conversion Tracking field (Integrations, then Custom Conversion Tracking) runs HTML after each booking in a sandbox frame on `conversion-tracking-sandbox.acuityinnovation.com`, two frames below the page, with `%id%`, `%type%`, `%appointmentType%` and `%price%` filled in. This is the shipped example of Shape 3 below, where half the code goes inside the vendor's tool. `acuity-scheduling-field.html` goes in that field and posts those four values to the site's own address (put that address in `SITES`, or nothing counts), and `acuity-scheduling.js` on the site accepts only HTTPS `acuityinnovation.com` frames inside the page, once per appointment ID. Acuity keeps about 2 KB in the field, and the snippet is about 1 KB. Reschedules never count. Package and gift certificate purchases fire too, so filter on `acuity_type` equals `appointment`. Public snippets that read `%email%` and post to `"*"` hand the visitor's email to every frame on the page; this one never reads the name, email or phone. It was live-checked 15 Oct 2026 with two real bookings made by hand, because of reCAPTCHA, and a refused email counted nothing.
 
 **HubSpot Forms** - TWO variants, check BOTH:
 - Legacy v2: `js.hsforms.net/forms/embed/v2.js` + `hbspt.forms.create({portalId, formId})`; renders INLINE mostly. Window message events: `event.data.type === 'hsFormCallback'`, `event.data.eventName` ∈ onFormReady | onFormSubmit | **onFormSubmitted** (use this, post-success) | onFormFailedValidation; `event.data.id` = form GUID.
@@ -175,6 +177,7 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 
 | Slug | Tool | Moment | dataLayer event |
 |---|---|---|---|
+| `acuity-scheduling` | Acuity Scheduling | meeting booked | `acuity_appointment_scheduled` |
 | `cal-com` | Cal.com | meeting booked | `calcom_booking_successful` |
 | `calendly` | Calendly | meeting booked | `calendly_event_scheduled` |
 | `contact-form-7` | Contact Form 7 | form submission | `contact_form_7_submitted` |
@@ -197,7 +200,10 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 | `ws-form` | WS Form | form submission | `ws_form_submitted` |
 
 **Detection confidence.** Most of these fire on the tool's own success event or on a
-confirmed success state, which is exact. `cal-com` also counts bookings still waiting for
+confirmed success state, which is exact. `acuity-scheduling` fires only when the snippet
+Acuity runs after a booking reports it, so it needs that snippet in Acuity too, and it
+counts package and gift certificate purchases unless the trigger filters `acuity_type` to
+`appointment`. `cal-com` also counts bookings still waiting for
 the host to confirm, marked `booking_status` `PENDING`. `framer-forms` fires when Framer's own form
 endpoint answers its request with success. `squarespace-forms` fires only once Squarespace
 confirms the save, through its own success markers or its save request, never on the
@@ -226,10 +232,10 @@ Some of these tools also have native server-side integrations from their own pla
 managed tools listed there may cover them as built-in triggers; both live in `server-side.md`. What
 "no snippet" means is only that this skill's free browser-side detector does not exist yet.
 
-**Shape 1, page listener** (30): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
+**Shape 1, page listener** (29): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
 Forms, Marketo, Pipedrive, Duda, Avada, Beaver Builder, GoHighLevel, Unbounce,
 Instapage, Leadpages, Paperform, Fillout, Formstack, Zoho Forms, HelloBar, OptinMonster,
-ConvertBox, Thrive Leads, Acuity, HubSpot Meetings, Chili Piper, Intercom, Crisp,
+ConvertBox, Thrive Leads, HubSpot Meetings, Chili Piper, Intercom, Crisp,
 Tawk.to, Drift.
 
 **Shape 2, WordPress but not a form submit** (6): LearnDash, LearnPress, Tutor LMS, Paid
@@ -256,7 +262,9 @@ signup, a course completion. There is usually no submit event to hook. Use
 **Shape 3. Half the code has to go inside the vendor's own tool.** Classic Pardot forms
 are iframes served from a Salesforce domain, so nothing on the parent page can see inside
 them. The fix is code pasted into the vendor's own thank-you or completion field that
-messages out to the parent page, plus a listener that catches it. Walk the user through
+messages out to the parent page, plus a listener that catches it. `acuity-scheduling` is
+the shipped example (`acuity-scheduling-field.html` goes in Acuity's Custom Conversion
+Tracking field, `acuity-scheduling.js` catches its message). Walk the user through
 the vendor screen; there is no snippet-only answer.
 
 **Shape 3b. The moment only the backend knows.** A SaaS signup, an account created, a

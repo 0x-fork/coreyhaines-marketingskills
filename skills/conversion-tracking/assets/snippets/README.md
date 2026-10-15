@@ -19,6 +19,7 @@ These names are load-bearing. The audit routes in SKILL.md check for exactly the
 
 | Tool | Snippet | Moment | dataLayer event |
 |---|---|---|---|
+| Acuity Scheduling | `acuity-scheduling.js` on the site, plus `acuity-scheduling-field.html` in Acuity | Meeting booked | `acuity_appointment_scheduled` |
 | Cal.com | `cal-com.js` | Meeting booked | `calcom_booking_successful` |
 | Calendly | `calendly.js` | Meeting booked | `calendly_event_scheduled` |
 | Contact Form 7 | `contact-form-7.js` | Form submission | `contact_form_7_submitted` |
@@ -61,6 +62,7 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 
 | Snippet | Signal type | Exact signal |
 |---|---|---|
+| `acuity-scheduling.js` | Native success event | a message from `acuity-scheduling-field.html`, which Acuity runs after each booking in its Custom Conversion Tracking sandbox frame on `conversion-tracking-sandbox.acuityinnovation.com` and which posts `%id%`, `%type%`, `%appointmentType%` and `%price%` to the site's own address; accepted only from an HTTPS `acuityinnovation.com` frame inside the page, carrying the field snippet's own `source` name and version; once per appointment ID. Reschedules never count. Package and gift certificate purchases fire too, so filter on `acuity_type` equals `appointment` |
 | `cal-com.js` | Native success event | `bookingSuccessfulV2` postMessage with `originator` `CAL`, accepted only from a Cal.com iframe on the page and only from the origin its address starts with (`https://app.cal.com` for Cal.com's inline, popup and floating button embeds, `https://cal.com` for a booking page in a plain iframe); once per booking UID. Reschedules and the deprecated `bookingSuccessful`, which carries the attendee's name and email, never count. A booking that needs the host to confirm fires straight away with `booking_status` `PENDING`. Self-hosted Cal.com is not covered |
 | `calendly.js` | Native success event | `calendly.event_scheduled` postMessage with origin `https://calendly.com`, accepted only from a connected `iframe[src^="https://calendly.com/"]` and only when its event and invitee `scheduled_events` URIs name the same event; once per event and invitee pair |
 | `contact-form-7.js` | Native success event | `wpcf7mailsent` DOM event on a CF7 form with a numeric form ID; overlapping requests from one attempt (a repeat `wpcf7beforesubmit` while the form is still `submitting`) count once |
@@ -85,6 +87,13 @@ Not every snippet fires on a confirmed success. Some tools expose no success sig
 | `file-download.js` | Submit/click-based best effort | click on a link to a downloadable file extension |
 | `thank-you-page.js` | DOM-inferred after submit | page path starts with a configured confirmation path |
 | `generic-ajax-form.js` | DOM-inferred after submit | a success message appears within 7s of submit with no visible validation error |
+
+**Acuity note.** Acuity Scheduling needs both of its files, because half the code goes inside Acuity. Acuity tells the page nothing about a booking. What it offers is a Custom Conversion Tracking field, and it runs whatever is pasted there after each booking, inside a sandbox frame on `conversion-tracking-sandbox.acuityinnovation.com`.
+
+1. Paste `acuity-scheduling-field.html` into that field in Acuity (Integrations, then Custom Conversion Tracking), and put your own website address in `SITES`, or nothing counts. Acuity keeps about 2 KB in the field, and this file is about 1.3 KB.
+2. Install `acuity-scheduling.js` on the site, or import its GTM recipe.
+
+The field snippet posts `%id%`, `%type%`, `%appointmentType%` and `%price%` to the site's own address, and never reads the visitor's name, email or phone. The listener accepts only HTTPS `acuityinnovation.com` frames inside the page, once per appointment ID. Reschedules never count. Package and gift certificate purchases fire too, so add `acuity_type` equals `appointment` to the trigger to count only bookings. `appointment_type` is the business's own name for the service, so if it names a health service, don't forward it to ad platforms. It passed a live check on 15 Oct 2026 with two real bookings made by hand, because Acuity's booking form has reCAPTCHA, and a refused email counted nothing.
 
 **Jotform note.** Use one method per form, either the thank-you redirect with `thank-you-page.js` or this snippet, never both. This snippet covers Jotform's iframe and script embeds, where Jotform sends the page a completion message, and passed live checks on both, including a submission Jotform's validation rejected. It doesn't cover the full source-code embed, which sends no such message, so use the redirect there. Payment, multi-page, save-and-continue and captcha forms are untested, so prefer the redirect for those too.
 
