@@ -192,6 +192,22 @@ Loops are grouped by function. Naming follows the "The X loop" convention.
 
 ## Paid
 
+### The weekly ads-check loop
+- **Check cadence**: Weekly (Monday), or daily on accounts spending enough to move in a day
+- **Acts when**: Spend, traffic, conversion, creative, landing page, or tracking metrics move past the account's thresholds versus the prior 7 days or the targets in the context doc.
+- **Purpose**: Make the weekly account review end in one decision per account.
+- **Skills used**: `ads`, `analytics`, `ad-creative`, `cro`
+- **Loop body**:
+  1. Read the **Paid Ads** section of `.agents/product-marketing.md` for targets, hard floors, and what counts as a conversion.
+  2. Check in a fixed order: spend and pacing → traffic (clicks, CPC, CTR, CPM, search terms) → conversions (CVR, CPA, ROAS, lead quality) → creative fatigue (frequency, CTR versus peak) → landing page (speed, forms, mobile CVR) → tracking (conversion counts against GA4 or the CRM).
+  3. For each mover, separate facts in the data from hypotheses, and list missing data.
+  4. End with exactly one call per account: **HOLD** (no change for now), **FIX** (a known, named issue), **TEST** (a hypothesis worth spend), or **INVESTIGATE** (the data can't be trusted yet).
+  5. On Friday, or at the end of the reporting period, turn the week's calls into a short stakeholder readout: results versus target, what moved and why, and next week's decisions.
+- **Self-check**: Does any recommendation rest on a number that's still inside its conversion lag or learning phase? If tracking disagrees with the CRM by more than the usual gap, the call is INVESTIGATE.
+- **State / idempotency**: Store each week's call per account and the issue it named; don't re-open a FIX that's already staged.
+- **Stop / bail-out**: Never change budgets, bids, campaign status, tracking, or live ads. Changes are staged as plans for approval. Halt and alert if spend passes its cap.
+- **Output**: One HOLD / FIX / TEST / INVESTIGATE call per account with facts, hypotheses, and missing data, plus the weekly readout.
+
 ### The ad-fatigue loop
 - **Check cadence**: Every 2–3 days
 - **Acts when**: An ad shows rising frequency + declining CTR/CVR past a real significance bar.
