@@ -157,6 +157,8 @@ Before handing over any draft, run the self-check in [references/ai-tells.md](re
 
 **For the full blacklist with examples and rewrites**: See [references/ai-tells.md](references/ai-tells.md)
 
+Removing tells leaves copy clean but flat. For a full rewrite, build a writer first (who's writing, what they know cold, what they'd cut, what they think) and check for second-generation tells such as wisdom-shaped sentences and tidy closers. See [references/ai-tells.md](references/ai-tells.md#build-a-writer).
+
 ---
 
 ## Best Practices
