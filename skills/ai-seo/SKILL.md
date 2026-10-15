@@ -85,7 +85,7 @@ Traditional SEO gets you ranked. AI SEO gets you **cited**.
 In traditional search, you need to rank on page 1. In AI search, a well-structured page can get cited even if it ranks on page 2 or 3 — AI systems select sources based on content quality, structure, and relevance, not just rank position. Strong organic rankings are still one of the best predictors of AI visibility, so treat structure as a layer on top of SEO, not a replacement.
 
 **Critical stats** (they drift; re-check before quoting to a client, and distrust vendor stats with no source or date):
-- AI Overviews appeared on ~45% of the keywords BrightEdge tracks, and position-one desktop CTR fell ~58% when one was present (Ahrefs, Dec 2025 data). Both are sample-specific, so don't forecast a site's traffic loss from them
+- AI Overviews appeared on ~48% of the queries BrightEdge tracks (BrightEdge, Feb 2026), and position-one desktop CTR fell ~58% when one was present (Ahrefs, Dec 2025 data). Both are sample-specific, so don't forecast a site's traffic loss from them
 - Adding statistics and citations raised visibility by roughly 30–40% in the original GEO study (Aggarwal et al., 2023)
 
 ### Google's Official Stance vs. Multi-Platform Reality
@@ -358,7 +358,7 @@ Structured data helps AI systems understand your content. Key schemas:
 | Reviews | `Review`, `AggregateRating` | Trust signals |
 | Organization | `Organization` | Entity recognition |
 
-Content with proper schema shows 30-40% higher AI visibility on non-Google AI engines. **Google's note**: structured data is "not required for generative AI search" but is recommended for overall SEO strategy. For implementation, use the **schema** skill.
+No well-documented study isolates a schema lift on AI citations, so treat schema as context that helps engines parse your pages and expect no fixed lift from it. **Google's note**: structured data is "not required for generative AI search" but is recommended for overall SEO strategy. For implementation, use the **schema** skill.
 
 ---
 
@@ -459,7 +459,7 @@ For tactical guidance on SaaS product pages, blog content, comparison/alternativ
 
 ## Common Mistakes
 
-- **Ignoring AI search entirely** — ~45% of Google searches now show AI Overviews, and ChatGPT/Perplexity are growing fast
+- **Ignoring AI search entirely** — AI Overviews appear on roughly half of tracked queries in many industries (BrightEdge, Feb 2026), and assistant usage keeps growing
 - **Treating AI SEO as separate from SEO** — Good traditional SEO is the foundation; AI SEO adds structure and authority on top
 - **Writing for AI, not humans** — If content reads like it was written to game an algorithm, it won't get cited or convert
 - **No freshness signals** — Undated content loses to dated content because AI systems weight recency heavily. Show when content was last updated
