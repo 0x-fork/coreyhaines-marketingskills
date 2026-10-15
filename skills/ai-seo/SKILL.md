@@ -16,6 +16,7 @@ Start with this skill's core workflow. Open a reference when the user's question
 | User questions | Local reference |
 |---|---|
 | Why can an agent not read our site? Are bot access, discovery files, or HTML blocking it? | [Agent readiness](references/agent-readiness.md) |
+| AI barely shows up in referrals. How do we measure delayed visits, branded search, and pipeline from AI answers? | [AI attribution](references/ai-attribution.md) |
 | Is AI saying something wrong about our price, features, or limits? How do we find and fix the source? | [Answer accuracy](references/answer-accuracy.md) |
 | Which vendor does Claude Code or Cursor pick when a user says "deploy this"? How do we become the tool an agent installs mid-task? | [Agent defaults](references/agent-defaults.md) |
 | Why are we cited but absent from the shortlist? Can our own buyer's guide help competitors? How should we measure recommendations? | [Citations vs. recommendations](references/citations-vs-recommendations.md) |
@@ -108,9 +109,7 @@ Google explicitly says:
 **What this means for the work:**
 - The structural patterns in this skill (40–60 word answer blocks, FAQ schema, comparison tables) help **non-Google AI engines** materially. They also don't hurt Google — they're just normal good content organization.
 - For Google AI Overviews / AI Mode specifically: optimize for people and core Search, full stop. Strong E-E-A-T, original information, semantic HTML, clean indexability.
-- For ChatGPT/Claude/Perplexity: layer on the extractable structure + llms.txt + machine-readable files.
-
-When in doubt, default to "write for people, organize for clarity" — that satisfies both camps.
+- For ChatGPT/Claude/Perplexity: layer on the extractable structure + llms.txt + machine-readable files. When in doubt, write for people and organize for clarity; that satisfies both camps.
 
 ### Query Fan-Out (Google AI Search)
 
@@ -412,7 +411,7 @@ Not all content is equally citable — and the format mix is **volatile**. The l
 | Share of AI voice | Your citations vs. competitors | Peec AI, Otterly, ZipTie |
 | Citation sentiment | How AI describes your brand | Manual review + monitoring tools |
 | Recommendation rate | Whether you're on the shortlist, not just cited (see [citations-vs-recommendations.md](references/citations-vs-recommendations.md)) | Prompt tracking + mention framing |
-| Source attribution | Which of your pages get cited | Track referral traffic from AI sources |
+| Source attribution | Which pages get cited, and what AI exposure does downstream | AI referrals plus delayed branded and direct visits ([ai-attribution.md](references/ai-attribution.md)) |
 
 ### AI Visibility Monitoring Tools
 
