@@ -127,6 +127,14 @@ Build this from copy that already performed and from the founder's own writing, 
 - Key conversion action (what you want people to do)
 - Current metrics (if known)
 
+### 13. Paid Ads (optional, only if they run ads)
+The **ads** skill reads this so the user doesn't re-explain the account every session.
+- Margin reality: the target CPA or ROAS that keeps the business profitable, and the hard floor (the ROAS below which, or CPA above which, to flag immediately)
+- Budget and pacing: monthly budget and acceptable daily variance
+- Conversion truth: which conversion actions count and what each is worth, known tracking weaknesses (lag, double counting, offline gaps), and what separates a good lead from a form fill
+- Campaign naming convention and what each campaign is for, one line each
+- What the agent may do (read, compare, flag, draft, recommend) and may not do without approval (change budgets or bids, pause or launch, edit tracking, publish ads)
+
 ---
 
 ## Step 3: Create the Document
@@ -233,6 +241,20 @@ After gathering information, create `.agents/product-marketing.md` with this str
 **Conversion action:**
 **Current metrics:**
 
+## Paid Ads (optional)
+**Target CPA / ROAS:**
+**Hard floor:**
+**Monthly budget and daily variance:**
+**Conversions that count:**
+| Action | Means | Value | Feeds bidding? |
+|--------|-------|-------|----------------|
+| | | | |
+**Known tracking weaknesses:**
+**Good lead vs. form fill:**
+**Campaigns:** [name] — [what it's for]
+**Agent may:** read, compare, flag, draft, recommend
+**Agent may not (without approval):** change budgets or bids, pause or launch, edit tracking, publish ads
+
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
 - v1 ([date]) — Initial context.
@@ -263,4 +285,4 @@ After gathering information, create `.agents/product-marketing.md` with this str
 - **Capture exact words**: Customer language beats polished descriptions
 - **Ask for examples**: "Can you give me an example?" unlocks better answers
 - **Validate as you go**: Summarize each section and confirm before moving on
-- **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C)
+- **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C, Paid Ads if they don't run ads)
