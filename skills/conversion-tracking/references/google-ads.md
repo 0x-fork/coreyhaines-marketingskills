@@ -16,7 +16,7 @@ Guided setup for wiring a form or booking tool to Google Ads. The agent usually 
 You need three things:
 
 - Access to the Google Ads account (the user has this, you guide them).
-- The form or booking tool in play. This skill has detection recipes for 18 form and booking tools, plus 4 universal patterns (phone clicks, file downloads, thank-you pages, and generic AJAX forms). The full list with canonical dataLayer event names lives in `../assets/gtm-recipes/event-map.json` and `../assets/snippets/README.md`. Example, Gravity Forms pushes `gravity_form_submitted`. Supported tools are Calendly, Contact Form 7, Divi Forms, Elementor Forms, Fluent Forms, Formidable Forms, Forminator, Framer Forms, Gravity Forms, Jotform, Ninja Forms, Tally, Typeform, Webflow Forms, Wix Forms, Wix Bookings, WPForms, and WS Form.
+- The form or booking tool in play. This skill has detection recipes for 19 form and booking tools, plus 4 universal patterns (phone clicks, file downloads, thank-you pages, and generic AJAX forms). The full list with canonical dataLayer event names lives in `../assets/gtm-recipes/event-map.json` and `../assets/snippets/README.md`. Example, Gravity Forms pushes `gravity_form_submitted`. Supported tools are Calendly, Contact Form 7, Divi Forms, Elementor Forms, Fluent Forms, Formidable Forms, Forminator, Framer Forms, Gravity Forms, Jotform, Ninja Forms, Squarespace Forms, Tally, Typeform, Webflow Forms, Wix Forms, Wix Bookings, WPForms, and WS Form.
 - A decision on the install path. Check the site's page source for a `GTM-` container snippet, or ask the user. If GTM is installed, use Path A. If not, use Path B. Never do both, that double counts.
 
 Also do a quick duplicate pre-check before installing anything. Fetch the page source and look for an existing `AW-` ID, a `gtag('event', 'conversion'` call, or an existing Google Ads conversion tag inside the GTM container. If the same real-world action is already being tracked, fix or replace that setup rather than adding a second one on top. Two tags for one form is the classic overcounting setup.
@@ -54,7 +54,7 @@ End state, GTM does all the listening and firing, and nothing gets pasted into t
 - **Goal.** Produce 1 GTM container file that bundles the tool's detection tag, the Google Ads conversion tag, and a Conversion Linker tag.
 - **Do this.** Run this, substituting the tool key from `../assets/gtm-recipes/event-map.json` and the 2 values from Step 2. `python3 ../scripts/build_recipe.py --tool {tool} --send google-ads --conversion-id {id} --conversion-label {label} -o import-me.json` The script uses only the Python standard library and can run from any folder, paths resolve relative to the script file.
 - **Expect to see.** The script prints "wrote import-me.json" plus which dataLayer event it detects and where it sends.
-- **On error.** "invalid choice" on --tool means the tool key is misspelled or unsupported, check the 22 keys in `../assets/gtm-recipes/event-map.json`. A complaint about missing --conversion-id or --conversion-label means Step 2 values were not passed.
+- **On error.** "invalid choice" on --tool means the tool key is misspelled or unsupported, check the 23 keys in `../assets/gtm-recipes/event-map.json`. A complaint about missing --conversion-id or --conversion-label means Step 2 values were not passed.
 
 **Step 4 - Import the file into GTM**
 - **Goal.** Load the 3 tags and their trigger into the site's existing GTM container without touching anything already there.

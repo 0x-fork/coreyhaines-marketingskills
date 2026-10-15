@@ -69,6 +69,11 @@
     "moment": "phone call intent",
     "event": "phone_click"
   },
+  "squarespace-forms": {
+    "label": "Squarespace Forms",
+    "moment": "form submission",
+    "event": "squarespace_form_submitted"
+  },
   "tally": {
     "label": "Tally",
     "moment": "form submission",

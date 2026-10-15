@@ -2,7 +2,7 @@
 
 Load this to establish or diagnose the conversion moment. Section 1 is the lead-gen problem (success must be inferred from a browser signal, and every tool signals differently); it carries literal, grep-able strings for working from (A) form mechanics, (B) static page source, (C) a headless browser, and (D) a codebase. Section 2 covers the moments this repo ships tested detectors for. Section 3 is the long tail. Section 4 is ecommerce, where the problem mostly does not exist.
 
-**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 18 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
+**Fix assets.** When a finding here names a missing or wrong detection hook, the fix usually already exists in this skill. Tested listeners for 19 tools live in `../assets/snippets/` (paste-in JS) and `../assets/gtm-recipes/detect/` (importable GTM containers), both pushing the canonical dataLayer event names listed in `../assets/gtm-recipes/event-map.json` (for example `gravity_form_submitted`, `typeform_form_submitted`, `calendly_event_scheduled`). Diagnose against those exact names, fix by installing those exact assets.
 
 ## 1. Lead gen
 
@@ -44,7 +44,7 @@ Stacking complications: multi-step forms (only final step converts; step events 
 
 **Framer** - React forms, inline success swap, no navigation, no built-in GTM event. Track via custom listener/element observation or redirect. Framer can auto-capture UTM/GCLID into form fields (built-in feature).
 
-**Squarespace** - AJAX + inline message default; options: redirect URL, or "Post-Submit HTML" field that injects and executes code only after successful submit (a de facto conversion hook; Squarespace gates JavaScript and code injection to Core plans and above, and its form docs state no separate gate for this field).
+**Squarespace** - AJAX + inline message default. A 7.1 Form block renders in the page (no iframe) and saves through `/api/form/SaveFormSubmission`, and Squarespace's server decides (204 saved, 400 field error, 401 failed reCAPTCHA), so a submit alone is never a conversion. `squarespace-forms.js` fires only once Squarespace confirms the entry was saved, once per form per page view, and also works for forms set to redirect. It doesn't cover lightbox forms, 7.0 forms, or commerce or member forms. It was live-checked 15 Oct 2026 on inline, redirect and shared-page forms in Chromium, WebKit and Firefox. The other options are a redirect URL, or the "Post-Submit HTML" field that injects and executes code only after successful submit (a de facto conversion hook; Squarespace gates JavaScript and code injection to Core plans and above, and its form docs state no separate gate for this field).
 
 **Wix** - AJAX + inline success; tracking via Wix's own dashboard integrations (auto-fires form-submit conversion) or Velo `wixWindow.trackEvent`; raw GTM DOM listeners unreliable in Wix's framework. "Wix + manually pasted pixel" = high risk of no submit event.
 
@@ -184,6 +184,7 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 | `gravity-forms` | Gravity Forms | form submission | `gravity_form_submitted` |
 | `jotform` | Jotform | form submission | `jotform_form_submitted` |
 | `ninja-forms` | Ninja Forms | form submission | `ninja_forms_submitted` |
+| `squarespace-forms` | Squarespace Forms | form submission | `squarespace_form_submitted` |
 | `tally` | Tally | form submission | `tally_form_submitted` |
 | `typeform` | Typeform | form submission | `typeform_form_submitted` |
 | `webflow-forms` | Webflow Forms | form submission | `webflow_form_submitted` |
@@ -194,7 +195,9 @@ python3 ../scripts/build_recipe.py --tool <slug> --send <google-ads|ga4|meta|lin
 
 **Detection confidence.** Most of these fire on the tool's own success event or on a
 confirmed success state, which is exact. `framer-forms` fires when Framer's own form
-endpoint answers its request with success. `wix-forms` fires when Wix's own thank-you
+endpoint answers its request with success. `squarespace-forms` fires only once Squarespace
+confirms the save, through its own success markers or its save request, never on the
+submit alone. `wix-forms` fires when Wix's own thank-you
 message appears inside the form, which Wix shows only after the entry is saved. It covers
 Wix's current forms with an inline thank-you message, not older Wix contact forms or forms
 set to go to another page after submitting.
@@ -219,8 +222,8 @@ Some of these tools also have native server-side integrations from their own pla
 managed tools listed there may cover them as built-in triggers; both live in `server-side.md`. What
 "no snippet" means is only that this skill's free browser-side detector does not exist yet.
 
-**Shape 1, page listener** (32): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
-Forms, Marketo, Pipedrive, Squarespace, Duda, Avada, Beaver Builder, GoHighLevel, Unbounce,
+**Shape 1, page listener** (31): ActiveCampaign, Kit, AWeber, Mailchimp, Klaviyo, HubSpot
+Forms, Marketo, Pipedrive, Duda, Avada, Beaver Builder, GoHighLevel, Unbounce,
 Instapage, Leadpages, Paperform, Fillout, Formstack, Zoho Forms, HelloBar, OptinMonster,
 ConvertBox, Thrive Leads, Cal.com, Acuity, HubSpot Meetings, Chili Piper, Intercom, Crisp,
 Tawk.to, Drift.
