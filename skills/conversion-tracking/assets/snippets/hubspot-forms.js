@@ -32,7 +32,17 @@
         handled = false;
       }
     }
-    if (!handled) window.dataLayer.push({ event: 'hubspot_form_submitted', form_id: id });
+    // The push is contained, and a conversion whose push failed is
+    // forgotten, so a repeat of HubSpot's event can still count it.
+    if (!handled) {
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'hubspot_form_submitted', form_id: id });
+      } catch (e) {
+        delete seenConversions[key];
+        return false;
+      }
+    }
     return true;
   }
 
@@ -46,6 +56,14 @@
     if (seenLegacyEvents.indexOf(event) !== -1) return false;
     seenLegacyEvents.push(event);
     return true;
+  }
+
+  function releaseLegacyEvent(event) {
+    try {
+      if (typeof seenLegacyEvents.delete === 'function') { seenLegacyEvents.delete(event); return; }
+      var i = seenLegacyEvents.indexOf(event);
+      if (i !== -1) seenLegacyEvents.splice(i, 1);
+    } catch (e) {}
   }
 
   // ------------------------------------------------------------
@@ -124,7 +142,14 @@
           handled = adapter({ formId: formId, legacyEvent: event }) === true;
         } catch (e) { handled = false; }
       }
-      if (!handled) window.dataLayer.push({ event: 'hubspot_form_submitted', form_id: formId });
+      if (!handled) {
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'hubspot_form_submitted', form_id: formId });
+        } catch (e) {
+          releaseLegacyEvent(event);
+        }
+      }
     } catch (e) {
       // Never throw back into the page's own message handling.
     }
