@@ -105,7 +105,7 @@ Google explicitly says:
 **Other AI engines (ChatGPT, Claude, Perplexity, Copilot) behave differently:**
 - They actively reward extractable structure — passages, FAQs, comparison tables, definition blocks
 - They parse `llms.txt`, structured pricing pages, and machine-readable files when present
-- They cite third-party sources (Reddit, Wikipedia, review sites) more heavily than top-ranked pages
+- They cite beyond top-ranked pages, including Reddit, Wikipedia, and review sites, in a mix that varies by engine
 
 **What this means for the work:**
 - The structural patterns in this skill (40–60 word answer blocks, FAQ schema, comparison tables) help **non-Google AI engines** materially. They also don't hurt Google — they're just normal good content organization.
@@ -187,9 +187,7 @@ Audit AI user agents by purpose. Search-discovery, user-triggered retrieval, mod
 - **Potential model training:** `GPTBot` and `ClaudeBot`
 - **Google product control:** `Google-Extended` controls certain Gemini training and grounding uses of content Google already crawls; it does not affect Google Search inclusion or ranking
 
-Check each relevant user-agent group and any WAF or CDN rules separately. A publisher can allow search discovery while disallowing model-development crawlers; do not infer that blocking a training crawler necessarily blocks citations.
-
-See [references/platform-ranking-factors.md](references/platform-ranking-factors.md) for the full robots.txt configuration.
+Check each relevant user-agent group and any WAF or CDN rules separately. A publisher can allow search discovery while disallowing model-development crawlers; do not infer that blocking a training crawler necessarily blocks citations. See [references/platform-ranking-factors.md](references/platform-ranking-factors.md) for the full robots.txt configuration.
 
 ---
 
@@ -271,11 +269,11 @@ AI systems prefer sources they can trust. Build citation-worthiness.
 
 ### Pillar 3: Presence — Be Where AI Looks
 
-AI systems don't just cite your website — they cite where you appear.
+AI systems cite your own site and the places that talk about you, in proportions that vary by engine and category. In one large dataset, company sites took about 57% of citations (ChatGPT 47%, Gemini 69%; Profound, July 2026), while shortlist recommendations lean on third-party consensus. Measure your category's citation mix before choosing channels; see [references/citations-vs-recommendations.md](references/citations-vs-recommendations.md).
 
-**Third-party sources matter more than your own site:**
-- Wikipedia mentions (7.8% of all ChatGPT citations)
-- Reddit discussions (volatile: ~1.8% of ChatGPT citations historically, but nearly wiped from ChatGPT by Aug 2026 retrieval changes — still retrieved elsewhere; see the volatility section in [references/agent-readiness.md](references/agent-readiness.md))
+**Third-party surfaces to cover:**
+- Wikipedia (7.8% of ChatGPT citations in Profound's Aug 2024–Jun 2025 data)
+- Reddit (1.8% in the same data, then nearly wiped from ChatGPT by Aug 2026 retrieval changes; still retrieved elsewhere; see the volatility section in [references/agent-readiness.md](references/agent-readiness.md))
 - Industry publications and guest posts
 - LinkedIn — among the most-cited domains for professional queries, but which surface gets cited depends on the engine (ChatGPT now favors posts over articles; Gemini barely cites LinkedIn). Front-load the target phrase, since a post's first words become its URL slug. See [references/linkedin-ai-citations.md](references/linkedin-ai-citations.md)
 - Review sites (G2, Capterra, TrustRadius for B2B SaaS)
@@ -466,7 +464,7 @@ For tactical guidance on SaaS product pages, blog content, comparison/alternativ
 - **Writing for AI, not humans** — If content reads like it was written to game an algorithm, it won't get cited or convert
 - **No freshness signals** — Undated content loses to dated content because AI systems weight recency heavily. Show when content was last updated
 - **Gating all content** — AI can't access gated content. Keep your most authoritative content open
-- **Ignoring third-party presence** — You may get more AI citations from a Wikipedia mention than from your own blog
+- **Ignoring third-party presence** — Shortlist recommendations lean on what reviews, forums, and press say about you, even where your own site earns most citations
 - **No structured data** — Schema markup gives AI systems structured context about your content
 - **Keyword stuffing** — Unlike traditional SEO where it's just ineffective, keyword stuffing actively reduces AI visibility by 10% (Princeton GEO study)
 - **Hiding pricing behind "contact sales" or JS-rendered pages** — AI agents evaluating your product on behalf of buyers can't parse what they can't read. Add a `/pricing.md` file
