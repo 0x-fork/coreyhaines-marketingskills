@@ -6,13 +6,13 @@ This reference covers picking newsletters, reading past results before you book 
 
 ## Choosing and vetting newsletters
 
-Judge a newsletter by who reads it and what earlier sponsors got, not by list size.
+Judge a newsletter by who reads it and what earlier sponsors got. List size matters least.
 
 - **Read three recent issues.** Is the content close to your category? Do the other sponsors sell to your buyer? Do readers reply or comment?
 - **Ask for the audience breakdown:** role, seniority, company size, geography. Writers who know their readers can answer quickly.
 - **Ask for clicks per sponsor placement,** as a median across recent sends. Open rates are inflated by Apple Mail Privacy Protection, which has opened mail automatically since 2021, so treat opens as a ceiling.
 - **Ask how many sponsors renew.** Sponsors that book again are the best evidence the list converts. Ask for one to contact.
-- **Turn the price into a cost per click.** Divide the price by the median clicks, then compare it with your best channel's cost per click. The placement has to beat what the same money would buy there, not zero.
+- **Turn the price into a cost per click.** Divide the price by the median clicks, then compare it with your best channel's cost per click. The placement has to beat what the same money would buy there.
 - **Test before buying a bundle.** Run one placement, read the result, then negotiate a package with what you learned.
 
 Sponsorship marketplaces (for example Passionfroot, Paved, or beehiiv's ad network) make finding and booking newsletters faster. The vetting questions above still apply.
@@ -70,7 +70,7 @@ For the copy itself, see **copywriting**. For tightening a draft, see **copy-edi
 - **Per placement:** clicks, signups, activated or paying users, revenue, cost per click, and cost per signup.
 - **Check that the clicks are people.** B2B lists can pick up clicks from corporate email-security scanners that follow every link. If clicks far outnumber analytics sessions from that link, discount them.
 - **Add a "How did you hear about us?" question** to signup. Newsletter readers often search for you later instead of clicking, and that shows up as branded search or direct (see **attribution**).
-- **Decide after 2–3 placements per newsletter:** renew, change the angle or slot, or drop it. A single bad send isn't enough data, unless it never went out.
+- **Decide after 2–3 placements per newsletter:** renew, change the angle or slot, or drop it. One bad send is too little data to judge, unless it never went out.
 - **Feed the results back.** Add each placement's angle and result to the table above, so the next brief starts from it.
 
 *Adapted from Wispr Flow's newsletter-copy and link-creator skills (MIT), published in the skills.marketing library in 2026.*
