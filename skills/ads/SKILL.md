@@ -53,6 +53,7 @@ This skill's depth lives in references — load by intent. For **any operational
 | Google Search: what to spend on first, structure, match types, negatives, PMax | [google-search-playbook.md](references/google-search-playbook.md) | Intent ladder, account structure, match-type gates, negatives, bidding by volume, offline conversions, PMax guardrails |
 | Named-account targeting, pipeline acceleration, cross-channel retargeting | [abm-playbook.md](references/abm-playbook.md) | LinkedIn/Meta ABM, list mechanics, acceleration campaigns, UTM cross-channel remarketing, ABM measurement |
 | Generating Google RSAs | [rsa-output-spec.md](references/rsa-output-spec.md) | Mandatory output spec — limits, sidecars, template, self-check |
+| Weekly or daily account check, "what changed," stakeholder readout | [operating-check.md](references/operating-check.md) | Ordered six-step check, HOLD/FIX/TEST/INVESTIGATE calls, facts/hypotheses/missing data, Friday readout under 200 words |
 | Auditing a live account, grading account health, quoting benchmarks, recommending changes | [audit-guardrails.md](references/audit-guardrails.md) | Pass/fail/unknown scoring, evidence coverage, recommendation safety, hard stops, benchmark discipline |
 | Analyzing or reporting on Google Ads data, search-term waste, pause/keep/scale on low volume, client-facing findings | [reading-google-ads-data.md](references/reading-google-ads-data.md) | Withheld search terms (disclosed vs total clicks), conversions vs all_conversions, click-date attribution, experiment arms, 30-day change history, zero-in-N table, break-even CVR, verified/inferred/stale, "conclusions that sound right" |
 | Itemized Google Ads / ecommerce account audit (Search + Shopping + PMax + GMC + Demand Gen) | [google-ads-audit-checklist.md](references/google-ads-audit-checklist.md) | 32 checks across 11 categories — feed/GMC quality, Shopping segmentation, PMax signals/budget, DG format splits, lander funnels; each scored pass/fail/unknown/NA via audit-guardrails |
@@ -327,13 +328,16 @@ The math: 3 simultaneous tests × ~10-20% lift each (compounding) = a fundamenta
 
 ## Reporting & Analysis
 
-### Weekly Review
-- Spend vs. budget pacing
-- CPA/ROAS vs. targets (split brand vs. non-brand — see below)
-- Top and bottom performing ads
-- Audience performance breakdown
-- Frequency check (fatigue risk)
-- Landing page conversion rate
+### Weekly Operating Check
+Check in a fixed order, because a cause higher up explains symptoms lower down: **spend → traffic → conversions → creative → landing page → tracking**. Split brand from non-brand (see below) and check change history against every movement.
+
+End every check in exactly one call:
+- **HOLD**: change nothing; normal variance, small sample, learning phase, or lag
+- **FIX**: a named problem with a known fix
+- **TEST**: a hypothesis worth money, with a metric and a stopping rule
+- **INVESTIGATE**: the data can't be trusted yet (this overrides the other three)
+
+Close the week with a stakeholder readout under 200 words: results vs target (green/amber/red), top movers with cause and confidence, and next week's calls. Full check, inputs, and readout format: [operating-check.md](references/operating-check.md).
 
 ### Attribution Considerations
 - Platform attribution is inflated
