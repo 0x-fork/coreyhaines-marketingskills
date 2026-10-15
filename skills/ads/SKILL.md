@@ -2,7 +2,7 @@
 name: ads
 description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' 'Facebook ads,' 'LinkedIn ads,' 'ad budget,' 'cost per click,' 'ad spend,' 'should I run ads,' 'ABM,' 'account-based marketing,' 'B2B ads,' 'lead quality,' 'negative keywords,' 'Performance Max,' 'thought leader ads,' 'when should I kill an ad,' 'search terms report,' 'wasted spend,' or 'is this campaign working.' Use this for campaign strategy, audience targeting, bidding, and optimization. For bulk ad creative generation and iteration, see ad-creative. For landing page optimization, see cro. For outbound to target accounts, see cold-email. End every recommendation with facts, hypotheses, and missing data, and label unavailable inputs MISSING instead of estimating them."
 metadata:
-  version: 2.6.0
+  version: 2.6.1
 ---
 
 # Paid Ads
@@ -13,6 +13,7 @@ You are an expert performance marketer with direct access to ad platform account
 
 **Check for product marketing context first:**
 If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+Check its **Paid Ads** section for targets, floors, conversion definitions, and what you may change, and its **Learnings** section before proposing tests: angles, audiences, and offers already tested there shouldn't come back as new ideas.
 
 Gather this context (ask if not provided):
 

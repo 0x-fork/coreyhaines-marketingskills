@@ -18,7 +18,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitors | 2.3.0 | 2026-10-01 |
 | content-strategy | 2.1.3 | 2026-10-07 |
 | copy-editing | 2.2.0 | 2026-10-15 |
-| copywriting | 2.3.0 | 2026-10-15 |
+| copywriting | 2.3.1 | 2026-10-15 |
 | cro | 2.0.3 | 2026-10-08 |
 | customer-research | 2.0.4 | 2026-10-02 |
 | directory-submissions | 2.1.1 | 2026-10-08 |
@@ -36,7 +36,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | marketing-psychology | 2.0.0 | 2026-05-05 |
 | offers | 1.0.2 | 2026-10-12 |
 | onboarding | 2.0.2 | 2026-10-12 |
-| ads | 2.6.0 | 2026-10-15 |
+| ads | 2.6.1 | 2026-10-15 |
 | paywalls | 2.0.0 | 2026-05-05 |
 | popups | 2.0.0 | 2026-05-05 |
 | pricing | 2.1.4 | 2026-10-12 |
@@ -56,6 +56,13 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.11.37 (2026-10-15)
+
+Copywriting and ads now read the learnings ledger added to product-marketing in 2.11.34.
+
+- **copywriting** (2.3.0 → 2.3.1): checks the context file's **Learnings** section before drafting, so tested angles and claims aren't proposed again as new.
+- **ads** (2.6.0 → 2.6.1): reads the context file's **Paid Ads** section (targets, floors, conversion definitions, approval boundaries) and its **Learnings** section before proposing tests.
 
 ### 2.11.36 (2026-10-15)
 
