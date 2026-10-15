@@ -851,11 +851,12 @@ Loops are grouped by function. Naming follows the "The X loop" convention.
 - **Check cadence**: On campaign end (event-based)
 - **Acts when**: A campaign (launch, promo, seasonal push) concludes.
 - **Purpose**: Capture results, lessons, and reusable assets so each campaign compounds.
-- **Skills used**: `analytics`, `marketing-plan`
+- **Skills used**: `analytics`, `marketing-plan`, `product-marketing`
 - **Loop body**:
   1. Pull final campaign results vs. goals.
   2. Capture what worked, what didn't, and why; save reusable assets (copy, creative, workflows).
   3. Feed learnings into the experiment backlog and the next plan; log follow-ups.
+  4. Propose the lessons that should change future work as rows for the **Learnings** table in the product-marketing context doc (see `loop-state.md`).
 - **Self-check**: Are conclusions supported by the data, or hindsight narrative? Separate correlation from cause.
 - **State / idempotency**: One postmortem per campaign; don't re-run on an already-documented campaign.
 - **Stop / bail-out**: No concluded campaign → skip.
