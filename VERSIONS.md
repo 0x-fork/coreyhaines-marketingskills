@@ -6,7 +6,7 @@ Current versions of all skills. Agents can compare against local versions to che
 |-------|---------|--------------|
 | ab-testing | 2.0.2 | 2026-10-12 |
 | ad-creative | 2.12.0 | 2026-10-14 |
-| ai-seo | 2.8.0 | 2026-10-14 |
+| ai-seo | 2.9.0 | 2026-10-15 |
 | analytics | 2.1.0 | 2026-10-12 |
 | aso | 2.0.2 | 2026-10-08 |
 | attribution | 1.1.5 | 2026-10-12 |
@@ -56,6 +56,12 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.11.32 (2026-10-15)
+
+AI search measurement for ai-seo, adapted with credit from Profound's MIT-licensed AEO skills and labeled as vendor research.
+
+- **ai-seo** (2.8.0 → 2.9.0): four new references. `answer-accuracy.md` is a claim ledger for what AI says about you, with seven verdicts, source tracing, severity, and a fix-the-source workflow. `prompt-portfolio.md` covers intent families, stable/exploratory/control cohorts, versioning, run cadence by portfolio size, and multi-turn buying journeys. `ai-attribution.md` measures exposure, immediate, delayed, and business layers with 1-hour, 24-hour, and 7-day windows and names the evaluation design behind each claim. `multilingual-and-commerce.md` adds a per-language AEO checklist and a fit check for AI shopping surfaces. Citations-vs-recommendations gains a citation-mix taxonomy with channel rules; agent-defaults gains a docs audit for coding agents (task-to-page map, technical fact ledger); content-patterns gains a fact-family fan-out matrix. SKILL.md adds an evidence-order rule and replaces the "third-party sources matter more than your own site" claim with the measured citation mix. Stat cleanup: SE Ranking, Profound, and BrightEdge figures now carry sources and dates; the ZipTie attribution is corrected to Sellm.io; the 40/35/25 split, the 3.2x freshness multiplier, and the 30–40% schema lift are cut as unverifiable.
 
 ### 2.11.31 (2026-10-15)
 
