@@ -1,6 +1,6 @@
 ---
 name: product-marketing
-description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context."
+description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' 'brand voice,' 'tone of voice,' 'brand guidelines,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context."
 metadata:
   version: 2.1.0
 ---
@@ -110,9 +110,11 @@ The JTBD Four Forces:
 - Glossary of product-specific terms
 
 ### 10. Brand Voice
-- Tone (professional, casual, playful, etc.)
-- Communication style (direct, conversational, technical)
-- Brand personality (3-5 adjectives)
+- 3-5 voice attributes, each with what it means, what it doesn't mean, and a real line from existing copy
+- Tone by context: how the voice shifts for support, launches, errors, sales, and social
+- Brand words: terms you own, words you never use (with the reason)
+
+Build this from copy that already performed and from the founder's own writing, rather than from adjectives picked in a meeting. See [references/brand-voice.md](references/brand-voice.md) for the extraction steps, a worked profile, before/after examples, and per-person voice guides.
 
 ### 11. Proof Points
 - Key metrics or results to cite
@@ -203,9 +205,18 @@ After gathering information, create `.agents/product-marketing.md` with this str
 | | |
 
 ## Brand Voice
-**Tone:**
-**Style:**
-**Personality:**
+| Attribute | Means | Doesn't mean | Example line |
+|-----------|-------|--------------|--------------|
+| | | | |
+
+**Tone by context:**
+- Support:
+- Launch:
+- Errors:
+- Sales:
+- Social:
+**Terms we own:**
+**Never use (and why):**
 
 ## Proof Points
 **Metrics:**
