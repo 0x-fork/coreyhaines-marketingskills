@@ -130,7 +130,7 @@ Ground the talking points in real proof (reviews, results) — same grounding di
 Influencer marketing suffers from attribution gaps — fix them upfront, before the campaign runs:
 
 - **Unique promo codes** (e.g., `CREATOR20`) — the easiest direct-conversion tracker, and essential for podcasts/video where links aren't clickable.
-- **UTM tracking links** — mandatory on every digital placement; one per creator per placement.
+- **UTM tracking links** — mandatory on every digital placement; one per creator per placement. Use the fixed pattern for each partner type (newsletter, creator, podcast, affiliate, community) in **analytics** (UTM Patterns by Partner Type), so every deal rolls up the same way.
 - **Vanity / dedicated landing pages** — `yourdomain.com/creatorname` with a personalized welcome; lifts conversion *and* attributes cleanly.
 - **Post-purchase survey** — "How did you hear about us?" catches the halo/branded-search effect that promo codes and last-click miss (much of influencer impact shows up later as branded search and direct — see **attribution** for the blind-spot framework; **ai-seo** when the discovery path was AI search).
 - **Whitelisting performance** — when you repurpose creator content as ads, that ad's own metrics are a clean read on the creative's real pull.
