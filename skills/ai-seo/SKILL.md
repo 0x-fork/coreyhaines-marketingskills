@@ -420,6 +420,7 @@ Not all content is equally citable — and the format mix is **volatile**. The l
 | **Peec AI** | ChatGPT, Gemini, Perplexity, Claude, Copilot+ | Multi-platform monitoring at scale |
 | **ZipTie** | Google AI Overviews, ChatGPT, Perplexity | Brand mention + sentiment tracking |
 | **LLMrefs** | ChatGPT, Perplexity, AI Overviews, Gemini | SEO keyword → AI visibility mapping |
+| **Profound, Ahrefs Brand Radar, Semrush** | Major assistants and Google AI surfaces | Larger programs: cited sources, answer text, prompt demand (Profound's studies are cited in the references as vendor research) |
 
 ### DIY Monitoring (No Tools)
 
