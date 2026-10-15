@@ -123,7 +123,7 @@ Google's own example: a user asking "how to fix lawns" triggers fan-out queries 
 - Long-tail intent matters less than topical authority — Google's AI systems understand synonyms and semantic equivalence.
 - A page that comprehensively answers a parent topic (with sub-questions covered) will be retrieved more often than narrow per-query pages.
 
-**Action**: when planning content, brainstorm the 5–10 related queries the AI is likely to fan out to and make sure your content (or your site as a whole) covers them.
+**Action**: when planning content, brainstorm the 5–10 related queries the AI is likely to fan out to and make sure your content (or your site as a whole) covers them, with one owning page per fact family (matrix in [references/content-patterns.md](references/content-patterns.md)).
 
 ChatGPT fans out too — and you can extract its *literal* background queries for your niche via DevTools (method in [references/format-volatility.md](references/format-volatility.md)). Post-5.6, ChatGPT's fan-outs shifted away from "best/vs/top" modifiers toward `site:` and "official" searches — use the extraction to see where your category's fan-outs stand today.
 
