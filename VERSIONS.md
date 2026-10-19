@@ -29,7 +29,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | influencer-marketing | 1.4.0 | 2026-10-15 |
 | launch | 2.2.0 | 2026-10-07 |
 | lead-magnets | 2.1.0 | 2026-10-08 |
-| link-building | 1.0.0 | 2026-10-15 |
+| link-building | 1.0.1 | 2026-10-19 |
 | marketing-council | 1.0.0 | 2026-07-06 |
 | marketing-ideas | 2.0.1 | 2026-08-23 |
 | marketing-loops | 1.6.1 | 2026-10-15 |
@@ -57,6 +57,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.12.1 (2026-10-19)
+
+- **link-building** (1.0.0 → 1.0.1): the tools table lists managed placement services (LinkDR) and points to the risk policy's vendor checks, since a followed link paid for per placement is a paid link.
 
 ### 2.12.0 (2026-10-15)
 
