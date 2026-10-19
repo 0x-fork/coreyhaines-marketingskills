@@ -116,6 +116,20 @@ Claude uses Brave Search as its search backend when web search is enabled — no
 
 ---
 
+## Meta AI and Muse
+
+Meta AI answers questions across Facebook, Instagram, WhatsApp, Messenger, and Meta's glasses. Muse, Meta's personal agent built on the Muse Spark model, launched in September 2026 and acts for the user: it connects to apps, recommends products, and buys them. Muse can search the full Shopify product catalog and check out with Link by Stripe, Shop Pay, and PayPal, plus retail connectors such as Walmart, Best Buy, Sephora, and Wayfair (TechCrunch, Sep 2026). Meta makes Muse free and expects to earn a fee on transactions, so shopping is the surface to watch.
+
+Meta hasn't documented which search index Meta AI uses or how it picks sources. Early hands-on tests found Muse unreliable at shopping tasks (Tom's Guide and CNN, Sep 2026). Treat practitioner claims about "ranking in Muse" as unverified.
+
+**What to focus on:**
+- Allow `meta-webindexer`. Meta says it crawls to improve Meta AI search results and so Meta can cite and link your content. Decide on `meta-externalagent` (training) separately
+- For physical products, make sure your Shopify catalog data is complete and current: titles, attributes, variants, price, and availability (see [multilingual-and-commerce.md](multilingual-and-commerce.md))
+- Apply the agent-readability basics in SKILL.md's Agentic Experiences section, since Muse reads and acts on pages for the user
+- Test with real prompts in the Meta AI app and log results with dates; there's no Meta citation report to rely on
+
+---
+
 ## Allowing AI Bots in robots.txt
 
 Do not copy one blanket allowlist. Choose controls by documented purpose, then check WAF and CDN rules as well as `robots.txt`.
@@ -159,7 +173,7 @@ If you're optimizing for AI search for the first time, focus your effort where y
 
 **Then expand to Perplexity** — Especially valuable if your audience includes researchers, early adopters, or tech professionals. Add FAQ schema, publish PDF resources, and write in clear, self-contained paragraphs.
 
-**Copilot and Claude are lower priority** unless your audience skews enterprise/Microsoft (Copilot) or developer/analyst (Claude). But the fundamentals — structured content, cited sources, schema markup — help across all platforms.
+**Copilot, Claude, and Meta AI are lower priority** unless your audience skews enterprise/Microsoft (Copilot), developer/analyst (Claude), or consumer shopping on Meta's apps (Meta AI and Muse). But the fundamentals — structured content, cited sources, schema markup — help across all platforms.
 
 **Actions that help everywhere:**
 1. Set an explicit, purpose-specific robots policy: allow relevant discovery crawlers while deciding training and user-triggered retrieval separately
