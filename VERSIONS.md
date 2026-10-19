@@ -63,7 +63,7 @@ Current versions of all skills. Agents can compare against local versions to che
 Omnia partner integration and ai-seo monitoring table update.
 
 - **Omnia** joins as Skill Partner: integration guide with ◆ disclosure, partners.json entry, README and REGISTRY partner tables regenerated.
-- **ai-seo** (2.10.0 → 2.10.1): adds Omnia alongside existing AI visibility monitoring options, with agent-assisted content optimization and outreach.
+- **ai-seo** (2.10.0 → 2.10.1): adds Omnia alongside existing AI visibility monitoring options.
 
 ### 2.12.2 (2026-10-19)
 

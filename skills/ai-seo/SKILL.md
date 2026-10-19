@@ -422,7 +422,7 @@ Not all content is equally citable — and the format mix is **volatile**. The l
 | **ZipTie** | Google AI Overviews, ChatGPT, Perplexity | Brand mention + sentiment tracking |
 | **LLMrefs** | ChatGPT, Perplexity, AI Overviews, Gemini | SEO keyword → AI visibility mapping |
 | **Profound, Ahrefs Brand Radar, Semrush** | Major assistants and Google AI surfaces | Larger programs: cited sources, answer text, prompt demand (Profound's studies are cited in the references as vendor research) |
-| **Omnia** | Google AI Mode, Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude, Copilot | AI visibility monitoring + agent-assisted content optimization and outreach |
+| **Omnia** | Google AI Mode, Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude, Copilot | AI visibility monitoring |
 
 ### DIY Monitoring (No Tools)
 
