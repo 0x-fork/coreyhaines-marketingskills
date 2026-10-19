@@ -6,7 +6,7 @@ Current versions of all skills. Agents can compare against local versions to che
 |-------|---------|--------------|
 | ab-testing | 2.0.2 | 2026-10-12 |
 | ad-creative | 2.12.1 | 2026-10-15 |
-| ai-seo | 2.10.0 | 2026-10-19 |
+| ai-seo | 2.10.1 | 2026-10-19 |
 | analytics | 2.2.1 | 2026-10-19 |
 | aso | 2.0.2 | 2026-10-08 |
 | attribution | 1.1.6 | 2026-10-19 |
@@ -70,6 +70,21 @@ Current versions of all skills. Agents can compare against local versions to che
 - **analytics** (2.2.0 → 2.2.1): description drops the "conversion tracking" and "track conversions" triggers and hands getting conversions into ad platforms to conversion-tracking.
 - **attribution** (1.1.5 → 1.1.6): pixels, CAPI and server-side conversion tracking now route to conversion-tracking (description, Boundaries, Related Skills, and the by-business-type tooling note).
 - **ads** (2.6.1 → 2.6.2): conversion tracking pointers (routing table, Platform Setup, tracking setup line, google-ads-audit-checklist) now go to the conversion-tracking skill; description and Related Skills name it. `references/conversion-tracking.md` retired, its content carried into conversion-tracking's browser-side.md, audit-playbook.md and server-side.md.
+
+### 2.12.4 (2026-10-19)
+
+AIsa integration layer by first-time contributor @lhymmEU: tools/aisa/ coverage map + evals, SETUP.md/REGISTRY.md/tools/integrations/aisa.md updates.
+
+- Added an AIsa integration quick start, task-level data coverage map, and evaluation scenarios under `tools/aisa/`. Listed AIsa as an optional connection in guided tool setup, with links from its existing guide and the registry.
+- Documented AIsa's MCP setup, free connection verification, and estimate-based price admission checks. Core skill files and per-skill versions are unchanged.
+
+### 2.12.3 (2026-10-19)
+
+Omnia partner integration and ai-seo monitoring table update.
+
+- **Omnia** joins as Skill Partner: integration guide with ◆ disclosure, partners.json entry, README and REGISTRY partner tables regenerated.
+- **ai-seo** (2.10.0 → 2.10.1): adds Omnia alongside existing AI visibility monitoring options.
+
 ### 2.12.2 (2026-10-19)
 
 - **ai-seo** (2.9.1 → 2.10.0): the bot access check and robots.txt config separate Meta's crawlers by documented purpose: `meta-webindexer` for Meta AI search and citations, `meta-externalagent` for training, and `meta-externalfetcher` for user requests, which may bypass robots.txt. A new Meta AI and Muse section in the platform reference covers Muse as a shopping agent that buys from the Shopify catalog, and states what Meta hasn't documented. The commerce reference adds Muse and catalog data to the audit. Agentic Experiences adds two checks: proof such as testimonials and ratings kept as selectable text, and "as of" dates on key facts.
