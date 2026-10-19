@@ -22,7 +22,7 @@ For a small audit, manual prompt checks and a spreadsheet are sufficient. See th
 | CLI | - | No dedicated CLI documented; use HTTP requests |
 | SDK | - | No official SDK documented; use a standard HTTP client |
 
-The [MCP overview](https://docs.useomnia.com/mcp) describes access to monitoring data and API-documentation discovery. Use current brand, prompt, and view endpoints for visibility, share of voice, citations, and sentiment. Engine filters include ChatGPT (`openai`), Perplexity, Google AI Overviews, Google AI Mode, Gemini, Grok, Copilot, and Claude; check the account's monitored engines before comparing results.
+The [MCP overview](https://docs.useomnia.com/mcp) describes access to monitoring data and API-documentation discovery. Use current brand, prompt, and view endpoints for visibility, Share of Voice, citations, and sentiment. Engine filters include ChatGPT (`openai`), Perplexity, Google AI Overviews, Google AI Mode, Gemini, Grok, Copilot, and Claude; check the account's monitored engines before comparing results.
 
 The built-in [Omnia Agent](https://www.useomnia.com/omnia-agent) researches citation sources, proposes projects, drafts and updates content, and supports publishing and third-party outreach through connected apps with user approval. These execution features run inside Omnia; the MCP and API setup below covers access to monitoring data and documented API operations.
 
@@ -98,7 +98,7 @@ curl --fail-with-body --silent --show-error --get \
   --data-urlencode 'pageSize=100'
 ```
 
-The [endpoint reference](https://docs.useomnia.com/api/brand/performance/get-share-of-voice-aggregates) documents `engine`, `locations`, `tags`, and `promptType` (`Branded` or `Non-Branded`) filters. Results include `data.aggregates` with `brand`, `mentionCount`, `rank`, `relationship`, and `shareOfVoice`. Share of voice is each brand's portion of all brand mentions in the sampled answers, not its citation rate. Preserve filters and sampling when comparing periods.
+The [endpoint reference](https://docs.useomnia.com/api/brand/performance/get-share-of-voice-aggregates) documents `engine`, `locations`, `tags`, and `promptType` (`Branded` or `Non-Branded`) filters. Results include `data.aggregates` with `brand`, `mentionCount`, `rank`, `relationship`, and `shareOfVoice`. Share of Voice is each brand's portion of all brand mentions in the sampled answers, not its citation rate. Preserve filters and sampling when comparing periods.
 
 ### Inspect the Evidence
 
@@ -118,8 +118,8 @@ Paths are relative to the API base URL. AI-answer and performance queries requir
 
 ## Practical Workflows
 
-1. **Visibility monitoring:** Select commercially relevant tracked prompts, record engine/location/date filters, compare brand mentions and share of voice across equal periods.
-2. **Competitor analysis:** Compare `competitor` rows in visibility and share-of-voice aggregates, and check `mentionedBrands` in AI answers. Review recurring recommendations and their context.
+1. **Visibility monitoring:** Select commercially relevant tracked prompts, record engine/location/date filters, compare brand mentions and Share of Voice across equal periods.
+2. **Competitor analysis:** Compare `competitor` rows in visibility and Share of Voice aggregates, and check `mentionedBrands` in AI answers. Review recurring recommendations and their context.
 3. **Citation-gap analysis:** Inspect cited URLs for prompts where competing brands appear and the user's brand does not. Check whether those pages actually cover the competitors, then distinguish missing owned answers from missing credible third-party coverage.
 4. **Prioritize improvements:** Combine repeated gaps with customer questions, product fit, available evidence, and effort. Draft page updates, content briefs, or relevant third-party outreach opportunities; remeasure the same prompts after publishing. Observed patterns inform priorities; they do not prove a cause or guarantee a remedy.
 
@@ -129,12 +129,12 @@ Use the `ai-seo` and `content-strategy` skills for decisions and execution beyon
 
 - An active account, accessible brand, and collected prompt-monitoring data are required for meaningful analysis. Confirm plan entitlements, monitoring limits, and credits before enabling monitoring.
 - MCP uses interactive OAuth. For unattended scripts, use the documented API-key flow (keys start with `ot_`); store the key in `OMNIA_API_KEY`. API-key authentication on the MCP server is not documented here.
-- Rate limits: token bucket with GET=1/sec, writes=5/sec. On `429`, honor `Retry-After` and check `X-RateLimit-Remaining` for remaining capacity before the next call. See [rate limiting](https://docs.useomnia.com/api/rate-limiting).
+- Rate limits: token bucket; each GET costs 1 token and each write costs 5. Check `X-RateLimit-Remaining`, and on `429` back off using `Retry-After`. See [rate limiting](https://docs.useomnia.com/api/rate-limiting).
 - Some operations consume credits (e.g., generating insights). Check your account's credit balance before enabling automated workflows that may spend credits.
 - AI answers vary between runs, engines, locations, and time periods. Monitoring reflects the configured prompt sample, not every buyer conversation or actual search demand. Citation changes do not prove an intervention caused recommendations.
 - APIs also support writes. Read the current schema and confirm intended scope before changing brands, prompts, or monitoring; deletions can remove history permanently.
 - Follow pagination `links.next` until exhausted (`pageSize` accepts 5–100). AI-answer listing warns that page lengths and reported totals can be approximate. See [pagination](https://docs.useomnia.com/api/pagination) and the AI-answer reference above.
-- Response shapes vary by endpoint. Parse the documented `data` fields; [streaming metrics exports](https://docs.useomnia.com/api/brand/performance/stream-metrics-export) use NDJSON, while [asynchronous metrics exports](https://docs.useomnia.com/api/brand/performance/create-metrics-export-task) produce a downloadable ZIP with NDJSON or CSV files. Exports cover share of voice, visibility, and citations at brand or prompt granularity. Async results can be obtained by polling or completion webhooks; see [responses](https://docs.useomnia.com/api/responses) and [async operations](https://docs.useomnia.com/api/async-operations).
+- Response shapes vary by endpoint. Parse the documented `data` fields; [streaming metrics exports](https://docs.useomnia.com/api/brand/performance/stream-metrics-export) use NDJSON, while [asynchronous metrics exports](https://docs.useomnia.com/api/brand/performance/create-metrics-export-task) produce a downloadable ZIP with NDJSON or CSV files. Exports cover Share of Voice, visibility, and citations at brand or prompt granularity. Async results can be obtained by polling or completion webhooks; see [responses](https://docs.useomnia.com/api/responses) and [async operations](https://docs.useomnia.com/api/async-operations).
 
 ## Documentation
 
