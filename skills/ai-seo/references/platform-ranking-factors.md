@@ -127,11 +127,13 @@ User-agent: Googlebot
 User-agent: OAI-SearchBot
 User-agent: PerplexityBot
 User-agent: Claude-SearchBot
+User-agent: meta-webindexer
 Allow: /
 
 # Potential model training (publisher choice shown as disallow)
 User-agent: GPTBot
 User-agent: ClaudeBot
+User-agent: meta-externalagent
 Disallow: /
 
 # Gemini model training and grounding (publisher choice shown as disallow)
@@ -139,9 +141,9 @@ User-agent: Google-Extended
 Disallow: /
 ```
 
-User-triggered fetchers such as `ChatGPT-User`, `Claude-User`, and `Perplexity-User` are separate from automatic discovery. Vendor behavior can differ: OpenAI says `robots.txt` rules may not apply to `ChatGPT-User`, and Perplexity says `Perplexity-User` generally ignores them because these fetches are user-requested. Use `OAI-SearchBot`, not `ChatGPT-User`, to manage ChatGPT Search inclusion. `Google-Extended` is a standalone product token rather than a separate HTTP crawler; Google says it controls certain Gemini training and grounding uses and does not affect Google Search inclusion or ranking.
+User-triggered fetchers such as `ChatGPT-User`, `Claude-User`, and `Perplexity-User` are separate from automatic discovery. Vendor behavior can differ: OpenAI says `robots.txt` rules may not apply to `ChatGPT-User`, and Perplexity says `Perplexity-User` generally ignores them because these fetches are user-requested, and Meta says `meta-externalfetcher` may bypass them. Meta also runs `facebookexternalhit` for link previews when a URL is shared on its apps; leave it allowed or shared links lose their title and image. Use `OAI-SearchBot`, not `ChatGPT-User`, to manage ChatGPT Search inclusion. `Google-Extended` is a standalone product token rather than a separate HTTP crawler; Google says it controls certain Gemini training and grounding uses and does not affect Google Search inclusion or ranking.
 
-Verify the current names and consequences in the vendors' maintained documentation: [OpenAI](https://developers.openai.com/api/docs/bots), [Perplexity](https://docs.perplexity.ai/docs/resources/perplexity-crawlers), [Anthropic](https://privacy.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler), and [Google](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers).
+Verify the current names and consequences in the vendors' maintained documentation: [OpenAI](https://developers.openai.com/api/docs/bots), [Perplexity](https://docs.perplexity.ai/docs/resources/perplexity-crawlers), [Anthropic](https://privacy.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler), [Meta](https://developers.facebook.com/docs/sharing/webmasters/web-crawlers), and [Google](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers).
 
 For implementation, inspect `/robots.txt` manually first. Optional helpers include each vendor's own crawler documentation and robots.txt testing tools.
 

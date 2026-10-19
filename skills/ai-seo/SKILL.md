@@ -182,9 +182,9 @@ For each priority page, verify:
 
 Audit AI user agents by purpose. Search-discovery, user-triggered retrieval, model-training, and product-control tokens are not interchangeable:
 
-- **Search discovery:** `OAI-SearchBot` (ChatGPT), `PerplexityBot`, `Claude-SearchBot`, and the conventional search crawlers that feed an answer product
-- **User-triggered retrieval:** `ChatGPT-User`, `Claude-User`, and `Perplexity-User`; vendor handling can differ from automatic crawlers, so verify the current documentation
-- **Potential model training:** `GPTBot` and `ClaudeBot`
+- **Search discovery:** `OAI-SearchBot` (ChatGPT), `PerplexityBot`, `Claude-SearchBot`, `meta-webindexer` (Meta AI), and the conventional search crawlers that feed an answer product
+- **User-triggered retrieval:** `ChatGPT-User`, `Claude-User`, `Perplexity-User`, and `meta-externalfetcher`; vendor handling can differ from automatic crawlers, so verify the current documentation
+- **Potential model training:** `GPTBot`, `ClaudeBot`, and `meta-externalagent`
 - **Google product control:** `Google-Extended` controls certain Gemini training and grounding uses of content Google already crawls; it does not affect Google Search inclusion or ranking
 
 Check each relevant user-agent group and any WAF or CDN rules separately. A publisher can allow search discovery while disallowing model-development crawlers; do not infer that blocking a training crawler necessarily blocks citations. See [references/platform-ranking-factors.md](references/platform-ranking-factors.md) for the full robots.txt configuration.
