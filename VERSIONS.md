@@ -65,6 +65,10 @@ New skill: **link-building**, for earning links and third-party mentions that li
 - **link-building** (new, 1.0.0): confirms links are the bottleneck with a page-level link gap before any outreach, then ranks tactics by effort and quality (unlinked mention reclamation, partner and integration pages, moved and broken links, "best X" list inclusion, resource pages, broken link replacement, editorial guest articles) and hands PR, podcasts, directories, reviews, and communities to their own skills. Every placement is judged for SEO authority and for whether AI engines cite the page, so mentions without links count. References cover tactic playbooks, prospecting and qualification with outreach templates and a tracker, and a risk policy built on Google's spam policies (updated 2026-08-28): paid placements carry rel=sponsored or nofollow, plus vendor vetting, manual actions, and when disavow is warranted. Five evals.
 - **Routing** (patch bumps): seo-audit, content-strategy, directory-submissions, public-relations, competitor-profiling, free-tools, and ai-seo now point link work to link-building. The marketing-loops backlink-prospecting loop runs through it, adds AI-cited pages as prospects, and uses the outreach tracker as its state.
 
+### 2.11.38 (2026-10-15)
+
+- Validate OneSignal segment filter object arrays with the documented 200-entry limit, while preserving JSON alias dictionaries and comma-separated external IDs, including numeric-looking IDs.
+
 ### 2.11.37 (2026-10-15)
 
 Copywriting and ads now read the learnings ledger added to product-marketing in 2.11.34.
