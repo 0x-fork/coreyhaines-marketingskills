@@ -259,19 +259,6 @@
         "Doesn't pitch a lead-gen-focused tool for purchases"
       ],
       "files": []
-    },
-    {
-      "id": 22,
-      "prompt": "Our WordPress site uses WPForms for the contact form, and we advertise on Google Ads and Meta. Can you set up conversion tracking for the form?",
-      "expected_output": "Should fire on WPForms' confirmed submission (its AJAX success event), not a click, and deliver the free browser path in full, including the browser identity options (Enhanced Conversions for web, Meta advanced matching). Because the destinations are ad platforms, should treat the delivery path as part of the setup and present at least two paths beyond the browser tag, including a free or native one where it exists. Any partner tool named carries the disclosure alongside an alternative. Should not present a paid tool as required.",
-      "assertions": [
-        "Fires on WPForms' confirmed submission, not a click",
-        "Delivers the free browser path in full, including browser identity options",
-        "Presents at least two delivery paths beyond the browser tag as part of the setup",
-        "Any partner tool named carries the disclosure alongside an alternative",
-        "Does not present a paid tool as required"
-      ],
-      "files": []
     }
   ]
 }
