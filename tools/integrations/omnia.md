@@ -1,15 +1,15 @@
 # Omnia
 
-Answer engine optimization (AEO) platform combining AI visibility monitoring, prompt discovery, competitor benchmarking, and citation analysis with an AI agent for content optimization, publishing, and third-party outreach.
+> **◆ Verified Partner integration.** Omnia sponsors Marketing Skills. This integration is disclosed and vetted for fit; it does **not** change what any skill recommends. It's listed here alongside the neutral options for the same job — use it when it's the right fit, not because it's a partner. See [Verified Partners](../REGISTRY.md#verified-partners).
 
-> **Contributor disclosure:** This guide was contributed by a member of the Omnia team.
+Answer engine optimization (AEO) platform combining AI visibility monitoring, prompt discovery, competitor benchmarking, and citation analysis with an AI agent for content optimization, publishing, and third-party outreach.
 
 ## When to Use
 
 Use when the user wants to monitor and improve their brand’s visibility in AI search answers. Track brand mentions, share of voice, and citations; review whether answers recommend the brand; compare competitors; and identify opportunities to improve content and third-party presence.
 
 - **Connected assistant:** Use MCP to analyze Omnia data interactively, or the API to build recurring reports and scripts. Apply the ai-seo and content-strategy skills to turn the evidence into content briefs, page improvements, and outreach opportunities.
-- **Built-in Omnia Agent:** Use the agent inside Omnia to research sources, propose projects, create or update content, and publish or send outreach through connected apps with user approval. Remeasure visibility to inform the next iteration.
+- **Built-in Omnia Agent:** Use your Omnia Agent to research sources, propose projects, create or update content, and publish or send outreach through connected apps with user approval. Remeasure visibility to inform the next iteration.
 
 For a small audit, manual prompt checks and a spreadsheet are sufficient. See the ai-seo skill for other monitoring tools and options.
 
@@ -36,27 +36,23 @@ See [API authentication](https://docs.useomnia.com/api/authentication).
 
 ## MCP Setup
 
-Add a remote server with these settings:
+**Claude Code**
 
-| Setting | Value |
-|---------|-------|
-| URL | `https://app.useomnia.com/mcp` |
-| Transport | Streamable HTTP |
-| Authentication | OAuth |
-
-For Cursor, add this to its MCP configuration, restart the client, and complete OAuth when first using a tool:
-
-```json
-{
-  "mcpServers": {
-    "omnia": {
-      "url": "https://app.useomnia.com/mcp"
-    }
-  }
-}
+```bash
+claude mcp add --transport http omnia https://app.useomnia.com/mcp
 ```
 
-Other clients use different configuration keys. Follow the [client connection guide](https://docs.useomnia.com/mcp/connecting) for your client.
+Then go to `/mcp` → omnia → Authenticate and complete OAuth.
+
+**stdio-only clients**
+
+Use `mcp-remote` to proxy Omnia's Streamable HTTP server to stdio:
+
+```bash
+npx -y mcp-remote https://app.useomnia.com/mcp
+```
+
+Point your client's config at that wrapper and follow its OAuth flow.
 
 After connecting, list the server's tools and read their input schemas. Use a read-only request to confirm the intended brand is accessible. Data tools query monitoring results; discovery tools retrieve live endpoint specifications and schemas for writing API code. Do not guess tool names or assume every tool is read-only.
 
@@ -132,11 +128,12 @@ Use the `ai-seo` and `content-strategy` skills for decisions and execution beyon
 ## Limitations and Prerequisites
 
 - An active account, accessible brand, and collected prompt-monitoring data are required for meaningful analysis. Confirm plan entitlements, monitoring limits, and credits before enabling monitoring.
-- MCP uses interactive OAuth. For unattended scripts, use the documented API-key flow; API-key authentication on the MCP server is not documented here.
+- MCP uses interactive OAuth. For unattended scripts, use the documented API-key flow (keys start with `ot_`); store the key in `OMNIA_API_KEY`. API-key authentication on the MCP server is not documented here.
+- Rate limits: token bucket with GET=1/sec, writes=5/sec. On `429`, honor `Retry-After` and check `X-RateLimit-Remaining` for remaining capacity before the next call. See [rate limiting](https://docs.useomnia.com/api/rate-limiting).
+- Some operations consume credits (e.g., generating insights). Check your account's credit balance before enabling automated workflows that may spend credits.
 - AI answers vary between runs, engines, locations, and time periods. Monitoring reflects the configured prompt sample, not every buyer conversation or actual search demand. Citation changes do not prove an intervention caused recommendations.
 - APIs also support writes. Read the current schema and confirm intended scope before changing brands, prompts, or monitoring; deletions can remove history permanently.
 - Follow pagination `links.next` until exhausted (`pageSize` accepts 5–100). AI-answer listing warns that page lengths and reported totals can be approximate. See [pagination](https://docs.useomnia.com/api/pagination) and the AI-answer reference above.
-- On `429`, honor `Retry-After` and use bounded retries; read rate-limit headers instead of assuming a fixed allowance. See [rate limiting](https://docs.useomnia.com/api/rate-limiting).
 - Response shapes vary by endpoint. Parse the documented `data` fields; [streaming metrics exports](https://docs.useomnia.com/api/brand/performance/stream-metrics-export) use NDJSON, while [asynchronous metrics exports](https://docs.useomnia.com/api/brand/performance/create-metrics-export-task) produce a downloadable ZIP with NDJSON or CSV files. Exports cover share of voice, visibility, and citations at brand or prompt granularity. Async results can be obtained by polling or completion webhooks; see [responses](https://docs.useomnia.com/api/responses) and [async operations](https://docs.useomnia.com/api/async-operations).
 
 ## Documentation
