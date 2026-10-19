@@ -429,8 +429,7 @@ Not all content is equally citable — and the format mix is **volatile**. The l
 Monthly manual check:
 1. Pick your top 20 queries
 2. Run each through ChatGPT, Perplexity, and Google
-3. Record: Are you cited? Who is? What page?
-4. Log in a spreadsheet, track month-over-month
+3. Record: Are you cited? Who is? What page? Log it in a spreadsheet and track month-over-month
 
 AI answers are **non-deterministic** — one run is an anecdote, not a measurement. Run each query 3–5 times per platform and track the mention *rate* with its sample size ("cited 3/5, n=5"), comparing rates over time rather than single runs. Full rigor checklist in [references/format-volatility.md](references/format-volatility.md).
 
