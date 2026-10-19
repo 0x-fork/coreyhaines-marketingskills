@@ -21,7 +21,7 @@ marketingskills/
 │   └── skill-name/
 │       └── SKILL.md       # Required skill file
 ├── tools/
-│   ├── clis/              # Zero-dependency Node.js CLI tools (51 tools)
+│   ├── clis/              # Zero-dependency Node.js CLI tools (66 tools)
 │   ├── composio/          # Composio integration layer (quick start + toolkit mapping)
 │   ├── integrations/      # API integration guides per tool
 │   └── REGISTRY.md        # Tool index with capabilities
@@ -43,6 +43,7 @@ marketingskills/
 node --check tools/clis/<name>.js   # Syntax check
 node tools/clis/<name>.js           # Show usage (no args = help)
 node tools/clis/<name>.js <cmd> --dry-run  # Preview request without sending
+node --test tests/clis/*.test.cjs   # Contract tests (mocked fetch, no live calls)
 ```
 
 ## Versioning
@@ -191,9 +192,10 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) specific
 This repository includes a tools registry for agent-compatible marketing tools.
 
 - **Tool discovery**: Read `tools/REGISTRY.md` to see available tools and their capabilities
+- **Connecting accounts**: For a new local setup, follow `tools/SETUP.md`: check the environment, configure only chosen tools, keep secrets local, and verify a read before proposing broader work
 - **Integration details**: See `tools/integrations/{tool}.md` for API endpoints, auth, and common operations
-- **MCP-enabled tools**: ga4, stripe, mailchimp, google-ads, resend, zapier, zoominfo, clay, supermetrics, coupler, outreach, crossbeam, introw, composio
-- **Composio** (integration layer): Adds MCP access to OAuth-heavy tools without native MCP servers (HubSpot, Salesforce, Meta Ads, LinkedIn Ads, Google Sheets, Slack, etc.). See `tools/integrations/composio.md`
+- **MCP-enabled tools** (checked 2026-10-15; the registry is the source of truth): ga4, stripe, mailchimp, google-ads, meta-ads, resend, zapier, zoominfo, clay, supermetrics, coupler, outreach, crossbeam, introw, exa, apollo, hubspot, attio, close, instantly, lemlist, heyreach, hunter, truelist, fullenrich, leadmagic, rowbound, theirstack, apify, firecrawl, browserbase, calendly, composio
+- **Composio** (integration layer): Adds MCP access to OAuth-heavy tools without native MCP servers (Salesforce, LinkedIn Ads, Google Sheets, Slack, etc.). See `tools/integrations/composio.md`
 
 ### Registry Structure
 
@@ -215,7 +217,7 @@ Skills reference relevant tools for implementation. For example:
 - `emails` skill → customer-io, mailchimp, resend guides
 - `ads` skill → google-ads, meta-ads, linkedin-ads guides
 
-For tools without native MCP servers (HubSpot, Salesforce, Meta Ads, LinkedIn Ads, Google Sheets, Slack, Notion), Composio provides MCP access via a single server. See `tools/integrations/composio.md` for setup and `tools/composio/marketing-tools.md` for the full toolkit mapping.
+For tools without native MCP servers (Salesforce, LinkedIn Ads, Google Sheets, Slack, Notion), Composio provides MCP access via a single server. See `tools/integrations/composio.md` for setup and `tools/composio/marketing-tools.md` for the full toolkit mapping.
 
 ## Checking for Updates
 

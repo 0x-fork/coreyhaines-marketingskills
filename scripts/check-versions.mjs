@@ -6,7 +6,7 @@
 //
 // Consistency:
 //   - every skill's metadata.version matches its VERSIONS.md row, and every skill has a row
-//   - plugin.json and marketplace.json share one repo version, matching the newest `### x.y.z` block in VERSIONS.md
+//   - plugin.json, marketplace.json, and .codex-plugin/plugin.json share one repo version, matching the newest `### x.y.z` block in VERSIONS.md
 //   - every file in skills/<name>/references/ is linked from that skill's SKILL.md
 //     or from another of its reference files (no orphans)
 // With --base:
@@ -14,7 +14,7 @@
 //   - if any skill changed, was added, or was removed, the repo version must bump
 
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { resolve, dirname } from "node:path";
+import { resolve, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
@@ -61,18 +61,34 @@ for (const name of Object.keys(table)) {
 const plugin = repoVersion(read(".claude-plugin/plugin.json"));
 const market = marketVersion(read(".claude-plugin/marketplace.json"));
 if (plugin !== market) errors.push(`plugin.json is ${plugin} but marketplace.json metadata.version is ${market}`);
+const codexPath = resolve(ROOT, ".codex-plugin/plugin.json");
+if (existsSync(codexPath)) {
+  const codex = repoVersion(readFileSync(codexPath, "utf8"));
+  if (codex !== plugin) errors.push(`.codex-plugin/plugin.json is ${codex} but plugin.json is ${plugin}`);
+}
 const latestHeading = versionsMd.match(/^### (\d+\.\d+\.\d+)(\s|$)/m)?.[1];
 if (latestHeading !== plugin) errors.push(`VERSIONS.md: newest changelog block is ${latestHeading ?? "missing"}, but repo version is ${plugin}`);
+
+// Preserve relative paths when walking bundled reference subdirectories.
+const referenceFiles = (directory, prefix = "") => readdirSync(directory, { withFileTypes: true })
+  .flatMap((entry) => {
+    const name = prefix + entry.name;
+    return entry.isDirectory() ? referenceFiles(resolve(directory, entry.name), name + "/") : [name];
+  });
 
 // Orphan references
 for (const name of skills) {
   const dir = resolve(ROOT, "skills", name, "references");
   if (!existsSync(dir)) continue;
-  const files = readdirSync(dir);
+  const files = referenceFiles(dir);
   const skillMd = read(`skills/${name}/SKILL.md`);
   for (const file of files) {
     if (skillMd.includes(file)) continue;
-    const linkedFromSibling = files.some((other) => other !== file && read(`skills/${name}/references/${other}`).includes(file));
+    const linkedFromSibling = files.some((other) => {
+      if (other === file) return false;
+      const link = relative(dirname(resolve(dir, other)), resolve(dir, file)).replaceAll("\\", "/");
+      return read(`skills/${name}/references/${other}`).includes(link);
+    });
     if (!linkedFromSibling) errors.push(`skills/${name}/references/${file}: not linked from SKILL.md or any sibling reference`);
   }
 }
@@ -81,7 +97,8 @@ for (const name of skills) {
 if (base) {
   const atBase = (path) => {
     try {
-      return git("show", `${base}:${path}`);
+      // A path missing at base (a new skill) is expected; keep git's "fatal:" off stderr.
+      return execFileSync("git", ["show", `${base}:${path}`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
     } catch {
       return null;
     }

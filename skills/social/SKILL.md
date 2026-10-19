@@ -2,12 +2,14 @@
 name: social
 description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, or Facebook, or wants to do social listening and engagement triage. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' 'grow my following,' 'TikTok video,' 'Reels,' 'Shorts,' 'video script,' 'video hook,' 'short-form video,' 'create a reel,' 'social listening,' 'brand mentions,' 'competitor monitoring,' 'top posts to comment on,' 'find people asking for,' 'carousel,' 'slide-by-slide,' or 'document post.' Use this for social content, repurposing, scheduling, video scripts, and listening. Posts avoid AI tells like 'it's not X, it's Y' reveals and broetry. For broader content strategy, see content-strategy. For paid ads, see ad-creative. For earned media, see public-relations."
 metadata:
-  version: 2.3.0
+  version: 2.4.0
 ---
 
 # Social Content
 
 You are an expert social media strategist. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.
+
+Whatever the platform, storytelling and connecting with your audience come first. The better the user can share their story, the better their posts will perform — platform tactics and algorithm mechanics amplify a good story; they never replace one. Keep this at the center of every recommendation below.
 
 ## Before Creating Content
 
@@ -48,9 +50,11 @@ Gather this context (ask if not provided):
 | TikTok | Brand awareness, younger audiences | 1-4x/day | Short-form video |
 | Facebook | Communities, local businesses | 1-2x/day | Groups, native video |
 
-**For detailed platform strategies**: See [references/platforms.md](references/platforms.md)
+**For detailed platform strategies** (LinkedIn, X, Instagram, TikTok, Facebook, Telegram): See [references/platforms.md](references/platforms.md)
 
 **For hashtag limits and character counts**: See [references/platform-limits.md](references/platform-limits.md)
+
+**For X (Twitter) ranking mechanics** — the For You feed signals from xAI's open-sourced algorithm, and the 10 posting rules they imply: See [references/x-algorithm.md](references/x-algorithm.md). Use it whenever the task involves posting on X.
 
 ---
 
@@ -231,7 +235,7 @@ Extract "content atoms" — self-contained moments from any long-form content th
 1. Respond to all comments on your posts (5 min)
 2. Comment on 5-10 posts from target accounts (15 min)
 3. Share/repost with added insight (5 min)
-4. Send 2-3 DMs to new connections (5 min)
+4. Send 2-3 DMs to new connections (5 min). For LinkedIn as an outbound channel (limits, sequences, connection and message copy), see the cold-email skill's LinkedIn outreach reference
 
 **For surfacing *which* posts to comment on** (top-10 daily lists, brand/competitor monitoring, intent-signal triage), see [references/listening.md](references/listening.md). Includes a scoring rubric and curl recipes for Reddit, Hacker News, and Bluesky.
 
@@ -315,6 +319,25 @@ Extract "content atoms" — self-contained moments from any long-form content th
 - Review queue weekly for relevance
 - Leave gaps for spontaneous posts
 - Adjust timing based on performance data
+
+### Publishing From Your Agent
+
+Everything above produces drafts and a calendar — actually getting posts onto
+accounts still needs a scheduling tool. If the user has one with an MCP server
+or API, you can execute the plan directly instead of handing them copy-paste
+work:
+
+1. **Check what's connected.** Ask the user what they schedule with. Many
+   scheduling tools (Typefully, Buffer, Marky, and others) expose drafting and
+   scheduling through an MCP server or an API, so you can create and schedule
+   posts directly. Check the [tools registry](https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md) for guides.
+2. **Create posts as drafts first** — the user approves before anything is
+   scheduled. Never auto-publish without an explicit go-ahead.
+3. **Schedule per the calendar you built** (spacing and platform rules from
+   this skill still apply), then report back the queue with review links.
+4. **Close the loop.** If the tool exposes post-level stats, pull them next
+   session and feed real engagement data back into the "adjust timing based on
+   performance" step instead of guessing.
 
 ---
 

@@ -6,6 +6,8 @@ Built by [Corey Haines](https://corey.co?ref=marketingskills). Need hands-on hel
 
 New to the terminal and coding agents? Check out the companion guide [Coding for Marketers](https://codingformarketers.com?ref=marketingskills).
 
+Want your agent to read your marketing accounts? Follow the [guided tool connection workflow](tools/SETUP.md) for scoped credentials and a first read-only result.
+
 **Contributions welcome!** Found a way to improve a skill or have a new one to add? [Open a PR](#contributing).
 
 Run into a problem or have a question? [Open an issue](https://github.com/coreyhaines31/marketingskills/issues) — we're happy to help.
@@ -17,7 +19,9 @@ The library is free and MIT-licensed. [Verified Partners](tools/REGISTRY.md#veri
 <!-- PARTNERS:START -->
 > ◆ **[Converly](https://converly.io?ref=marketingskills)** — *Conversion tracking / attribution.* Server-side conversion tracking that fires when someone submits a form, books a meeting, or starts a chat — passing click IDs and identifiers for Enhanced Conversions (Google) and stronger match quality (Meta), across about 100 tools. CLI + MCP so your agent sets it up in minutes. → [Integration guide](tools/integrations/converly.md)
 
-> ◆ **[Ploy](https://ploy.ai?ref=marketingskills)** — *AI website & growth platform.* AI marketing platform built around a Webflow-grade website builder — site optimization, SEO/AEO, visitor identification, and ad creative in one, with WebMCP to expose site actions to AI assistants. → [Integration guide](tools/integrations/ploy.md)
+> ◆ **[Ploy](https://ploy.ai?ref=marketingskills)** — *AI website & growth platform.* AI marketing platform built around a hosted website builder — an in-app agent that builds and publishes pages, PloyDB for pages at scale, routing to add pages to an existing site, built-in analytics and visitor identification, and a CLI for coding agents. → [Integration guide](tools/integrations/ploy.md)
+
+> ◆ **[AIsa](https://aisa.one)** — *SEO, search & social data.* One AIsa key, pay as you go, instead of a subscription to every data platform. Agents get SEO, search, social, and market data from Similarweb, Semrush, Ahrefs, DataForSEO, Tavily, Reddit, X, and more through REST or MCP, and pay only for the calls they make. → [Integration guide](tools/integrations/aisa.md)
 <!-- PARTNERS:END -->
 
 <!-- The Partners block above is generated from partners.json — run `node scripts/sync-partners.mjs` after editing it. -->
@@ -42,14 +46,14 @@ Skills reference each other and build on shared context. The `product-marketing`
 │  SEO &   │ │   CRO    │ │Content & │ │  Paid &    │ │ Growth & │ │  Sales &    │ │ Strategy  │
 │ Content  │ │          │ │   Copy   │ │Measurement │ │Retention │ │    GTM      │ │           │
 ├──────────┤ ├──────────┤ ├──────────┤ ├────────────┤ ├──────────┤ ├─────────────┤ ├───────────┤
-│seo-audit │ │cro       │ │copywritng│ │ads         │ │referrals │ │revops       │ │mktg-ideas │
+│seo-audit │ │cro       │ │copywritin│ │ads         │ │referrals │ │revops       │ │mktg-ideas │
 │ai-seo    │ │signup    │ │copy-edit │ │ad-creative │ │free-tools│ │sales-enable │ │mktg-psych │
 │site-arch │ │onboarding│ │cold-email│ │ab-testing  │ │churn-    │ │launch       │ │customer-  │
 │programm  │ │popups    │ │emails    │ │analytics   │ │ prevent  │ │pricing      │ │ research  │
 │schema    │ │paywalls  │ │social    │ │            │ │community │ │competitors  │ │           │
 │content   │ │          │ │video     │ │            │ │lead-magnt│ │comp-profile │ │           │
 │aso       │ │          │ │image     │ │            │ │co-mktg   │ │directory    │ │           │
-│          │ │          │ │sms       │ │            │ │          │ │prospecting  │ │           │
+│link-build│ │          │ │sms       │ │            │ │          │ │prospecting  │ │           │
 └────┬─────┘ └────┬─────┘ └────┬─────┘ └─────┬──────┘ └────┬─────┘ └──────┬──────┘ └─────┬─────┘
      │            │            │              │             │              │              │
      └────────────┴─────┬──────┴──────────────┴─────────────┴──────────────┴──────────────┘
@@ -77,7 +81,7 @@ See each skill's **Related Skills** section for the full dependency map.
 | [attribution](skills/attribution/) | When the user wants to figure out which marketing actually drives conversions and revenue, choose or interpret an... |
 | [churn-prevention](skills/churn-prevention/) | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or... |
 | [co-marketing](skills/co-marketing/) | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use... |
-| [cold-email](skills/cold-email/) | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails,... |
+| [cold-email](skills/cold-email/) | Write and run B2B cold outbound that gets replies, from cold emails and follow-ups to sending setup, LinkedIn,... |
 | [community-marketing](skills/community-marketing/) | Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a... |
 | [competitor-profiling](skills/competitor-profiling/) | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions... |
 | [competitors](skills/competitors/) | When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing use. Also use when... |
@@ -95,6 +99,7 @@ See each skill's **Related Skills** section for the full dependency map.
 | [influencer-marketing](skills/influencer-marketing/) | When the user wants to run influencer, creator, or ambassador partnerships to promote their product — finding and... |
 | [launch](skills/launch/) | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user... |
 | [lead-magnets](skills/lead-magnets/) | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the... |
+| [link-building](skills/link-building/) | When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. Also use when the... |
 | [marketing-council](skills/marketing-council/) | When the user wants multiple expert perspectives on a marketing question — a simulated board of advisors staffed by... |
 | [marketing-ideas](skills/marketing-ideas/) | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the... |
 | [marketing-loops](skills/marketing-loops/) | When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop an AI agent runs on a... |
@@ -107,7 +112,7 @@ See each skill's **Related Skills** section for the full dependency map.
 | [pricing](skills/pricing/) | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions... |
 | [product-marketing](skills/product-marketing/) | When the user wants to create or update their product marketing context document. Also use when the user mentions... |
 | [programmatic-seo](skills/programmatic-seo/) | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions... |
-| [prospecting](skills/prospecting/) | When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B SaaS, general B2B, or... |
+| [prospecting](skills/prospecting/) | When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS, general B2B, or... |
 | [public-relations](skills/public-relations/) | When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy... |
 | [referrals](skills/referrals/) | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy.... |
 | [revops](skills/revops/) | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes.... |
@@ -116,7 +121,7 @@ See each skill's **Related Skills** section for the full dependency map.
 | [seo-audit](skills/seo-audit/) | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO... |
 | [signup](skills/signup/) | When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the... |
 | [site-architecture](skills/site-architecture/) | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal... |
-| [sms](skills/sms/) | When the user wants to plan, build, or optimize SMS or MMS marketing — including welcome flows, abandoned cart texts,... |
+| [sms](skills/sms/) | When the user wants to plan, build, or optimize SMS, MMS, or WhatsApp marketing — including welcome flows, abandoned... |
 | [social](skills/social/) | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram,... |
 | [video](skills/video/) | When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use... |
 <!-- SKILLS:END -->
@@ -159,7 +164,28 @@ Install via Claude Code's built-in plugin system:
 /plugin install marketing-skills
 ```
 
-### Option 3: Clone and Copy
+> **Note:** `/plugin` is only available in an interactive Claude Code CLI session. It is **not** available in Claude Code on the web, GitHub Actions, or other non-interactive/remote environments — in those cases you'll see `/plugin isn't available in this environment`. Use **Option 1 (`npx skills`)** instead, or the equivalent CLI commands:
+>
+> ```bash
+> claude plugin marketplace add coreyhaines31/marketingskills
+> claude plugin install marketing-skills@marketingskills
+> ```
+
+### Option 3: OpenAI Codex Plugin
+
+Install via Codex's plugin system:
+
+```bash
+# Add the marketplace
+codex plugin marketplace add coreyhaines31/marketingskills
+
+# Then browse and install from inside a Codex session
+/plugins
+```
+
+Select **marketing-skills** to install all skills. To pick up new releases later, run `codex plugin marketplace upgrade`.
+
+### Option 4: Clone and Copy
 
 Clone the entire repo and copy the skills folder:
 
@@ -168,7 +194,7 @@ git clone https://github.com/coreyhaines31/marketingskills.git
 cp -r marketingskills/skills/* .agents/skills/
 ```
 
-### Option 4: Git Submodule
+### Option 5: Git Submodule
 
 Add as a submodule for easy updates:
 
@@ -178,13 +204,13 @@ git submodule add https://github.com/coreyhaines31/marketingskills.git .agents/m
 
 Then reference skills from `.agents/marketingskills/skills/`.
 
-### Option 5: Fork and Customize
+### Option 6: Fork and Customize
 
 1. Fork this repository
 2. Customize skills for your specific needs
 3. Clone your fork into your projects
 
-### Option 6: SkillKit (Multi-Agent)
+### Option 7: SkillKit (Multi-Agent)
 
 Use [SkillKit](https://github.com/rohitg00/skillkit) to install skills across multiple AI agents (Claude Code, Cursor, Copilot, etc.):
 
@@ -198,6 +224,12 @@ npx skillkit install coreyhaines31/marketingskills --skill cro copywriting
 # List available skills
 npx skillkit install coreyhaines31/marketingskills --list
 ```
+
+### Option 8: Claude Web Skill ZIPs
+
+Download the desired `<name>-claude-web.zip` from [Releases](https://github.com/coreyhaines31/marketingskills/releases/latest), then use **Customize → Skills → + Create skill → Upload a skill** in Claude. Each archive contains one skill. Account permissions and code execution must allow skills.
+
+The web-target archive uses an explicitly reviewed shorter description; its instructions and resources are preserved. The attached web manifest lists any skills whose description still needs review; newly created release notes also summarize omissions. Installing a ZIP does not configure local CLIs, MCP servers, credentials, or related skills. See [release packaging and verification](docs/skill-release-packaging.md) for archive contents, source variants, and unverified client limitations.
 
 ## Upgrading from v1.x to v2.0
 
@@ -299,6 +331,7 @@ You can also invoke skills directly:
 ### SEO & Discovery
 - `seo-audit` - Technical and on-page SEO
 - `ai-seo` - AI search optimization (AEO, GEO, LLMO)
+- `link-building` - Earned links and mentions on AI-cited pages
 - `programmatic-seo` - Scaled page generation
 - `site-architecture` - Page hierarchy, navigation, URL structure
 - `competitors` - Comparison and alternative pages
