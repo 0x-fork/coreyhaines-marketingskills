@@ -376,9 +376,8 @@ Beyond AI search engines summarizing content, autonomous agents are starting to 
 - **Semantic HTML** — use `<main>`, `<nav>`, `<article>`, `<button>`, proper heading hierarchy, `alt` text on images
 - **Clean accessibility tree** — every interactive element labelled; ARIA used correctly (or not at all when native HTML suffices)
 - **Stable selectors / predictable layouts** — agents struggle with sites that re-render every interaction
-- **Visible pricing, specs, contact info** — anything an agent would need to make a buying recommendation should be on a public, indexable page (this is where `/pricing.md` and similar files help)
-- **Proof as text** — testimonials, ratings, and customer logos with names belong in the HTML as text, not baked into images or injected by a widget script. Quick check: if you can't select it with the mouse, an agent may not read it
-- **Dated key facts** — state when pricing, user counts, and ratings were true ("4.7 on G2 as of October 2026") so an agent can judge freshness and quote the date with the number
+- **Visible pricing, specs, contact info** — anything an agent would need to make a buying recommendation should be on a public, indexable page (this is where `/pricing.md` and similar files help). Date the facts that change ("4.7 on G2 as of October 2026") so an agent can judge freshness
+- **Proof as text** — testimonials, ratings, and named customer logos in the HTML as text, not baked into images or injected by a widget script. If you can't select it with the mouse, an agent may not read it
 
 **Emerging — Universal Commerce Protocol (UCP):**
 Google references UCP as a forthcoming protocol that will give agents standardized hooks for commerce interactions (catalog discovery, pricing, checkout). Watch for adoption; for now, the structural recommendations above are the precursor.
