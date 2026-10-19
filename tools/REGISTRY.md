@@ -28,6 +28,7 @@ Anyone — including tool makers and partners — may contribute content that na
 | ◆ Converly | Conversion tracking / attribution | [converly.md](integrations/converly.md) |
 | ◆ Ploy | AI website & growth platform | [ploy.md](integrations/ploy.md) |
 | ◆ AIsa | SEO, search & social data | [aisa.md](integrations/aisa.md) |
+| ◆ Omnia | AI search visibility (AEO) | [omnia.md](integrations/omnia.md) |
 <!-- PARTNERS:END -->
 
 <!-- The table above is generated from partners.json — run `node scripts/sync-partners.mjs`. -->
@@ -54,6 +55,7 @@ Anyone — including tool makers and partners — may contribute content that na
 | dataforseo | SEO | ✓ | - | [✓](clis/dataforseo.js) | ✓ | [dataforseo.md](integrations/dataforseo.md) |
 | keywords-everywhere | SEO | ✓ | - | [✓](clis/keywords-everywhere.js) | - | [keywords-everywhere.md](integrations/keywords-everywhere.md) |
 | rankparse | SEO | ✓ | ✓ | [✓](clis/rankparse.js) | - | [rankparse.md](integrations/rankparse.md) |
+| omnia | AEO | ✓ | ✓ | - | - | [omnia.md](integrations/omnia.md) |
 | clearbit | Data Enrichment (legacy) | ✓ | - | [✓](clis/clearbit.js) | ✓ | [clearbit.md](integrations/clearbit.md) |
 | apollo | Data Enrichment | ✓ | ✓ | [✓](clis/apollo.js) | - | [apollo.md](integrations/apollo.md) |
 | zoominfo | Data Enrichment | ✓ | ✓ | [✓](clis/zoominfo.js) | - | [zoominfo.md](integrations/zoominfo.md) |
@@ -501,6 +503,16 @@ Sales conversation analytics, call recording, and deal intelligence.
 
 **Agent recommendation**: Gong for mining sales call transcripts for customer research, competitive intelligence, and coaching insights. Essential for revenue attribution and win/loss analysis.
 
+### AEO (Answer Engine Optimization)
+
+Answer engine optimization tools for AI visibility monitoring, competitor benchmarking, citation analysis, and content optimization.
+
+| Tool | Best For | Notes |
+|------|----------|-------|
+| **[omnia](integrations/omnia.md)** | AI visibility monitoring, prompt discovery, competitor benchmarking, citation analysis, and agent-assisted content optimization and outreach | REST API + OAuth MCP for data access; built-in agent for execution |
+
+**Agent note**: Omnia is the only AEO tool with an integration guide here. The ai-seo skill's monitoring tools table lists the alternatives (Otterly AI, Peec AI, ZipTie, LLMrefs, Profound, Ahrefs Brand Radar, Semrush) and a DIY method; choose on coverage and fit. With Omnia, use MCP for interactive analysis or the API for recurring reports; the built-in Omnia Agent handles content updates, publishing, and outreach with user approval.
+
 ### AI Content
 
 AI-powered content generation and optimization platforms.
@@ -602,6 +614,7 @@ These tools have Model Context Protocol servers available, enabling direct agent
 - **outreach** - Sales engagement sequences
 - **crossbeam** - Partner ecosystem data
 - **introw** - Partner relationship management
+- **omnia** - AI visibility, competitor mentions, and citation data (OAuth)
 - **exa** - AI-powered web search for LLMs and agents
 - **apollo** - B2B prospecting, enrichment, and sequences
 - **hubspot** - CRM read and write

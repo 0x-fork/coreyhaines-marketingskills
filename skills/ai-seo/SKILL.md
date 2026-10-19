@@ -2,7 +2,7 @@
 name: ai-seo
 description: "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' 'optimize for Claude/Gemini,' 'llms.txt,' 'llms-full.txt,' 'OKF,' 'Open Knowledge Format,' 'knowledge bundle,' 'agent-readable site,' 'agent readiness,' 'is my site agent-ready,' 'WebMCP,' 'do listicles still work for AI,' 'ChatGPT stopped citing comparison pages,' 'how do LLMs see our brand,' 'LinkedIn for AEO,' or 'AI citation format shift.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema."
 metadata:
-  version: 2.10.0
+  version: 2.10.1
 ---
 
 # AI SEO
@@ -408,7 +408,7 @@ Not all content is equally citable — and the format mix is **volatile**. The l
 |--------|-----------------|-------------|
 | AI Overview presence | Do AI Overviews appear for your queries? | Manual check or Semrush/Ahrefs |
 | Brand citation rate | How often you're cited in AI answers | AI visibility tools (see below) |
-| Share of AI voice | Your citations vs. competitors | Peec AI, Otterly, ZipTie |
+| Share of AI voice | Your citations vs. competitors | Peec AI, Otterly, ZipTie, Omnia |
 | Citation sentiment | How AI describes your brand | Manual review + monitoring tools |
 | Recommendation rate | Whether you're on the shortlist, not just cited (see [citations-vs-recommendations.md](references/citations-vs-recommendations.md)) | Prompt tracking + mention framing |
 | Source attribution | Which pages get cited, and what AI exposure does downstream | AI referrals plus delayed branded and direct visits ([ai-attribution.md](references/ai-attribution.md)) |
@@ -422,14 +422,14 @@ Not all content is equally citable — and the format mix is **volatile**. The l
 | **ZipTie** | Google AI Overviews, ChatGPT, Perplexity | Brand mention + sentiment tracking |
 | **LLMrefs** | ChatGPT, Perplexity, AI Overviews, Gemini | SEO keyword → AI visibility mapping |
 | **Profound, Ahrefs Brand Radar, Semrush** | Major assistants and Google AI surfaces | Larger programs: cited sources, answer text, prompt demand (Profound's studies are cited in the references as vendor research) |
+| **Omnia** | Google AI Mode, Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude, Copilot | AI visibility monitoring |
 
 ### DIY Monitoring (No Tools)
 
 Monthly manual check:
 1. Pick your top 20 queries
 2. Run each through ChatGPT, Perplexity, and Google
-3. Record: Are you cited? Who is? What page?
-4. Log in a spreadsheet, track month-over-month
+3. Record: Are you cited? Who is? What page? Log it in a spreadsheet and track month-over-month
 
 AI answers are **non-deterministic** — one run is an anecdote, not a measurement. Run each query 3–5 times per platform and track the mention *rate* with its sample size ("cited 3/5, n=5"), comparing rates over time rather than single runs. Full rigor checklist in [references/format-volatility.md](references/format-volatility.md).
 
