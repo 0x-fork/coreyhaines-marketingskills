@@ -6,7 +6,7 @@ Answer engine optimization (AEO) platform combining AI visibility monitoring, pr
 
 ## When to Use
 
-Use when the user wants to monitor and improve their brand’s visibility in AI search answers. Track brand mentions, share of voice, and citations; review whether answers recommend the brand; compare competitors; and identify opportunities to improve content and third-party presence.
+Use when the user wants to monitor and improve their brand’s visibility in AI search answers. Track brand mentions, Share of Voice, and citations; review whether answers recommend the brand; compare competitors; and identify opportunities to improve content and third-party presence.
 
 - **Connected assistant:** Use MCP to analyze Omnia data interactively, or the API to build recurring reports and scripts. Apply the ai-seo and content-strategy skills to turn the evidence into content briefs, page improvements, and outreach opportunities.
 - **Built-in Omnia Agent:** Use your Omnia Agent to research sources, propose projects, create or update content, and publish or send outreach through connected apps with user approval. Remeasure visibility to inform the next iteration.
