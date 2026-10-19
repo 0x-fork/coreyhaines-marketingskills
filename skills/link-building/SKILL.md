@@ -2,7 +2,7 @@
 name: link-building
 description: "When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. Also use when the user mentions 'link building,' 'linkbuilding,' 'backlinks,' 'get more backlinks,' 'link prospecting,' 'link gap,' 'competitor backlinks,' 'unlinked mentions,' 'link reclamation,' 'broken link building,' 'resource pages,' 'guest posting,' 'get into best-of lists,' 'listicle outreach,' 'domain rating,' 'referring domains,' 'anchor text,' or 'is this link vendor safe.' Use this whenever rankings stall on authority or someone wants off-site mentions that AI engines cite. Never recommend buying links that pass ranking credit: paid or exchanged placements get rel=sponsored or nofollow. For press coverage and journalist requests, see public-relations. For directories, see directory-submissions. For reviews, see referrals. For Reddit and communities, see community-marketing. For on-site AI citation work, see ai-seo."
 metadata:
-  version: 1.0.0
+  version: 1.0.1
 ---
 
 # Link Building
@@ -141,6 +141,7 @@ Link building works as a weekly habit more than a campaign. The **marketing-loop
 | Backlink data, link gap, competitor links | [Ahrefs](../../tools/integrations/ahrefs.md), [Semrush](../../tools/integrations/semrush.md), [DataForSEO](../../tools/integrations/dataforseo.md), Moz |
 | Finding prospects and mentions | Search operators, [Exa](../../tools/integrations/exa.md), [Firecrawl](../../tools/integrations/firecrawl.md), Google Alerts, mention monitors |
 | Finding the contact | [Hunter](../../tools/integrations/hunter.md), the site's own about or contact page |
+| Done-for-you placements | Managed placement services such as [LinkDR](https://linkdr.com) source sites, pitch editors, and confirm links go live. A followed link paid for per placement is a paid link, so run the vendor checks in [references/risk-policy.md](references/risk-policy.md) first |
 | Free fallback | Search Console's Links report for your own links; search operators for prospects |
 
 ## Output Format
