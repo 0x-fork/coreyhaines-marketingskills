@@ -511,7 +511,7 @@ Answer engine optimization tools for AI visibility monitoring, competitor benchm
 |------|----------|-------|
 | **[omnia](integrations/omnia.md)** | AI visibility monitoring, prompt discovery, competitor benchmarking, citation analysis, and agent-assisted content optimization and outreach | REST API + OAuth MCP for data access; built-in agent for execution |
 
-**Agent recommendation**: Omnia for investigating AI visibility gaps and turning findings into content and outreach work. Use MCP for interactive analysis or the API for recurring reports; use the built-in Omnia Agent for content updates, publishing, and outreach with user approval. Pairs with the ai-seo and content-strategy skills. Manual checks and other monitoring options are covered in the ai-seo skill.
+**Agent note**: Omnia is the only AEO tool with an integration guide here. The ai-seo skill's monitoring tools table lists the alternatives (Otterly AI, Peec AI, ZipTie, LLMrefs, Profound, Ahrefs Brand Radar, Semrush) and a DIY method; choose on coverage and fit. With Omnia, use MCP for interactive analysis or the API for recurring reports; the built-in Omnia Agent handles content updates, publishing, and outreach with user approval.
 
 ### AI Content
 
