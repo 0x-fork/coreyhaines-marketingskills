@@ -187,7 +187,7 @@ Audit AI user agents by purpose. Search-discovery, user-triggered retrieval, mod
 - **Potential model training:** `GPTBot`, `ClaudeBot`, and `meta-externalagent`
 - **Google product control:** `Google-Extended` controls certain Gemini training and grounding uses of content Google already crawls; it does not affect Google Search inclusion or ranking
 
-Check each relevant user-agent group and any WAF or CDN rules separately. A publisher can allow search discovery while disallowing model-development crawlers; do not infer that blocking a training crawler necessarily blocks citations. See [references/platform-ranking-factors.md](references/platform-ranking-factors.md) for the full robots.txt configuration.
+Default to one wildcard (`User-agent: *`) rule that allows agents, and add named groups only for deliberate exceptions such as a training opt-out; an allowlist of named crawlers silently excludes agent search APIs that run their own crawlers, and a named group replaces the `*` rules for that bot. Check each relevant user-agent group and any WAF or CDN rules separately. A publisher can allow search discovery while disallowing model-development crawlers; do not infer that blocking a training crawler necessarily blocks citations. See [references/platform-ranking-factors.md](references/platform-ranking-factors.md) for the full robots.txt configuration.
 
 ---
 
