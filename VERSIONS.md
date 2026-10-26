@@ -17,7 +17,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitor-profiling | 2.1.4 | 2026-10-15 |
 | competitors | 2.3.0 | 2026-10-01 |
 | content-strategy | 2.1.4 | 2026-10-15 |
-| conversion-tracking | 1.0.0 | 2026-10-19 |
+| conversion-tracking | 1.0.1 | 2026-10-19 |
 | copy-editing | 2.2.0 | 2026-10-15 |
 | copywriting | 2.3.1 | 2026-10-15 |
 | cro | 2.0.3 | 2026-10-08 |
@@ -58,6 +58,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.2.1 | 2026-10-02 |
 
 ## Recent Changes
+
+### 2.13.1 (2026-10-19)
+
+- **conversion-tracking** (1.0.0 → 1.0.1): an ad-platform setup now reaches the delivery decision when the user mentions ad blockers, iOS or ATT signal loss, or conversions the platform is missing or under-reporting, and walks through the options in `references/server-side.md`, free and native paths first. A narrower version of the "every ad-platform setup reaches the delivery decision" change dropped from 2.13.0. Names no vendor.
 
 ### 2.13.0 (2026-10-19)
 
