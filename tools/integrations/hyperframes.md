@@ -24,7 +24,7 @@ Open-source programmatic video framework from HeyGen. Create videos from HTML/CS
 npx hyperframes <command>          # or: npm install -g hyperframes
 ```
 
-Requires Node.js 22+ and FFmpeg. The `hyperframes` package is a **CLI only**; it has no importable API. For rendering from your own code, use `@hyperframes/producer` (below). Checked against v0.8.114, Oct 2026.
+Requires Node.js 22+ and FFmpeg. The `hyperframes` package is a **CLI only**; it has no importable API. For rendering from your own code, use `@hyperframes/producer` (below). Checked against v0.8.205, Oct 2026.
 
 ## Quick Start (CLI)
 
@@ -100,14 +100,17 @@ Product announcements, changelog videos, testimonial cards, and stat reveals all
 |--------|-------------|----------|
 | Language | HTML/CSS/JS | React/TypeScript |
 | Agent compatibility | Better (plain HTML) | Good (needs React knowledge) |
-| Animation | GSAP timeline (plus CSS) | Spring physics, interpolation |
-| Cloud rendering | Not built-in | Lambda (AWS) |
-| License | Apache 2.0 (free) | Company license for commercial use |
-| Ecosystem | New, growing | Mature, large community |
+| Animation | Seekable timelines via adapters: GSAP, CSS, Lottie, Three.js, Anime.js, WAAPI | Frame-driven (`useCurrentFrame`, `interpolate`, `spring`) |
+| Build step | None | Bundler required |
+| Cloud rendering | AWS Lambda, Google Cloud Run, Docker, or `hyperframes cloud render` (HeyGen credits) | Remotion Lambda (mature) |
+| License | Apache 2.0 (free) | Free for individuals, non-profits, and companies up to 3 employees; company license above that |
+| Ecosystem | Newer, growing fast | Mature, large community |
 
-**Use Hyperframes when:** AI agent is generating the video, simple animations, batch templated content, cost-sensitive.
+**Use Hyperframes when:** an AI agent is authoring the video, the source material is already HTML/CSS or a browser animation, you want no build step, or you need Apache 2.0 with no seat count.
 
-**Use Remotion when:** Complex animations needed, already using React, need Lambda for massive scale, want larger ecosystem.
+**Use Remotion when:** your team already writes React, you want to reuse React components or charting libraries, you want typed composition inputs, or you want the more established ecosystem and cloud renderer.
+
+HeyGen publishes its own [HyperFrames vs Remotion comparison](https://hyperframes.heygen.com/guides/hyperframes-vs-remotion), including what Remotion does better; read it as a vendor source.
 
 ## Relevant Skills
 

@@ -2,7 +2,7 @@
 name: video
 description: "When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video production,' 'AI video,' 'Remotion,' 'Hyperframes,' 'HeyGen,' 'Synthesia,' 'Veo,' 'Sora,' 'Runway,' 'Kling,' 'Seedance,' 'Hailuo,' 'MiniMax,' 'Pika,' 'Hunyuan,' 'Wan,' 'video generation,' 'AI avatar,' 'talking head video,' 'programmatic video,' 'video template,' 'explainer video,' 'product demo video,' 'record a product demo,' 'feature demo video,' 'in-app demo,' 'video pipeline,' 'copy this edit,' 'match this video style,' 'reverse-engineer this video,' 'edit like this reference,' or 'make me a video.' Use this for video creation, generation, and production workflows. For video content strategy and what to post, see social. For paid video ad creative, see ad-creative."
 metadata:
-  version: 2.2.1
+  version: 2.2.2
 ---
 
 # Video
@@ -69,7 +69,7 @@ npx hyperframes render -o output.mp4  # render index.html
 
 ### Remotion (React)
 
-Mature open-source framework. More powerful than Hyperframes but requires React knowledge.
+Older, established framework with the larger ecosystem: more templates, tutorials, and production history. Compositions are React components, so it fits teams that already write React.
 
 ```bash
 npx create-video@latest
@@ -95,17 +95,21 @@ export const ProductDemo: React.FC<{ title: string; features: string[] }> = ({
 };
 ```
 
-**Best for:** Complex animations, interactive previews, large-scale batch rendering (Lambda).
+**Best for:** Teams already on React, reusing an existing component library or design system, typed composition inputs, and Remotion Lambda (its mature, well-documented cloud renderer).
 
 ### When to Pick Which
 
 | Factor | Hyperframes | Remotion |
 |--------|-------------|----------|
 | Agent compatibility | Better (plain HTML) | Good (React) |
-| Animation complexity | GSAP timelines (plus CSS) | Advanced (Spring, interpolate) |
-| Batch rendering | Local | Lambda (AWS) for scale |
-| Learning curve | Minimal | Moderate (React + Remotion API) |
-| License | Apache 2.0 | Company license for commercial use |
+| Animation model | Seekable timelines: GSAP, CSS, Lottie, Three.js, Anime.js, WAAPI | Frame-driven (`useCurrentFrame`, `interpolate`, `spring`) |
+| Build step | None (`index.html` plays as-is) | Bundler (React/TypeScript project) |
+| Cloud rendering | AWS Lambda, Google Cloud Run, HeyGen cloud (newer) | Remotion Lambda (mature, heavily documented) |
+| Ecosystem | Newer, growing fast | Larger: more templates, tutorials, answered questions |
+| Learning curve | Minimal, but has rules (paused timeline, no wall clocks) | Moderate (React + Remotion API) |
+| License | Apache 2.0 | Free for individuals, non-profits, and companies up to 3 employees; company license above that |
+
+The real difference is the authoring model (HTML vs React), not capability: both render with headless Chrome and FFmpeg. Pick by what your team and source material already are.
 
 ---
 
