@@ -1,6 +1,6 @@
 # Hyperframes
 
-Open-source programmatic video framework from HeyGen. Create videos from HTML/CSS/JS — no React, no proprietary DSL. Designed for AI agent workflows.
+Open-source programmatic video framework from HeyGen. Create videos from HTML/CSS/JS — no React, no proprietary DSL. Ships agent skills for coding agents.
 
 ## Capabilities
 
@@ -13,10 +13,9 @@ Open-source programmatic video framework from HeyGen. Create videos from HTML/CS
 
 ## Why Hyperframes
 
-- **LLM-native**: AI models generate better HTML than React components — plain web standards, no framework DSL
-- **Deterministic**: Same input always produces identical output (ideal for automation)
-- **Open source**: Apache 2.0 license, zero per-render fees
-- **Agent-friendly**: Any coding agent that can write HTML can create videos
+- **Plain HTML**: compositions are HTML/CSS/JS files, so any agent that writes HTML can write one
+- **Deterministic**: same input, same output (good for automation)
+- **Open source**: see the [license](https://github.com/heygen-com/hyperframes/blob/main/LICENSE)
 
 ## Install
 
@@ -96,21 +95,7 @@ Product announcements, changelog videos, testimonial cards, and stat reveals all
 
 ## Hyperframes vs. Remotion
 
-| Factor | Hyperframes | Remotion |
-|--------|-------------|----------|
-| Language | HTML/CSS/JS | React/TypeScript |
-| Agent compatibility | Better (plain HTML) | Good (needs React knowledge) |
-| Animation | Seekable timelines via adapters: GSAP, CSS, Lottie, Three.js, Anime.js, WAAPI | Frame-driven (`useCurrentFrame`, `interpolate`, `spring`) |
-| Build step | None | Bundler required |
-| Cloud rendering | AWS Lambda, Google Cloud Run, Docker, or `hyperframes cloud render` (HeyGen credits) | Remotion Lambda (mature) |
-| License | Apache 2.0 (free) | Free for individuals, non-profits, and companies up to 3 employees; company license above that |
-| Ecosystem | Newer, growing fast | Mature, large community |
-
-**Use Hyperframes when:** an AI agent is authoring the video, the source material is already HTML/CSS or a browser animation, you want no build step, or you need Apache 2.0 with no seat count.
-
-**Use Remotion when:** your team already writes React, you want to reuse React components or charting libraries, you want typed composition inputs, or you want the more established ecosystem and cloud renderer.
-
-HeyGen publishes its own [HyperFrames vs Remotion comparison](https://hyperframes.heygen.com/guides/hyperframes-vs-remotion), including what Remotion does better; read it as a vendor source.
+The difference is the authoring model: Hyperframes compositions are HTML files, Remotion compositions are React components. Use Hyperframes when your source material is already HTML, CSS, or a browser animation; use Remotion when you already have a React codebase. For rendering options, licensing, and current features, check the [Hyperframes docs](https://hyperframes.heygen.com/introduction) and [Remotion docs](https://www.remotion.dev/docs) rather than a comparison table that goes stale.
 
 ## Relevant Skills
 

@@ -51,9 +51,9 @@ Pick the right tool for the job:
 
 Build videos with code. Best for repeatable, templated, or data-driven video at scale.
 
-### Hyperframes (HTML/CSS — recommended for agents)
+### Hyperframes (HTML)
 
-Open-source, Apache 2.0, from HeyGen. Uses plain HTML/CSS/JS — no framework DSL to learn. LLM-native: AI models generate better HTML than React components.
+Open-source framework from HeyGen. Compositions are plain HTML/CSS/JS files. Docs: [hyperframes.heygen.com](https://hyperframes.heygen.com/introduction).
 
 ```bash
 npx hyperframes init my-video && cd my-video
@@ -65,17 +65,15 @@ npx hyperframes render -o output.mp4  # render index.html
 
 **Best for:** Product announcements, changelogs, data-driven reports, personalized outreach videos.
 
-**Why agents prefer it:** Plain HTML/CSS means any coding agent can write a composition without learning a framework. Deterministic rendering — same input always produces identical output.
-
 ### Remotion (React)
 
-Older, established framework with the larger ecosystem: more templates, tutorials, and production history. Compositions are React components, so it fits teams that already write React.
+Open-source framework where compositions are React components. Docs: [remotion.dev](https://www.remotion.dev/docs).
 
 ```bash
 npx create-video@latest
 ```
 
-**Key concept:** React components are frames. Props drive content. Render locally or via Remotion Lambda (AWS) for scale.
+**Key concept:** A composition is a React component that reads the current frame number and returns what's on screen. Props drive content.
 
 ```tsx
 export const ProductDemo: React.FC<{ title: string; features: string[] }> = ({
@@ -95,21 +93,18 @@ export const ProductDemo: React.FC<{ title: string; features: string[] }> = ({
 };
 ```
 
-**Best for:** Teams already on React, reusing an existing component library or design system, typed composition inputs, and Remotion Lambda (its mature, well-documented cloud renderer).
+**Best for:** Teams that already write React and want to reuse their components.
 
 ### When to Pick Which
 
-| Factor | Hyperframes | Remotion |
-|--------|-------------|----------|
-| Agent compatibility | Better (plain HTML) | Good (React) |
-| Animation model | Seekable timelines: GSAP, CSS, Lottie, Three.js, Anime.js, WAAPI | Frame-driven (`useCurrentFrame`, `interpolate`, `spring`) |
-| Build step | None (`index.html` plays as-is) | Bundler (React/TypeScript project) |
-| Cloud rendering | AWS Lambda, Google Cloud Run, HeyGen cloud (newer) | Remotion Lambda (mature, heavily documented) |
-| Ecosystem | Newer, growing fast | Larger: more templates, tutorials, answered questions |
-| Learning curve | Minimal, but has rules (paused timeline, no wall clocks) | Moderate (React + Remotion API) |
-| License | Apache 2.0 | Free for individuals, non-profits, and companies up to 3 employees; company license above that |
+Both render web pages to video in a headless browser. The difference is what you write:
 
-The real difference is the authoring model (HTML vs React), not capability: both render with headless Chrome and FFmpeg. Pick by what your team and source material already are.
+| | Hyperframes | Remotion |
+|--|-------------|----------|
+| You write | HTML, CSS, JS | React components (TypeScript) |
+| Timing | Declared in markup; the renderer seeks a paused animation timeline | Computed in code from the current frame number |
+
+Pick the one that matches what your team and source material already are: existing HTML, CSS, or browser animations point to Hyperframes; an existing React codebase points to Remotion. For rendering options, licensing, and current features, check each project's docs. They change faster than this skill.
 
 ---
 
