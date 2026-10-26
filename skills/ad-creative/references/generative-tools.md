@@ -16,8 +16,8 @@ Reference for using AI image generators, video generators, and code-based video 
 | Multi-language ad versions | Voice generation | ElevenLabs, PlayHT |
 | Brand voice cloning | Voice generation | ElevenLabs, Resemble AI |
 | Product mockups and variations | Image generation + references | Flux (multi-image reference) |
-| Templated video ads at scale | Code-based video | Remotion |
-| Personalized video (name, data) | Code-based video | Remotion |
+| Templated video ads at scale | Code-based video | Remotion, Hyperframes |
+| Personalized video (name, data) | Code-based video | Remotion, Hyperframes |
 | Brand-consistent variations | Image gen + style refs | Flux, Ideogram, Nano Banana Pro |
 
 ---
@@ -258,13 +258,13 @@ Full-stack video creation platform with cinematic camera controls.
 
 ## Voice & Audio Generation
 
-For layering realistic voiceovers onto video ads, adding narration to product demos, or generating audio for Remotion-rendered videos. These tools turn ad scripts into natural-sounding voice tracks.
+For layering realistic voiceovers onto video ads, adding narration to product demos, or generating audio for code-rendered videos. These tools turn ad scripts into natural-sounding voice tracks.
 
 ### When to Use Voice Tools
 
 Many video generators (Veo, Kling, Seedance) now include native audio. Use standalone voice tools when you need:
 
-- **Voiceover on silent video** — Runway Gen-4 and Remotion produce silent output
+- **Voiceover on silent video** — add a voice track to silent AI-generated clips or code-rendered templates
 - **Brand voice consistency** — Clone a specific voice for all ads
 - **Multi-language versions** — Same ad script in 20+ languages
 - **Script iteration** — Re-record voiceover without reshooting video
@@ -450,7 +450,7 @@ Need voiceover for ads?
 1. Write ad script (use ad-creative skill for copy)
 2. Generate voiceover with ElevenLabs/OpenAI TTS
 3. Generate or render video:
-   a. Silent video from Runway/Remotion → layer voice track
+   a. Silent video (AI-generated or code-rendered) → layer voice track
    b. Or use Veo/Seedance with native audio (skip separate VO)
 4. Combine with ffmpeg if layering separately:
    ffmpeg -i video.mp4 -i voiceover.mp3 -c:v copy -c:a aac output.mp4
@@ -459,18 +459,15 @@ Need voiceover for ads?
 
 ---
 
-## Code-Based Video: Remotion
+## Code-Based Video
 
-For templated, data-driven video ads at scale, Remotion is the best option. Unlike AI video generators that produce unique video from prompts, Remotion uses React code to render deterministic, brand-perfect video from templates and data.
+For templated, data-driven video ads, render video from code instead of prompts. Unlike AI video generators that produce unique video each time, code-based frameworks render deterministic, brand-exact video from templates and data. The two common open-source options are **Remotion** (React components) and **Hyperframes** (HTML files). For how they differ and how to pick, see the `video` skill; for licensing and current features, check each project's docs ([remotion.dev](https://www.remotion.dev/docs), [hyperframes.heygen.com](https://hyperframes.heygen.com/introduction)).
 
 **Best for:** Templated ad variations, personalized video, brand-consistent production
-**Stack:** React + TypeScript
-**Pricing:** Free for individuals/small teams; commercial license required for 4+ employees
-**Docs:** [remotion.dev](https://www.remotion.dev/)
 
-### Why Remotion for Ads
+### Why Code-Based Video for Ads
 
-| AI Video Generators | Remotion |
+| AI Video Generators | Code-based video |
 |---------------------|----------|
 | Unique output each time | Deterministic, pixel-perfect |
 | Prompt-based, less control | Full code control over every frame |
@@ -481,7 +478,7 @@ For templated, data-driven video ads at scale, Remotion is the best option. Unli
 ### Ad Creative Use Cases
 
 **1. Dynamic product ads**
-Feed a JSON array of products and render a unique video ad for each:
+Feed a JSON array of products and render a unique video ad for each. Example in Remotion (the same template works as an HTML composition in Hyperframes):
 ```tsx
 // Simplified Remotion component for product ads
 export const ProductAd: React.FC<{
@@ -522,10 +519,10 @@ Render the same content across different aspect ratios:
 - 9:16 for Stories/Reels
 - 16:9 for YouTube
 
-### Remotion Workflow for Ad Creative
+### Code-Based Workflow for Ad Creative
 
 ```
-1. Design template in React (or use AI to generate the component)
+1. Design the template (or have an AI agent write it)
 2. Define data schema (products, headlines, CTAs, images)
 3. Feed data array into template
 4. Batch render all variations
@@ -533,6 +530,8 @@ Render the same content across different aspect ratios:
 ```
 
 ### Getting Started
+
+Remotion commands below; for Hyperframes setup, see the `video` skill.
 
 ```bash
 # Create a new Remotion project
@@ -554,14 +553,14 @@ npx remotion render src/index.ts MyComposition --props='{"data": [...]}'
 ```
 Need video ads?
 ├── Templated, data-driven (same structure, different data)
-│   └── Use Remotion
+│   └── Use code-based video (Remotion or Hyperframes, see the video skill)
 ├── Unique creative from prompts (exploratory)
 │   ├── Need dialogue/voiceover? → Veo 3.1, Kling 2.6, Seedance 2.0
 │   ├── Need consistency across scenes? → Runway Gen-4
 │   ├── Need vertical social video? → Veo 3.1 (native 9:16)
 │   ├── Need high volume at low cost? → Seedance 2.0
 │   └── Need cinematic camera work? → Higgsfield, Kling
-└── Both → Use AI gen for hero creative, Remotion for variations
+└── Both → Use AI gen for hero creative, code-based video for variations
 
 Need image ads?
 ├── Need text/headlines in image? → Ideogram
@@ -579,15 +578,15 @@ Need image ads?
 | 100 static images | Flux Dev | ~$1-2 |
 | 100 static images | Ideogram API | ~$6 |
 | 100 × 15-sec videos | Veo 3.1 Fast | ~$225 |
-| 100 × 15-sec videos | Remotion (templated) | ~$0 (self-hosted render) |
-| 10 hero videos + 90 templated | Veo + Remotion | ~$22 + render time |
+| 100 × 15-sec videos | Code-based video (templated) | Render compute only (self-hosted); check license terms |
+| 10 hero videos + 90 templated | Veo + code-based video | ~$22 + render time |
 
 ### Recommended Workflow for Scaled Ad Production
 
 1. **Generate hero creative** with AI (Nano Banana, Flux, Veo) — high-quality, exploratory
-2. **Build templates** in Remotion based on winning creative patterns
-3. **Batch produce variations** with Remotion using data (products, headlines, CTAs)
-4. **Iterate** — use AI tools for new angles, Remotion for scale
+2. **Build templates** in code (Remotion or Hyperframes) based on winning creative patterns
+3. **Batch produce variations** from data (products, headlines, CTAs)
+4. **Iterate** — use AI tools for new angles, code-based templates for scale
 
 This hybrid approach gives you the creative exploration of AI generators and the consistency and scale of code-based rendering.
 
