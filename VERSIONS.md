@@ -17,7 +17,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitor-profiling | 2.1.4 | 2026-10-15 |
 | competitors | 2.3.0 | 2026-10-01 |
 | content-strategy | 2.1.4 | 2026-10-15 |
-| conversion-tracking | 1.0.0 | 2026-10-19 |
+| conversion-tracking | 1.0.1 | 2026-10-19 |
 | copy-editing | 2.2.0 | 2026-10-15 |
 | copywriting | 2.3.1 | 2026-10-15 |
 | cro | 2.0.3 | 2026-10-08 |
@@ -59,9 +59,13 @@ Current versions of all skills. Agents can compare against local versions to che
 
 ## Recent Changes
 
-### 2.13.1 (2026-10-22)
+### 2.13.2 (2026-10-26)
 
-- **ai-seo** (2.10.1 → 2.10.2): agent-readiness reference adds the AgentReady open standard (agentready.org, Ora with Vercel, Stripe, Auth0, Mintlify, Tavily, Google, Elementor): find → read → act ordering, MUST/SHOULD/MAY practice IDs to cite in audits, and Ora's study figures (3.7× more fact-free answers when agents can't read the site, 1.9× recommendation rate, 60% vs 37% pricing accuracy) labeled as vendor research. Adds WAF-as-separate-gate, 429 + Retry-After over challenge pages, linking discovery files, the AI Catalog, visible-text facts over JSON-LD-only, and the act tier (MCP server or CLI, finishable auth, OpenAPI). Markdown mirrors downgraded to MAY since format didn't change task success. robots.txt guidance (reference and SKILL.md) now defaults to a wildcard allow with named groups only for deliberate exceptions.
+- **ai-seo** (2.10.1 → 2.10.2): agent-readiness reference adds the AgentReady open standard (agentready.org, led by Ora): find → read → act ordering, MUST/SHOULD/MAY practice IDs to cite in audits, and Ora's study figures (3.7× more fact-free answers when agents can't read the site, 1.9× recommendation rate, 60% vs 37% pricing accuracy) labeled as vendor research. Adds WAF-as-separate-gate, 429 + Retry-After over challenge pages, linking discovery files, the AI Catalog, visible-text facts over JSON-LD-only, and the act tier (MCP server or CLI, finishable auth, OpenAPI). Markdown mirrors downgraded to MAY since format didn't change task success. robots.txt guidance (reference and SKILL.md) now defaults to a wildcard allow with named groups only for deliberate exceptions.
+
+### 2.13.1 (2026-10-19)
+
+- **conversion-tracking** (1.0.0 → 1.0.1): an ad-platform setup now reaches the delivery decision when the user mentions ad blockers, iOS or ATT signal loss, or conversions the platform is missing or under-reporting, and walks through the options in `references/server-side.md`, free and native paths first. A narrower version of the "every ad-platform setup reaches the delivery decision" change dropped from 2.13.0. Names no vendor.
 
 ### 2.13.0 (2026-10-19)
 
