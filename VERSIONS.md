@@ -62,7 +62,7 @@ Current versions of all skills. Agents can compare against local versions to che
 ### 2.13.2 (2026-10-26)
 
 - **video** (2.2.1 → 2.2.2) and the **Hyperframes integration guide**: the Hyperframes vs Remotion comparison now sticks to facts that don't drift (HTML vs React authoring, and how each times animation) and points to each project's docs for rendering, licensing, and features. Removed the unsupported "more powerful than Hyperframes" line (flagged by a HyperFrames maintainer), the "recommended for agents" label, and the stale cloud-rendering, license-tier, and ecosystem rows.
-- **ad-creative** (2.12.1 → 2.12.2): code-based video ads no longer call Remotion "the best option". The section, decision tree, cost table, and workflows now name code-based video (Remotion or Hyperframes), point to the `video` skill for choosing between them, and drop the stale license-tier pricing line.
+- **ad-creative** (2.12.1 → 2.12.2): code-based video ads no longer call Remotion "the best option". The section, decision tree, cost table, and workflows now name code-based video (Remotion or Hyperframes), point to the `video` skill for choosing between them, and drop the stale license-tier pricing line. The video, image, and voice decision trees now list tools as "options include" by need instead of single picks or "best quality" rankings, and the cost table is marked as rough estimates to verify.
 
 ### 2.13.0 (2026-10-19)
 

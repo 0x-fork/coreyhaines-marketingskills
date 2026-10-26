@@ -174,7 +174,7 @@ For image and video generation tools, see [references/generative-tools.md](refer
 - **Platform image specs** — Correct dimensions for every ad placement
 - **Cost comparison** — Pricing for 100+ ad variations across tools
 
-**Recommended workflow for scaled production:**
+**Workflow for scaled production:**
 1. Generate hero creative with AI tools (exploratory, high-quality)
 2. Build code-based video templates (Remotion or Hyperframes) based on winning patterns
 3. Batch produce variations from data feeds

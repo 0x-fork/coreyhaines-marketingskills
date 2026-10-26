@@ -274,7 +274,7 @@ Many video generators (Veo, Kling, Seedance) now include native audio. Use stand
 
 ### ElevenLabs
 
-The market leader in realistic voice generation and voice cloning.
+Voice generation and voice cloning platform.
 
 **Best for:** Most natural-sounding voiceovers, brand voice cloning, multilingual
 **API:** REST API with streaming support
@@ -423,25 +423,18 @@ cd voicebox && make setup && make dev
 | **WellSaid** | Very good | No (actor voices) | English | ~300ms | Custom pricing |
 | **Voicebox** | Good | Yes (local) | 2+ | Local | Free (open source) |
 
-### Choosing a Voice Tool
+### Voice Tool Options by Need
+
+These are options to evaluate, not rankings. Test a short script in two or three tools and judge by ear; check each vendor's current pricing and language list.
 
 ```
 Need voiceover for ads?
-├── Need to clone a specific brand voice?
-│   ├── Best quality → ElevenLabs
-│   ├── Enterprise/on-premise → Resemble AI
-│   └── Budget-friendly → Fish Audio, PlayHT
-├── Need multilingual (same ad, many languages)?
-│   ├── Most languages → PlayHT (140+)
-│   └── Best quality → ElevenLabs (29+)
-├── Need free / open source / local?
-│   └── Voicebox (MIT, runs on your machine)
-├── Need cheap, fast, good-enough?
-│   └── OpenAI TTS ($0.015/min)
-├── Need commercially-safe licensing?
-│   └── WellSaid Labs (actor-compensated voices)
-└── Need real-time/interactive?
-    └── Cartesia Sonic (40ms TTFA)
+├── Clone a specific brand voice → options include ElevenLabs, Resemble AI (enterprise/on-premise), Fish Audio, PlayHT
+├── Multilingual (same ad, many languages) → options include PlayHT, ElevenLabs
+├── Free / open source / local → options include Voicebox
+├── Cheap and fast → options include OpenAI TTS
+├── Actor-compensated voice licensing → options include WellSaid Labs
+└── Real-time / interactive → options include Cartesia Sonic
 ```
 
 ### Workflow: Voice + Video
@@ -548,29 +541,33 @@ npx remotion render src/index.ts MyComposition --props='{"data": [...]}'
 
 ## Choosing the Right Tool
 
-### Decision Tree
+### Options by Need
+
+Start from the approach (code-based vs AI generation), then pick a tool. The tools listed are options to evaluate, not rankings: models change quickly, so run the same brief through two or three and compare the output, and check current versions and pricing on each vendor's site.
 
 ```
 Need video ads?
 ├── Templated, data-driven (same structure, different data)
-│   └── Use code-based video (Remotion or Hyperframes, see the video skill)
+│   └── Code-based video (Remotion, Hyperframes; see the video skill)
 ├── Unique creative from prompts (exploratory)
-│   ├── Need dialogue/voiceover? → Veo 3.1, Kling 2.6, Seedance 2.0
-│   ├── Need consistency across scenes? → Runway Gen-4
-│   ├── Need vertical social video? → Veo 3.1 (native 9:16)
-│   ├── Need high volume at low cost? → Seedance 2.0
-│   └── Need cinematic camera work? → Higgsfield, Kling
-└── Both → Use AI gen for hero creative, code-based video for variations
+│   ├── Dialogue/voiceover in the clip → options include Veo, Kling, Seedance
+│   ├── Consistency across scenes → options include Runway
+│   ├── Native vertical (9:16) output → options include Veo
+│   ├── High volume at low cost → options include Seedance
+│   └── Cinematic camera work → options include Higgsfield, Kling
+└── Both → AI generation for hero creative, code-based video for variations
 
 Need image ads?
-├── Need text/headlines in image? → Ideogram
-├── Need product consistency across variations? → Flux (multi-ref)
-├── Need quick iterations on existing images? → Nano Banana Pro
-├── Need highest visual quality? → Flux Pro, Midjourney
-└── Need high volume at low cost? → Flux Klein, Nano Banana
+├── Text/headlines in the image → options include Ideogram, Nano Banana Pro
+├── Product consistency across variations → options include Flux (multi-reference)
+├── Quick iterations on existing images → options include Nano Banana Pro
+├── Polished final assets → options include Flux Pro, Midjourney
+└── High volume at low cost → options include Flux Klein, Nano Banana
 ```
 
 ### Cost Comparison for 100 Ad Variations
+
+Rough order-of-magnitude estimates to compare approaches, not quotes. Prices change often; verify on each vendor's pricing page before budgeting.
 
 | Approach | Tool | Approximate Cost |
 |----------|------|-----------------|
@@ -581,7 +578,7 @@ Need image ads?
 | 100 × 15-sec videos | Code-based video (templated) | Render compute only (self-hosted); check license terms |
 | 10 hero videos + 90 templated | Veo + code-based video | ~$22 + render time |
 
-### Recommended Workflow for Scaled Ad Production
+### Workflow for Scaled Ad Production
 
 1. **Generate hero creative** with AI (Nano Banana, Flux, Veo) — high-quality, exploratory
 2. **Build templates** in code (Remotion or Hyperframes) based on winning creative patterns
