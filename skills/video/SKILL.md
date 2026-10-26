@@ -167,7 +167,7 @@ cinematic color grading, 4K
 
 Create talking-head videos without filming. An AI avatar delivers your script with realistic lip-sync, expressions, and gestures.
 
-### HeyGen (recommended — has MCP server)
+### HeyGen (has MCP server)
 
 Best lip-sync and micro-expressions. 230+ avatars, 140+ languages.
 
@@ -263,6 +263,22 @@ To replicate the *style* of a video edit you admire — the cut rhythm, caption 
 3. **Render batch** — one template, many variations
 4. **Add platform-specific captions** via CapCut or Captions.ai
 5. **Schedule** across platforms
+
+### Personalized Video per Account
+
+A tailored product film for each target account, made by agents. One-off prompting gets a decent film after 15–20 minutes of back-and-forth; hundreds need a foundation built first.
+
+1. **Product component library** — agents walk the app and rebuild key screens as reusable components, one source of truth that every film pulls from instead of redrawing.
+2. **Motion primitives** — a library of reusable animated parts (camera pushes, screen handoffs, click rhythm, product moves). Fix one and every film inherits the fix.
+3. **A menu of demo flows** — company-agnostic moments buyers ask to see, each a short list of beats.
+4. **Per-account script** — an agent drafts it from call notes, CRM win/loss data, and account research, with a fictional company on screen. Voiceover from a cloned narrator voice, with the narrator's consent.
+5. **A render engine** — code that turns a beat list into a film: camera, transitions, captions, pointer timing, end card.
+6. **Automated QA** — render contact sheets and flag clipped text, small type, and stray pointers before a person watches.
+7. **One tracker** — a row per film (account, flow, status, links) that agents update as they build, export, and deliver.
+
+Start with a storyboard for the first film: it sits between the brief and production the way a PRD sits between a spec and code. Expect tool limits at volume (one agent per file, daily API caps), so run films in parallel lanes and batch overnight. Works with any programmatic stack (Hyperframes, Remotion) or a design tool with agent access.
+
+*Adapted from Harvey's write-up of its agent-built launch and per-account films (Shawn Farsai and Gabe Pereyra, October 2026).*
 
 ---
 
