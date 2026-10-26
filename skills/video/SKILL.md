@@ -67,7 +67,7 @@ npx hyperframes render -o output.mp4  # render index.html
 
 ### Remotion (React)
 
-Open-source framework where compositions are React components. Docs: [remotion.dev](https://www.remotion.dev/docs).
+Framework where compositions are React components. Docs: [remotion.dev](https://www.remotion.dev/docs).
 
 ```bash
 npx create-video@latest

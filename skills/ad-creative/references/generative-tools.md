@@ -454,7 +454,7 @@ Need voiceover for ads?
 
 ## Code-Based Video
 
-For templated, data-driven video ads, render video from code instead of prompts. Unlike AI video generators that produce unique video each time, code-based frameworks render deterministic, brand-exact video from templates and data. The two common open-source options are **Remotion** (React components) and **Hyperframes** (HTML files). For how they differ and how to pick, see the `video` skill; for licensing and current features, check each project's docs ([remotion.dev](https://www.remotion.dev/docs), [hyperframes.heygen.com](https://hyperframes.heygen.com/introduction)).
+For templated, data-driven video ads, render video from code instead of prompts. Unlike AI video generators that produce unique video each time, code-based frameworks render deterministic, brand-exact video from templates and data. Two common options are **Remotion** (React components) and **Hyperframes** (HTML files). For how they differ and how to pick, see the `video` skill; for licensing and current features, check each project's docs ([remotion.dev](https://www.remotion.dev/docs), [hyperframes.heygen.com](https://hyperframes.heygen.com/introduction)).
 
 **Best for:** Templated ad variations, personalized video, brand-consistent production
 
