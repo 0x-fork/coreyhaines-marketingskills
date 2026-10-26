@@ -191,6 +191,8 @@ What you've accomplished:
 
 **For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
 
+**For consumer iOS/Android subscription apps** (paywall inside onboarding, yearly-first plans, trials and reminders, store fees, web checkout, revenue per download): See [references/mobile-subscription-paywalls.md](references/mobile-subscription-paywalls.md)
+
 ---
 
 ## Anti-Patterns to Avoid
