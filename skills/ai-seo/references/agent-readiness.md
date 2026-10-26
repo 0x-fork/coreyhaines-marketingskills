@@ -13,13 +13,13 @@ Run one before and after any agent-readiness work — the score is a shareable a
 
 ## The AgentReady standard
 
-[AgentReady.org](https://agentready.org) (launched October 21, 2026) is an open spec for what a product should implement to be usable by agents. Ora led it with Vercel, Stripe, Auth0, Mintlify, Tavily, Google, and Elementor. It orders practices the way agents meet a site — **find → read → act** — and gives each a stable ID and a strength:
+[AgentReady.org](https://agentready.org) (launched October 21, 2026) is an open spec for what a product should implement to be usable by agents. Ora leads it with a group of collaborators that includes Vercel, Stripe, and Google (current list on the site). It orders practices the way agents meet a site — **find → read → act** — and gives each a stable ID and a strength:
 
 - **MUST** — agents failed without it in the studies. Only three: allow agents through robots.txt and bot protection (AR-FIND-01), put the answer in the initial HTML (AR-READ-01), return real HTTP status codes (AR-READ-02) — plus, *if the product should complete tasks*, an MCP server or CLI (AR-ACT-10).
 - **SHOULD** — measurably shaped where agents went (first-party docs, sitemap, homepage links, llms.txt, JSON-LD, fenced code, pricing as text, auth, OpenAPI).
 - **MAY** — emerging conventions (Markdown mirrors, AI Catalog).
 
-Cite the IDs in audit findings ("fails AR-READ-01") so fixes map to a public spec rather than your opinion. Only 6% of ~125,000 sites Ora scanned graded B or above (average score 42, October 2026), so most sites have real gaps.
+Cite the IDs in audit findings ("fails AR-READ-01") so fixes map to a public spec rather than your opinion. In October 2026, only about 6% of sites Ora scanned graded B or above, so most sites have real gaps (live figures on the site).
 
 **Why it matters (Ora research, "AX is the New AEO," arXiv:2609.34951, September 2026 — vendor research with a public dataset):**
 
