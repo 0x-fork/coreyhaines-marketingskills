@@ -6,7 +6,7 @@ Current versions of all skills. Agents can compare against local versions to che
 |-------|---------|--------------|
 | ab-testing | 2.0.2 | 2026-10-12 |
 | ad-creative | 2.12.2 | 2026-10-26 |
-| ai-seo | 2.10.2 | 2026-10-22 |
+| ai-seo | 2.11.0 | 2026-10-26 |
 | analytics | 2.2.1 | 2026-10-19 |
 | aso | 2.0.2 | 2026-10-08 |
 | attribution | 1.1.6 | 2026-10-19 |
@@ -22,7 +22,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | copywriting | 2.3.1 | 2026-10-15 |
 | cro | 2.0.3 | 2026-10-08 |
 | customer-research | 2.0.4 | 2026-10-02 |
-| directory-submissions | 2.1.2 | 2026-10-15 |
+| directory-submissions | 2.1.3 | 2026-10-26 |
 | emails | 2.1.4 | 2026-10-15 |
 | events | 1.0.0 | 2026-08-23 |
 | free-tools | 2.0.3 | 2026-10-15 |
@@ -38,13 +38,13 @@ Current versions of all skills. Agents can compare against local versions to che
 | marketing-psychology | 2.0.0 | 2026-05-05 |
 | offers | 1.0.2 | 2026-10-12 |
 | onboarding | 2.0.2 | 2026-10-12 |
-| ads | 2.6.2 | 2026-10-19 |
+| ads | 2.7.0 | 2026-10-26 |
 | paywalls | 2.0.0 | 2026-05-05 |
 | popups | 2.0.0 | 2026-05-05 |
 | pricing | 2.1.4 | 2026-10-12 |
 | product-marketing | 2.2.0 | 2026-10-15 |
 | programmatic-seo | 2.1.0 | 2026-10-06 |
-| prospecting | 1.3.0 | 2026-10-08 |
+| prospecting | 1.4.0 | 2026-10-26 |
 | public-relations | 1.2.1 | 2026-10-15 |
 | referrals | 2.2.1 | 2026-10-12 |
 | revops | 2.2.1 | 2026-10-12 |
@@ -55,9 +55,21 @@ Current versions of all skills. Agents can compare against local versions to che
 | site-architecture | 2.1.0 | 2026-10-06 |
 | sms | 1.1.0 | 2026-10-02 |
 | social | 2.4.0 | 2026-10-14 |
-| video | 2.2.2 | 2026-10-26 |
+| video | 2.3.0 | 2026-10-26 |
 
 ## Recent Changes
+
+### 2.13.4 (2026-10-26)
+
+Learnings from a batch of October 2026 posts, verified before inclusion:
+
+- **ads** (2.6.2 → 2.7.0): the Meta playbook adds **ad sequencing**: why order matters to Meta's ranking model, the narrow auction setup (Awareness or Engagement objective, target frequency, lifetime budget of 7+ days, 2+ ads), sizing a sequence to the flight, and the cost trade-off. The creative-research reference adds a **persistent competitor ad tracker** (weekly pulls from the Meta, Google and LinkedIn ad libraries, vision tagging, diffs, gap questions), with a caveat that ad longevity is a proxy, not proof. The Google Search playbook covers **AI Max** under the same gate as broad match. Sources: Cody Schneider, Jon Loomer, Meta Engineering.
+- **ai-seo** (2.10.2 → 2.11.0): the prompt-portfolio reference adds scoring by **buying topic** and a fix-before-create sequence (Jam's AI search audit). Platform notes add Bing Webmaster Tools' **AI Performance report and grounding queries**, and Brave's submit-url page with its limits. Agent readiness adds Fern's Agent Score for developer docs.
+- **prospecting** (1.3.0 → 1.4.0): signal plays adds **warm paths**: mining your own network (LinkedIn export, calendar, inbox), matching it to target accounts, paid connectors per vertical, and double opt-in intros (Cody Schneider's podcast with Super Connector).
+- **video** (2.2.2 → 2.3.0): adds a **personalized video per account** workflow (component library, motion primitives, demo-flow menu, render engine, automated QA, tracker), adapted from Harvey's write-up. Drops the "recommended" label on HeyGen.
+- **directory-submissions** (2.1.2 → 2.1.3): the Notion entry now reflects the Notion Marketplace's requirements (public connection with the "Any workspace" scope, which can't be changed later, plus a review that includes security).
+
+Not incorporated: duplicating Shopping products to test images and landing pages (third-party sources call it a Shopping policy violation), agency spend anecdotes, and an unverified 50-site launch list.
 
 ### 2.13.3 (2026-10-26)
 
