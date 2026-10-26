@@ -61,7 +61,7 @@ Current versions of all skills. Agents can compare against local versions to che
 
 ### 2.13.2 (2026-10-26)
 
-- **video** (2.2.1 → 2.2.2) and the **Hyperframes integration guide**: corrected the Hyperframes vs Remotion comparison (flagged by a HyperFrames maintainer). Removed the unsupported "more powerful than Hyperframes" line; the real difference is the authoring model (HTML vs React). Updated stale rows: Hyperframes now renders on AWS Lambda, Google Cloud Run, Docker, or HeyGen's cloud, and animates through adapters (GSAP, CSS, Lottie, Three.js, Anime.js, WAAPI); Remotion's license is free for individuals, non-profits, and companies up to 3 employees. Remotion's real edges stay stated plainly: larger ecosystem, mature Lambda renderer, React component reuse. Checked against hyperframes v0.8.205.
+- **video** (2.2.1 → 2.2.2) and the **Hyperframes integration guide**: the Hyperframes vs Remotion comparison now sticks to facts that don't drift (HTML vs React authoring, and how each times animation) and points to each project's docs for rendering, licensing, and features. Removed the unsupported "more powerful than Hyperframes" line (flagged by a HyperFrames maintainer), the "recommended for agents" label, and the stale cloud-rendering, license-tier, and ecosystem rows.
 
 ### 2.13.0 (2026-10-19)
 
