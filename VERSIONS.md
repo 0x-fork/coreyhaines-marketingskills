@@ -6,7 +6,7 @@ Current versions of all skills. Agents can compare against local versions to che
 |-------|---------|--------------|
 | ab-testing | 2.0.2 | 2026-10-12 |
 | ad-creative | 2.12.2 | 2026-10-26 |
-| ai-seo | 2.10.1 | 2026-10-19 |
+| ai-seo | 2.10.2 | 2026-10-22 |
 | analytics | 2.2.1 | 2026-10-19 |
 | aso | 2.0.2 | 2026-10-08 |
 | attribution | 1.1.6 | 2026-10-19 |
@@ -17,7 +17,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitor-profiling | 2.1.4 | 2026-10-15 |
 | competitors | 2.3.0 | 2026-10-01 |
 | content-strategy | 2.1.4 | 2026-10-15 |
-| conversion-tracking | 1.0.0 | 2026-10-19 |
+| conversion-tracking | 1.0.1 | 2026-10-19 |
 | copy-editing | 2.2.0 | 2026-10-15 |
 | copywriting | 2.3.1 | 2026-10-15 |
 | cro | 2.0.3 | 2026-10-08 |
@@ -59,10 +59,18 @@ Current versions of all skills. Agents can compare against local versions to che
 
 ## Recent Changes
 
-### 2.13.2 (2026-10-26)
+### 2.13.3 (2026-10-26)
 
 - **video** (2.2.1 → 2.2.2) and the **Hyperframes integration guide**: the Hyperframes vs Remotion comparison now sticks to facts that don't drift (HTML vs React authoring, and how each times animation) and points to each project's docs for rendering, licensing, and features. Removed the unsupported "more powerful than Hyperframes" line (flagged by a HyperFrames maintainer), the "recommended for agents" label, and the stale cloud-rendering, license-tier, and ecosystem rows.
 - **ad-creative** (2.12.1 → 2.12.2): code-based video ads no longer call Remotion "the best option". The section, decision tree, cost table, and workflows now name code-based video (Remotion or Hyperframes), point to the `video` skill for choosing between them, and drop the stale license-tier pricing line. The video, image, and voice decision trees now list tools as "options include" by need instead of single picks or "best quality" rankings, and the cost table is marked as rough estimates to verify.
+
+### 2.13.2 (2026-10-26)
+
+- **ai-seo** (2.10.1 → 2.10.2): agent-readiness reference adds the AgentReady open standard (agentready.org, led by Ora): find → read → act ordering, MUST/SHOULD/MAY practice IDs to cite in audits, and Ora's study figures (3.7× more fact-free answers when agents can't read the site, 1.9× recommendation rate, 60% vs 37% pricing accuracy) labeled as vendor research. Adds WAF-as-separate-gate, 429 + Retry-After over challenge pages, linking discovery files, the AI Catalog, visible-text facts over JSON-LD-only, and the act tier (MCP server or CLI, finishable auth, OpenAPI). Markdown mirrors downgraded to MAY since format didn't change task success. robots.txt guidance (reference and SKILL.md) now defaults to a wildcard allow with named groups only for deliberate exceptions.
+
+### 2.13.1 (2026-10-19)
+
+- **conversion-tracking** (1.0.0 → 1.0.1): an ad-platform setup now reaches the delivery decision when the user mentions ad blockers, iOS or ATT signal loss, or conversions the platform is missing or under-reporting, and walks through the options in `references/server-side.md`, free and native paths first. A narrower version of the "every ad-platform setup reaches the delivery decision" change dropped from 2.13.0. Names no vendor.
 
 ### 2.13.0 (2026-10-19)
 
