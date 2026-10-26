@@ -60,7 +60,7 @@ Source 2–3× more candidates than the user wants in the final list — qualifi
 
 If the user's list quality bar is high, smaller is better. 25 verified leads beats 250 mostly-junk ones.
 
-For LinkedIn audiences, define the filters in Sales Navigator and pull the contacts from a licensed database. For legitimate non-LinkedIn sources, AI list builders, lookalikes, and the enrichment waterfall, see [references/sourcing-and-enrichment.md](references/sourcing-and-enrichment.md). To find accounts by what just happened to them (hiring, job changes, product usage, funding), see [references/signal-plays.md](references/signal-plays.md).
+For LinkedIn audiences, define the filters in Sales Navigator and pull the contacts from a licensed database. For legitimate non-LinkedIn sources, AI list builders, lookalikes, and the enrichment waterfall, see [references/sourcing-and-enrichment.md](references/sourcing-and-enrichment.md). To find accounts by what just happened to them (hiring, job changes, product usage, funding), or warm paths through your own network, see [references/signal-plays.md](references/signal-plays.md).
 
 ### Phase 3 — Qualify each candidate
 
