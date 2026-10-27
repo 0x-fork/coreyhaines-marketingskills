@@ -33,7 +33,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | link-building | 1.0.1 | 2026-10-19 |
 | marketing-council | 1.0.0 | 2026-07-06 |
 | marketing-ideas | 2.0.1 | 2026-08-23 |
-| marketing-loops | 1.6.1 | 2026-10-15 |
+| marketing-loops | 1.6.2 | 2026-10-27 |
 | marketing-plan | 1.2.2 | 2026-10-12 |
 | marketing-psychology | 2.0.0 | 2026-05-05 |
 | offers | 1.0.3 | 2026-10-27 |
@@ -44,7 +44,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | pricing | 2.1.4 | 2026-10-12 |
 | product-marketing | 2.2.0 | 2026-10-15 |
 | programmatic-seo | 2.1.1 | 2026-10-27 |
-| prospecting | 1.4.0 | 2026-10-26 |
+| prospecting | 1.5.0 | 2026-10-27 |
 | public-relations | 1.2.1 | 2026-10-15 |
 | referrals | 2.2.1 | 2026-10-12 |
 | revops | 2.2.2 | 2026-10-27 |
@@ -58,6 +58,11 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.3.0 | 2026-10-26 |
 
 ## Recent Changes
+
+### 2.13.9 (2026-10-27)
+
+- **prospecting** (1.4.0 → 1.5.0): signal plays adds **gap plays**: a spend or growth signal paired with a gap you can verify from outside that your offer fixes (ads with no visible tracking, paid traffic sent to the homepage, long-running ad creative, thin location or integration pages, lead magnets with no follow-up, expansion without localization, hiring for repetitive work). Each row says how to check the gap. Rules: evidence required for every gap, limits of outside checks (server-side tracking, brand-search homepages, winning ads that run long), re-check within 7 days of sending, and open with the observation and a question. The signal-tools table adds X search and the public ad libraries. Prompted by Mitch Davey's post on signal plays.
+- **marketing-loops** (1.6.1 → 1.6.2): the signal-sweep loop verifies and saves evidence for gap plays before staging a touch.
 
 ### 2.13.8 (2026-10-27)
 
