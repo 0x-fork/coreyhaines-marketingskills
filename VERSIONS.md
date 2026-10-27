@@ -59,6 +59,10 @@ Current versions of all skills. Agents can compare against local versions to che
 
 ## Recent Changes
 
+### 2.13.6 (2026-10-27)
+
+- **Tools registry**: 22 tools now document official MCP servers that the registry and their integration guides listed as unavailable: Mixpanel, Amplitude, PostHog, Semrush, Ahrefs, Similarweb, Salesforce, Kit, Klaviyo, Brevo, ActiveCampaign, beehiiv, Optimizely, Customer.io, Typeform, Buffer, Livestorm, PartnerStack, Tolt, Twilio (beta), Attentive (beta), and Webflow. Each guide links the vendor's MCP docs with a checked date. Category-table notes that ranked tools ("Best for links", "Most popular", "Stripe is the default") now state facts instead. The MCP-enabled list in AGENTS.md is updated to match. No skill content changed.
+
 ### 2.13.5 (2026-10-26)
 
 - **paywalls** (2.0.0 → 2.1.0): new `references/mobile-subscription-paywalls.md` for consumer iOS/Android subscription apps: the paywall after onboarding's first personalized result, hard paywall vs. freemium (RevenueCat 2026 data), yearly-first plan presentation, trials with reminders and trial length as a test, one abandon offer, dated store fees (Apple Small Business Program; Google Play's June 2026 10% + 5% split, with the 10% applying to web links; the US link-out commission still in court), the web-to-app funnel, revenue per download, and an App Store review checklist. New description triggers for mobile and subscription-app paywalls. Adapted from Blake Anderson's ai-app-playbook (MIT); his "best and cheapest" stack verdicts were left out.
