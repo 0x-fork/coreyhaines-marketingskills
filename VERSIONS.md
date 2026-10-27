@@ -4,50 +4,50 @@ Current versions of all skills. Agents can compare against local versions to che
 
 | Skill | Version | Last Updated |
 |-------|---------|--------------|
-| ab-testing | 2.0.2 | 2026-10-12 |
+| ab-testing | 2.0.3 | 2026-10-27 |
 | ad-creative | 2.12.2 | 2026-10-26 |
 | ai-seo | 2.11.0 | 2026-10-26 |
-| analytics | 2.2.1 | 2026-10-19 |
-| aso | 2.0.2 | 2026-10-08 |
+| analytics | 2.2.2 | 2026-10-27 |
+| aso | 2.0.3 | 2026-10-27 |
 | attribution | 1.1.6 | 2026-10-19 |
 | churn-prevention | 2.0.3 | 2026-10-12 |
 | co-marketing | 2.0.3 | 2026-10-12 |
-| cold-email | 2.2.0 | 2026-10-07 |
-| community-marketing | 2.0.1 | 2026-08-23 |
+| cold-email | 2.2.1 | 2026-10-27 |
+| community-marketing | 2.0.2 | 2026-10-27 |
 | competitor-profiling | 2.1.4 | 2026-10-15 |
 | competitors | 2.3.0 | 2026-10-01 |
-| content-strategy | 2.1.4 | 2026-10-15 |
+| content-strategy | 2.1.5 | 2026-10-27 |
 | conversion-tracking | 1.0.1 | 2026-10-19 |
-| copy-editing | 2.2.0 | 2026-10-15 |
-| copywriting | 2.3.1 | 2026-10-15 |
+| copy-editing | 2.2.1 | 2026-10-27 |
+| copywriting | 2.3.2 | 2026-10-27 |
 | cro | 2.0.3 | 2026-10-08 |
-| customer-research | 2.0.4 | 2026-10-02 |
-| directory-submissions | 2.1.3 | 2026-10-26 |
+| customer-research | 2.0.5 | 2026-10-27 |
+| directory-submissions | 2.1.4 | 2026-10-27 |
 | emails | 2.1.4 | 2026-10-15 |
 | events | 1.0.0 | 2026-08-23 |
 | free-tools | 2.0.3 | 2026-10-15 |
-| image | 2.0.2 | 2026-10-02 |
+| image | 2.0.3 | 2026-10-27 |
 | influencer-marketing | 1.4.0 | 2026-10-15 |
 | launch | 2.2.0 | 2026-10-07 |
-| lead-magnets | 2.1.0 | 2026-10-08 |
+| lead-magnets | 2.1.1 | 2026-10-27 |
 | link-building | 1.0.1 | 2026-10-19 |
 | marketing-council | 1.0.0 | 2026-07-06 |
 | marketing-ideas | 2.0.1 | 2026-08-23 |
 | marketing-loops | 1.6.1 | 2026-10-15 |
 | marketing-plan | 1.2.2 | 2026-10-12 |
 | marketing-psychology | 2.0.0 | 2026-05-05 |
-| offers | 1.0.2 | 2026-10-12 |
+| offers | 1.0.3 | 2026-10-27 |
 | onboarding | 2.0.2 | 2026-10-12 |
 | ads | 2.7.0 | 2026-10-26 |
-| paywalls | 2.1.0 | 2026-10-26 |
-| popups | 2.0.0 | 2026-05-05 |
+| paywalls | 2.1.1 | 2026-10-27 |
+| popups | 2.0.1 | 2026-10-27 |
 | pricing | 2.1.4 | 2026-10-12 |
 | product-marketing | 2.2.0 | 2026-10-15 |
-| programmatic-seo | 2.1.0 | 2026-10-06 |
+| programmatic-seo | 2.1.1 | 2026-10-27 |
 | prospecting | 1.4.0 | 2026-10-26 |
 | public-relations | 1.2.1 | 2026-10-15 |
 | referrals | 2.2.1 | 2026-10-12 |
-| revops | 2.2.1 | 2026-10-12 |
+| revops | 2.2.2 | 2026-10-27 |
 | sales-enablement | 2.4.0 | 2026-10-07 |
 | schema | 2.0.2 | 2026-10-08 |
 | seo-audit | 2.2.2 | 2026-10-15 |
@@ -58,6 +58,21 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.3.0 | 2026-10-26 |
 
 ## Recent Changes
+
+### 2.13.7 (2026-10-27)
+
+Fixes contradictions and stale facts found while rewriting marketing-skills.com's skill pages:
+
+- **ab-testing** (2.0.2 → 2.0.3): sample-size tables recomputed. The reference ran about 2.3× high (31,000 per variant for 3% → 3.6%) and SKILL.md about 10–20% low (12k); both now come from the two-proportion formula at α 0.05 two-sided, 80% power (14k), with the assumptions stated.
+- **cold-email** (2.2.0 → 2.2.1): follow-up reply share aligned with the sourced Instantly 2026 benchmark (~58% of replies from email 1, ~42% from follow-ups) instead of an unsourced 55%.
+- **revops** (2.2.1 → 2.2.2): MQL thresholds tied to their own example point tables (the two references used different weights), and SLA recipes reassign leads only under an agreed reassignment rule, matching inbound-routing.
+- **paywalls** (2.1.0 → 2.1.1) and **offers** (1.0.2 → 1.0.3): paywall discount experiments now reward commitment and real deadlines (offers rules out acquisition discounts and fake scarcity); fake countdowns join the dark-patterns list; annual-prepay pricing is distinguished from acquisition discounts.
+- **image** (2.0.2 → 2.0.3): current Black Forest Labs names (FLUX 3 Image; FLUX.2 [pro]/[flex]/[dev]/[klein]; FLUX.1 Kontext as previous generation), Midjourney V7 throughout, and an unsourced "#1 page speed killer" line removed. OpenAI's gpt-image-2.5 names checked against its deprecations page.
+- **directory-submissions** (2.1.3 → 2.1.4): G2's deal for Capterra, GetApp, and Software Advice dated to its Jan 2026 announcement, with Software Advice no longer called a Gartner property; "AI engines penalize duplicate content" (unsourced) replaced, eval updated; a dated G2 price removed.
+- **aso** (2.0.2 → 2.0.3): the screenshot rubric weights the first three screens instead of rewarding 8–10 (benchmarks say returns diminish past 6); the +2.5pp CPP figure is labelled as the organic-referral lift, distinct from the +5.9% average.
+- **analytics** (2.2.1 → 2.2.2): gtag samples send GA4's recommended `sign_up` event, mapped from the internal `signup_completed`.
+- **programmatic-seo** (2.1.0 → 2.1.1): subfolder advice rests on internal links, not a claim that subdomains split authority (its platforms reference says Google ranks neither higher); "Stats" removed from the playbook table.
+- **content-strategy** (2.1.4 → 2.1.5): the scoring example totals 7.9, not 8.0. **community-marketing** (2.0.1 → 2.0.2): "5 community models" described four. **copywriting** (2.3.1 → 2.3.2): clarity figures credited to Founding Marketing, Ch. 3. **customer-research** (2.0.4 → 2.0.5): one persona minimum. **copy-editing** (2.2.0 → 2.2.1): its approved example dropped an em dash its own check bans. **popups** (2.0.0 → 2.0.1) and **lead-magnets** (2.1.0 → 2.1.1): duplicate related-skill entries merged.
 
 ### 2.13.6 (2026-10-27)
 
