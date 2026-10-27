@@ -59,6 +59,10 @@ Current versions of all skills. Agents can compare against local versions to che
 
 ## Recent Changes
 
+### 2.13.8 (2026-10-27)
+
+- **Perplexity Computer ZIPs**: each release now includes `<name>-perplexity.zip` for every skill, with `SKILL.md` at the archive root as Perplexity requires (the source and Claude web ZIPs nest the skill in a folder, so Perplexity rejected them). The packager's new `perplexity` target keeps the original skill files and fails the build if a skill exceeds Perplexity's documented limits: 100 files, 20 MB unzipped, a 1,024-character description. Install steps are in the README (Option 9). No skill content changed.
+
 ### 2.13.7 (2026-10-27)
 
 Fixes contradictions and stale facts found while rewriting marketing-skills.com's skill pages:
