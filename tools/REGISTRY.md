@@ -172,8 +172,8 @@ Search engine optimization tools for keyword research, rank tracking, and site a
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **google-search-console** | Free, authoritative search data | Direct from Google |
-| **semrush** | Competitive analysis, keyword research | Comprehensive |
-| **ahrefs** | Backlink analysis, content research | Best for links |
+| **semrush** | Competitive analysis, keyword research | MCP available |
+| **ahrefs** | Backlink analysis, content research | MCP available |
 | **dataforseo** | SERP tracking, backlinks, on-page audits | Comprehensive API |
 | **keywords-everywhere** | Quick keyword research, traffic estimates | Credit-based |
 | **rankparse** | Cheap, agent-friendly backlinks + domain data | Credit-based, MCP available |
@@ -202,7 +202,7 @@ Payment processing and subscription management.
 | **stripe** | SaaS subscriptions, developer-friendly | ✓ |
 | **paddle** | SaaS billing with tax handling | - |
 
-**Agent recommendation**: Stripe is the default for SaaS. Paddle for built-in tax compliance.
+**Agent recommendation**: Stripe for developer-first SaaS billing. Paddle for built-in tax compliance (merchant of record).
 
 ### Referral & Affiliate
 
@@ -285,7 +285,7 @@ Conversion rate optimization, heatmaps, and experimentation.
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **hotjar** | Heatmaps, recordings, surveys | Visual behavior data |
-| **optimizely** | A/B testing, feature flags | Enterprise experimentation |
+| **optimizely** | A/B testing, feature flags | MCP available |
 
 **Agent recommendation**: Hotjar for understanding user behavior. Optimizely for running experiments.
 
@@ -295,7 +295,7 @@ Booking and appointment scheduling tools.
 
 | Tool | Best For | Notes |
 |------|----------|-------|
-| **calendly** | Meeting scheduling, lead gen | Most popular |
+| **calendly** | Meeting scheduling, lead gen | MCP available |
 | **savvycal** | Personalized scheduling | Developer-friendly |
 
 **Agent recommendation**: Calendly for general use. SavvyCal for personalized booking experiences.
@@ -306,7 +306,7 @@ Form builders and survey platforms.
 
 | Tool | Best For | Notes |
 |------|----------|-------|
-| **typeform** | Interactive forms, surveys | Conversational UX |
+| **typeform** | Interactive forms, surveys | MCP available |
 
 **Agent recommendation**: Typeform for engaging forms and surveys.
 
