@@ -201,6 +201,7 @@ What you've accomplished:
 - Hiding the close button
 - Confusing plan selection
 - Guilt-trip copy
+- Fake countdowns or "limited" offers with no real deadline
 
 ### Conversion Killers
 - Asking before value delivered
