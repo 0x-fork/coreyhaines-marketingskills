@@ -170,10 +170,12 @@ checkout_payment_completed
 4. Configure custom events
 5. Mark conversions in Admin
 
-### Custom Event Example
+### Event Example
 
 ```javascript
-gtag('event', 'signup_completed', {
+// GA4's recommended sign_up event, not a custom name, so it feeds built-in reports.
+// Your tracking plan can still call this signup_completed; map the name explicitly.
+gtag('event', 'sign_up', {
   'method': 'email',
   'plan': 'free'
 });
