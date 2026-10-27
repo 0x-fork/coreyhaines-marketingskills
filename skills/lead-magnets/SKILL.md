@@ -303,9 +303,8 @@ When creating a lead magnet strategy, provide:
 - **free-tools**: For interactive tools as lead magnets (calculators, graders, quizzes)
 - **copywriting**: For writing the lead magnet content itself
 - **emails**: For nurture sequences after lead capture
-- **cro**: For optimizing lead magnet landing pages
+- **cro**: For optimizing lead magnet landing pages and capture forms
 - **popups**: For popup-based lead capture
-- **cro**: For optimizing capture forms
 - **content-strategy**: For content planning and topic selection
 - **analytics**: For measuring lead magnet performance
 - **ads**: For paid promotion of lead magnets
